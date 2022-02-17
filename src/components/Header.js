@@ -10,24 +10,36 @@ const Header = () => {
         <section className="header-main border-bottom">
             <div className="container">
                 <div className="row align-items-center">
-                        <a className="navbar-brand nav-item" href="#">
+
+                    <div className="col-xxl-3 col-lg-3 col-md-2 col-sm-2 col-12">
+                        {/*TODO мб убрать navbar-brand*/}
+                        <a href="/">
                             <img src='assets/images/logos/logo.png' width="60" height="60"
-    className="d-inline-block align-center " alt=""/>
-                              ООО «НПО НКС групп» </a>
-                    <div className="col-xl-5 col-lg-3 col-sm-9">
+                                 className="d-inline-block align-center " alt=""/>
+                            ООО «НПО НКС групп»
+                        </a>
+                    </div>
+
+
+                    <div id="search-header-div" className="col-xxl-5 col-xl-5 col-lg-3 col-md-2 col-sm-1">
                         <form action="#" className="search">
                             <div className="input-group w-100">
                                 <input id="search-header" type="text" className="form-control" placeholder="Search"/>
                                 <div className="input-group-append">
-                                    <button className="btn btn-primary" type="submit">
+                                    <button className="btn nks-btn" type="submit">
                                         <i className="fa fa-search"></i>
                                     </button>
                                 </div>
                             </div>
                         </form>
                     </div>
+
+                    <div className="col-xxl-1 col-xl-1 col-lg-1 col-md-2 col-sm-2 col-12">
                         <a className="nav-link contact" href="#">Телефон</a>
-                <div className="col-lg-4 col-sm-6 col-12">
+                    </div>
+
+
+                <div className="col-xxl-3 col-lg-4 col-md-4 col-sm-2 col-12">
                         <div className="widgets-wrap float-md-right rightside">
                             <div className="widget-header  mr-3">
                                 <a href="#" className="icon icon-sm rounded-circle border"><i
