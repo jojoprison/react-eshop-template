@@ -8,13 +8,13 @@ const Header = () => {
         <div className="App">
     <header className="section-header">
         <section className="header-main border-bottom">
-            <div className="container containerMain">
+            <div className="container">
                 <div className="row align-items-center">
                         <a className="navbar-brand nav-item" href="#">
                             <img src='assets/images/logos/logo.png' width="60" height="60"
     className="d-inline-block align-center " alt=""/>
                               ООО «НПО НКС групп» </a>
-                    <div className="col-lg-3 col-sm-9">
+                    <div className="col-xl-5 col-lg-3 col-sm-9">
                         <form action="#" className="search">
                             <div className="input-group w-100">
                                 <input id="search-header" type="text" className="form-control" placeholder="Search"/>
