@@ -1,21 +1,15 @@
 import './App.css';
-import Header from "./components/Header"
-import Nav from "./components/Nav"
-import Products from "./components/Products";
-import Footer from "./components/Footer";
-import Ad from "./components/Ad";
+
+import React from "react";
+import {Header} from "./components/Header";
+import {Navigation} from './components/Nav'
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
     return (
-        <div className="App">
+        <div className="container">
             <Header/>
-            <Nav/>
-
-            <Ad/>
-
-            <Products/>
-
-            <Footer/>
+            <Navigation/>
         </div>
     );
 }

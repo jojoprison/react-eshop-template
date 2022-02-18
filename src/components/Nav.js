@@ -1,68 +1,88 @@
-import React from "react";
+import React, {Component} from 'react';
+import {BrowserRouter, NavLink, Route, Routes} from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import {Home} from "./Home";
+import {Table} from "./Table";
 
-const Nav = () => {
+export class Navigation extends Component {
 
-    return (
-        <nav class="navbar navbar-main navbar-expand-lg navbar-light border-bottom">
-            <div class="container">
+    render() {
+        return (
+            <BrowserRouter>
+                    <nav className="navbar navbar-main navbar-expand-lg navbar-light border-bottom">
+                        <div className="container">
 
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main_nav"
-                        aria-controls="main_nav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+                            <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#main_nav"
+                                    aria-controls="main_nav" aria-expanded="false" aria-label="Toggle navigation">
+                                <span className="navbar-toggler-icon"/>
+                            </button>
 
-                <div class="collapse navbar-collapse" id="main_nav">
-                    <ul class="navbar-nav">
+                            <div className="collapse navbar-collapse" id="main_nav">
+                                <ul className="navbar-nav">
 
-                        <li class="nav-item dropdown">
-                            <a class="nav-link" href="#">Home</a>
-                        </li>
+                                    <NavLink className="d-inline p-2 bg-dark text-white" to="/">
+                                        Главная
+                                    </NavLink>
 
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">About</a>
-                        </li>
+                                    <NavLink className="d-inline p-2 bg-dark text-white" to="/table">
+                                        Столы
+                                    </NavLink>
 
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Supermarket</a>
-                        </li>
+                                    <NavLink className="d-inline p-2 bg-dark text-white" to="#">
+                                        11
+                                    </NavLink>
 
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Partnership</a>
-                        </li>
+                                    <NavLink className="d-inline p-2 bg-dark text-white" to="#">
+                                        22
+                                    </NavLink>
 
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Baby &amp Toys</a>
-                        </li>
+                                    <NavLink className="d-inline p-2 bg-dark text-white" to="#">
+                                        33
+                                    </NavLink>
 
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Fitness sport</a>
-                        </li>
+                                    <NavLink className="d-inline p-2 bg-dark text-white" to="#">
+                                        44
+                                    </NavLink>
 
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Clothing</a>
-                        </li>
+                                    <li className="nav-item dropdown">
+                                        <a className="nav-link dropdown-toggle" data-toggle="dropdown" href="#"> More</a>
 
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Furnitures</a>
-                        </li>
+                                        <div className="dropdown-menu">
+                                            <a className="dropdown-item" href="#">Foods and Drink</a>
+                                            <a className="dropdown-item" href="#">Home interior</a>
 
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#"> More</a>
-                            <div class="dropdown-menu">
-                                <a class="dropdown-item" href="#">Foods and Drink</a>
-                                <a class="dropdown-item" href="#">Home interior</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">Category 1</a>
-                                <a class="dropdown-item" href="#">Category 2</a>
-                                <a class="dropdown-item" href="#">Category 3</a>
+                                            <div className="dropdown-divider" />
+
+                                            <a className="dropdown-item" href="#">Category 1</a>
+                                            <a className="dropdown-item" href="#">Category 2</a>
+                                            <a className="dropdown-item" href="#">Category 3</a>
+                                        </div>
+                                    </li>
+
+                                </ul>
                             </div>
-                        </li>
+                        </div>
+                    </nav>
 
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    );
-};
-export default Nav;
-
+                <Routes>
+                    {/*component={Home} dont work!*/}
+                    <Route path="/" element={<Home/>} exact/>
+                    <Route path="/table" element={<Table/>} exact/>
+                </Routes>
+            </BrowserRouter>
+            // <Navbar bg="dark" expand="lg">
+            //     <Navbar.Toggle aria-controls="basic-navbar-nav"/>
+            //     <Navbar.Collapse id="basic-navbar-nav">
+            //         <Nav>
+            //             <NavLink className="d-inline p-2 bg-dark text-white" to="/">
+            //                 Home
+            //             </NavLink>
+            //             <NavLink className="d-inline p-2 bg-dark text-white" to="/table">
+            //                 Table
+            //             </NavLink>
+            //         </Nav>
+            //     </Navbar.Collapse>
+            // </Navbar>
+        );
+    }
+}

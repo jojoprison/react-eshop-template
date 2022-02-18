@@ -1,7 +1,6 @@
-import React from "react";
+import React, {Component} from "react";
 
-
-const Header = () => {
+const HeaderHTML = () => {
 
     return (
         <header className="section-header nks-bg-color">
@@ -70,4 +69,18 @@ const Header = () => {
     );
 };
 
-export default Header;
+export default HeaderHTML;
+
+export class Header extends Component {
+
+    componentWillMount() {
+        this.content = document.getElementById('root').innerHTML;
+        console.log(this.content);
+    }
+
+    render() {
+        return (
+            <div dangerouslySetInnerHTML={{__html: this.content}} />
+        );
+    }
+}
