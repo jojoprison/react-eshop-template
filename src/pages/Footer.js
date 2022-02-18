@@ -15,9 +15,9 @@ export const Footer = () => (
                     <aside className="col-md col-ld-4 col-12">
                         <h6 className="title">Компания</h6>
                         <ul className="list-unstyled col-12">
+                            <li><a href="#"> <u>Каталог</u> </a></li>
                             <li><a href="#"> <u>Контакты</u> </a></li>
                             <li><a href="#"> <u>Доставка</u> </a></li>
-                            <li><a href="#"> <u>Каталог</u> </a></li>
                         </ul>
                     </aside>
 
@@ -35,17 +35,12 @@ export const Footer = () => (
 
             <section className="footer-bottom row">
                 <div className="col-md-2">
-                    <p className="text-muted"> 2021 Company name </p>
+                    <p className="text-muted">2022 ООО «НПО НКС групп»</p>
                 </div>
                 <div className="col-md-8 text-md-center">
-                    <span className="px-2">info@com</span>
-                    <span className="px-2">+000-000-0000</span>
-                    <span className="px-2">Street name 123, ABC</span>
-                </div>
-                <div className="col-md-2 text-md-right text-muted">
-                    <i className="fab fa-lg fa-cc-visa"/>
-                    <i className="fab fa-lg fa-cc-paypal"/>
-                    <i className="fab fa-lg fa-cc-mastercard"/>
+                    <span className="foot-info">nks.grupp@bk.ru | </span>
+                    <span className="foot-info">+7-910-099-04-46 </span>
+                    <span className="foot-info">| г. Александров, ул. Южный проезд, д.6Б</span>
                 </div>
             </section>
 
