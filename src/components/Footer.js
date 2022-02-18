@@ -4,63 +4,39 @@ const Footer = () => {
 
     return (
 
-<footer className="section-footer border-top bg">
-    <div className="container">
-        <section className="footer-top  padding-y">
-            <div className="row">
-                <aside className="col-md col-6">
-                    <h6 className="title">Brands</h6>
-                    <ul className="list-unstyled">
-                        <li><a href="#">Adidas</a></li>
-                        <li><a href="#">Puma</a></li>
-                        <li><a href="#">Reebok</a></li>
-                        <li><a href="#">Nike</a></li>
-                    </ul>
-                </aside>
-                <aside className="col-md col-6">
-                    <h6 className="title">Company</h6>
-                    <ul className="list-unstyled">
-                        <li><a href="#">About us</a></li>
-                        <li><a href="#">Career</a></li>
-                        <li><a href="#">Find a store</a></li>
-                        <li><a href="#">Rules and terms</a></li>
-                        <li><a href="#">Sitemap</a></li>
-                    </ul>
-                </aside>
-                <aside className="col-md col-6">
-                    <h6 className="title">Help</h6>
-                    <ul className="list-unstyled">
-                        <li><a href="#">Contact us</a></li>
-                        <li><a href="#">Money refund</a></li>
-                        <li><a href="#">Order status</a></li>
-                        <li><a href="#">Shipping info</a></li>
-                        <li><a href="#">Open dispute</a></li>
-                    </ul>
-                </aside>
-                <aside className="col-md col-6">
-                    <h6 className="title">Account</h6>
-                    <ul className="list-unstyled">
-                        <li><a href="#"> User Login </a></li>
-                        <li><a href="#"> User register </a></li>
-                        <li><a href="#"> Account Setting </a></li>
-                        <li><a href="#"> My Orders </a></li>
-                    </ul>
-                </aside>
-                <aside className="col-md">
-                    <h6 className="title">Social</h6>
-                    <ul className="list-unstyled">
-                        <li><a href="#"> <i className="fab fa-facebook"></i> Facebook </a></li>
-                        <li><a href="#"> <i className="fab fa-twitter"></i> Twitter </a></li>
-                        <li><a href="#"> <i className="fab fa-instagram"></i> Instagram </a></li>
-                        <li><a href="#"> <i className="fab fa-youtube"></i> Youtube </a></li>
-                    </ul>
-                </aside>
+        <footer className="section-footer border-top bg">
+            <div className="container">
+                <section className="footer-top  padding-y">
+                    <div style={{position: 'relative'}} className="row">
+                        {/*//*/}
+                        <a id='logo_company_footer' href="/">
+                            <img src='assets/images/logos/logo.png' width="60" height="60"
+                                 className="d-inline-block align-center col-3" alt="logo"/>
+                            <span style={{fontWeight: "600"}}> ООО «НПО НКС групп» </span>
+                        </a>
+                        {/*//*/}
+                        <aside className="col-md col-ld-4 col-12">
+                            <h6 className="title">Компания</h6>
+                            <ul className="list-unstyled col-12">
+                                <li><a href="#"> <u>Контакты</u> </a></li>
+                                <li><a href="#"> <u>Доставка</u> </a></li>
+                                <li><a href="#"> <u>Каталог</u> </a></li>
+                            </ul>
+                        </aside>
+                        <aside className="col-md col-ld-4 col-12">
+                            <h6 className="title">Профиль</h6>
+                            <ul className="list-unstyled">
+                                <li><a href="#"> <u>Войти в профиль</u> </a></li>
+                                <li><a href="#"> <u>Зарегестрироваться</u> </a></li>
+                                <li><a href="#"> <u>Моя корзина</u> </a></li>
+                            </ul>
+                        </aside>
+                    </div>
+                </section>
             </div>
-        </section>
-    </div>
-</footer>
+        </footer>
 
 
-        );
-        };
-        export default Footer;
+    );
+};
+export default Footer;

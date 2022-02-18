@@ -3,7 +3,7 @@ import React from "react";
 const Products = () => {
 
     return (
-
+<div className="container">
 <div class="row">
     <div class="col-md-3">
         <div href="#" class="card card-product-grid">
@@ -77,6 +77,7 @@ const Products = () => {
             </figcaption>
         </div>
     </div>
+</div>
 </div>
 );
 };

@@ -5,10 +5,20 @@ header {
 
 .section-footer {
     background-color: #A6B1DB
+
 }
 
 .contact {
     color: black
+}
+#logo_company{
+margin-right: 10px;
+}
+
+#logo_company_footer{
+    margin-right: 10px;
+    position: relative;
+    margin-top: 4%;
 }
 
 /* button */

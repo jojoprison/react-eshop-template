@@ -9,14 +9,13 @@ const Header = () => {
     <header className="section-header">
         <section className="header-main border-bottom">
             <div className="container">
-                <div className="row align-items-center">
-
-                    <div className="col-xxl-3 col-lg-3 col-md-2 col-sm-2 col-12">
+                <div className="row no-gutters align-items-center">
+                    <div className="col-xxl-3 col-lg-4 col-md-2 col-sm-2 col-12">
                         {/*TODO мб убрать navbar-brand*/}
-                        <a href="/">
+                        <a  href="/">
                             <img src='assets/images/logos/logo.png' width="60" height="60"
                                  className="d-inline-block align-center " alt=""/>
-                            ООО «НПО НКС групп»
+                          <span style={{fontWeight: "600"}}> ООО «НПО НКС групп» </span>
                         </a>
                     </div>
 
