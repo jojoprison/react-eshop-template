@@ -27,9 +27,9 @@ const Footer = () => {
                         <aside className="col-md col-ld-4 col-12">
                             <h6 className="title">Профиль</h6>
                             <ul className="list-unstyled">
-                                <li><a href="#"> <u>Войти в профиль</u> </a></li>
-                                <li><a href="#"> <u>Зарегестрироваться</u> </a></li>
-                                <li><a href="#"> <u>Моя корзина</u> </a></li>
+                                <li><a href="#"> <u>Вход</u> </a></li>
+                                <li><a href="#"> <u>Регистрация</u> </a></li>
+                                <li><a href="#"> <u>Корзина</u> </a></li>
                             </ul>
                         </aside>
 
