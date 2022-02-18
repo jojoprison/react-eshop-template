@@ -13,7 +13,7 @@ const Header = () => {
                             <a href="/">
                                 <img src='assets/images/logos/logo.png' width="60" height="60"
                                      className="logo" alt=""/>
-                                <span className="company-title pl-2">ООО «НПО НКС групп»</span>
+                                <span className="header-text pl-2 text">ООО «НПО НКС групп»</span>
                             </a>
                         </div>
 
@@ -33,7 +33,7 @@ const Header = () => {
                         </div>
 
                         <div className="col-lg-1 col-md order-md-1 p-lg-0">
-                            <a className="nav-link contact" href="#">Телефон</a>
+                            <a className="header-text" href="#">Контакты</a>
                         </div>
 
                         <div id="widgets_header"
@@ -47,11 +47,16 @@ const Header = () => {
                                 <div className="widget-header icontext">
                                     <a href="#" className="icon icon-sm rounded-circle border">
                                         <i className="fa fa-user"></i></a>
-                                    <div className="text mobile-hide">
-                                        <span className="text-black-50">Welcome!</span>
+                                    <div className="text mobile-hide ">
                                         <div>
-                                            <a href="#">Sign in</a> |
-                                            <a href="#"> Register</a>
+                                            <button className="btn btn-sm nks-btn mb-1" type="submit">
+                                                Регистрация
+                                            </button>
+                                        </div>
+                                        <div>
+                                            <button className="btn btn-sm nks-btn" type="submit">
+                                                Вход
+                                            </button>
                                         </div>
                                     </div>
                                 </div>

@@ -13,10 +13,16 @@
     margin-top: 4%;
 }
 
-.company-title {
+.header-text {
     font-weight: 600;
+    color: #f0f3fb;
     /*font-size: 16px;*/
 }
+.header-text-second {
+    color: #b8c1d1;
+    /*font-size: 16px;*/
+}
+
 
 /* button */
 
