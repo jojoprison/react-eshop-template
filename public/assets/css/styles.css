@@ -1,7 +1,4 @@
-header {
-    background-color: #A6B1DB;
-}
-
+.nks-bg-color,
 .section-footer {
     background-color: #A6B1DB;
 }
@@ -9,14 +6,16 @@ header {
 .contact {
     color: black;
 }
-#logo_company{
-margin-right: 10px;
-}
 
 #logo_company_footer{
     margin-right: 10px;
     position: relative;
     margin-top: 4%;
+}
+
+.company-title {
+    font-weight: 600;
+    /*font-size: 16px;*/
 }
 
 /* button */

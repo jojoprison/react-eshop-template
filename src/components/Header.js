@@ -4,17 +4,16 @@ import React from "react";
 const Header = () => {
 
     return (
-        <header className="section-header">
+        <header className="section-header nks-bg-color">
             <section className="header-main border-bottom">
                 <div className="container">
                     <div className="row align-items-baseline">
 
-                        <div
-                            className="col-lg-3 col-md-6 p-lg-0 pt-md-2">
+                        <div className="col-lg-3 col-md-6 p-lg-0 pt-md-2">
                             <a href="/">
                                 <img src='assets/images/logos/logo.png' width="60" height="60"
                                      className="logo" alt=""/>
-                                ООО «НПО НКС групп»
+                                <span className="company-title pl-2">ООО «НПО НКС групп»</span>
                             </a>
                         </div>
 

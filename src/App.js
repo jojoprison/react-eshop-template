@@ -1,21 +1,23 @@
-
 import './App.css';
 import Header from "./components/Header"
 import Nav from "./components/Nav"
-import Popular from "./components/Popular";
 import Products from "./components/Products";
 import Footer from "./components/Footer";
+import Ad from "./components/Ad";
 
 function App() {
-  return (
-      <div className="App">
-        <Header/>
+    return (
+        <div className="App">
+            <Header/>
             <Nav/>
-        <Popular/>
-        <Products/>
-        <Footer/>
+
+            <Ad/>
+
+            <Products/>
+
+            <Footer/>
         </div>
-  );
+    );
 }
 
 export default App;
