@@ -1,68 +1,78 @@
-import React from "react";
+import React from 'react';
+import {NavLink} from 'react-router-dom';
+import {Navbar, Nav} from "react-bootstrap";
 
-const Nav = () => {
+export default function Navigation() {
 
     return (
-        <nav class="navbar navbar-main navbar-expand-lg navbar-light border-bottom">
-            <div class="container">
-
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main_nav"
-                        aria-controls="main_nav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <div class="collapse navbar-collapse" id="main_nav">
-                    <ul class="navbar-nav">
-
-                        <li class="nav-item dropdown">
-                            <a class="nav-link" href="#">Home</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">About</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Supermarket</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Partnership</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Baby &amp Toys</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Fitness sport</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Clothing</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Furnitures</a>
-                        </li>
-
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#"> More</a>
-                            <div class="dropdown-menu">
-                                <a class="dropdown-item" href="#">Foods and Drink</a>
-                                <a class="dropdown-item" href="#">Home interior</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">Category 1</a>
-                                <a class="dropdown-item" href="#">Category 2</a>
-                                <a class="dropdown-item" href="#">Category 3</a>
-                            </div>
-                        </li>
-
-                    </ul>
-                </div>
+        // className="d-inline p-2 bg-dark text-white"
+        <Navbar collapseOnSelect variant="dark" bg="dark" expand="lg">
+            <div className="container">
+                <Navbar.Toggle aria-controls="basic-navbar-nav"/>
+                <Navbar.Collapse id="basic-navbar-nav">
+                    <Nav className="mr-auto">
+                        <NavLink to="/">Home</NavLink>
+                        <NavLink to="/table">Table</NavLink>
+                    </Nav>
+                </Navbar.Collapse>
             </div>
-        </nav>
-    );
-};
-export default Nav;
+        </Navbar>
 
+        // TODO закомментил, чтобы собрать динамический компонент реакта, через вторую ссыль получаю с сервака данные
+
+        // <nav className="navbar navbar-main navbar-expand-lg navbar-light border-bottom">
+        //     <div className="container">
+        //
+        //         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#main_nav"
+        //                 aria-controls="main_nav" aria-expanded="false" aria-label="Toggle navigation">
+        //             <span className="navbar-toggler-icon"/>
+        //         </button>
+        //
+        //         <div className="collapse navbar-collapse" id="main_nav">
+        //             <ul className="navbar-nav">
+        //
+        //                 <NavLink className="d-inline p-2 bg-dark text-white" to="/">
+        //                     Главная
+        //                 </NavLink>
+        //
+        //                 <NavLink className="d-inline p-2 bg-dark text-white" to="/table">
+        //                     Столы
+        //                 </NavLink>
+        //
+        //                 <NavLink className="d-inline p-2 bg-dark text-white" to="#">
+        //                     11
+        //                 </NavLink>
+        //
+        //                 <NavLink className="d-inline p-2 bg-dark text-white" to="#">
+        //                     22
+        //                 </NavLink>
+        //
+        //                 <NavLink className="d-inline p-2 bg-dark text-white" to="#">
+        //                     33
+        //                 </NavLink>
+        //
+        //                 <NavLink className="d-inline p-2 bg-dark text-white" to="#">
+        //                     44
+        //                 </NavLink>
+        //
+        //                 <li className="nav-item dropdown">
+        //                     <a className="nav-link dropdown-toggle" data-toggle="dropdown" href="#"> More</a>
+        //
+        //                     <div className="dropdown-menu">
+        //                         <a className="dropdown-item" href="#">Foods and Drink</a>
+        //                         <a className="dropdown-item" href="#">Home interior</a>
+        //
+        //                         <div className="dropdown-divider"/>
+        //
+        //                         <a className="dropdown-item" href="#">Category 1</a>
+        //                         <a className="dropdown-item" href="#">Category 2</a>
+        //                         <a className="dropdown-item" href="#">Category 3</a>
+        //                     </div>
+        //                 </li>
+        //
+        //             </ul>
+        //         </div>
+        //     </div>
+        // </nav>
+    );
+}

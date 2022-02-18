@@ -1,6 +1,15 @@
+import './css/bootstrap.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min';
+import 'bootstrap-icons/font/bootstrap-icons.css';
+import './css/responsive.css';
+import './css/styles.css';
+// TODO мы изначально писали на 4.3 версии бустрапа, этот - 5.1; из-за чего не так что-то отрисовывается
+// import 'bootstrap/dist/css/bootstrap.min.css';
+import './index.css';
+import 'jquery';
+import 'popper.js';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 

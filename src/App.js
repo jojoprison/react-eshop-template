@@ -1,22 +1,28 @@
+import React from "react";
+import {BrowserRouter, Route, Routes} from "react-router-dom";
+import Navigation from './components/Nav'
+import {Table} from "./components/Table";
+import {Home} from "./pages/Home";
+import {Header} from "./pages/Header";
+import {Footer} from "./pages/Footer";
 import './App.css';
-import Header from "./components/Header"
-import Nav from "./components/Nav"
-import Products from "./components/Products";
-import Footer from "./components/Footer";
-import Ad from "./components/Ad";
 
 function App() {
     return (
-        <div className="App">
-            <Header/>
-            <Nav/>
+        <BrowserRouter>
+            <div className="App">
+                <Header/>
+                <Navigation/>
 
-            <Ad/>
+                <Routes>
+                    {/*component={Home} dont work!*/}
+                    <Route path="/" element={<Home/>} exact/>
+                    <Route path="/table" element={<Table/>}/>
+                </Routes>
 
-            <Products/>
-
-            <Footer/>
-        </div>
+                <Footer/>
+            </div>
+        </BrowserRouter>
     );
 }
 

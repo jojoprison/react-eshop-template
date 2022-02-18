@@ -1,9 +1,6 @@
 import React from "react";
 
-
-const Header = () => {
-
-    return (
+export const Header = () => (
         <header className="section-header nks-bg-color">
             <section className="header-main border-bottom">
                 <div className="container">
@@ -41,12 +38,12 @@ const Header = () => {
                             <div className="widgets-wrap float-lg-right">
                                 <div className="widget-header mr-3">
                                     <a href="#" className="icon icon-sm rounded-circle border">
-                                        <i className="fa fa-shopping-cart"></i></a>
+                                        <i className="fa fa-shopping-cart"/></a>
                                     <span className="badge badge-pill badge-danger notify">0</span>
                                 </div>
                                 <div className="widget-header icontext">
                                     <a href="#" className="icon icon-sm rounded-circle border">
-                                        <i className="fa fa-user"></i></a>
+                                        <i className="fa fa-user"/></a>
                                     <div className="text mobile-hide ">
                                         <div>
                                             <button className="btn btn-sm nks-btn mb-1" type="submit">
@@ -67,7 +64,4 @@ const Header = () => {
                 </div>
             </section>
         </header>
-    );
-};
-
-export default Header;
+);
