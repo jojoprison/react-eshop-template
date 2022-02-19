@@ -2,9 +2,13 @@
     display: none;
 }
 
-@media (min-width: 1500px) {
-    .container {
-        max-width: 1460px;
+@media (min-width: 3800px) {
+    .footer-fixed-bottom {
+        position: fixed;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 1030;
     }
 }
 
@@ -17,6 +21,10 @@
 }
 
 @media (min-width: 1500px) {
+    .container {
+        max-width: 1460px;
+    }
+
     .col-xxl {
         flex-basis: 0;
         flex-grow: 1;
