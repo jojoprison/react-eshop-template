@@ -6,12 +6,12 @@ export const Footer = () => (
             <div className='container'>
                  <div className="row position-relative">
 
-                    <a className= 'logo_company_footer col-lg-4 ' href="/">
-                        <img src='assets/images/logos/logo-1.png' width="200px"
-                             className="d-inline-block" alt="logo"/>
-                    </a>
-
-
+                    <aside className="col-4">
+                        <a id='logo_company_footer' href="/">
+                            <img src='assets/images/logos/logo-1.png' width="200px"
+                                 className="d-inline-block" alt="logo"/>
+                        </a>
+                    </aside>
 
                     <aside id='footer_comp' className="col-md col-ld-4 col-12">
                         <h6 className="title">Компания</h6>
@@ -35,7 +35,7 @@ export const Footer = () => (
         </section>
 
         <section className="footer-bottom row m-0">
-            <div className="col-md-3">
+            <div className="col-md-4">
                 <p className="text-muted">2022 ООО «НПО НКС групп»</p>
             </div>
             <div className="col-md-6">
@@ -44,6 +44,5 @@ export const Footer = () => (
                 <span>| г. Александров, ул. Южный проезд, д.6Б</span>
             </div>
         </section>
-
     </footer>
 )

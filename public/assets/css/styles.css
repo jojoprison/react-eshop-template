@@ -1,0 +1,51 @@
+.nks-bg-color,
+.section-footer {
+    background-color: #A6B1DB;
+}
+
+.contact {
+    color: black;
+}
+#logo_company_footer{
+    position: relative;
+    left: auto;
+}
+
+.header-text {
+    font-weight: 600;
+    color: #f0f3fb;
+    /*font-size: 16px;*/
+}
+.header-text-second {
+    color: #b8c1d1;
+    /*font-size: 16px;*/
+}
+
+/* button */
+
+.nks-btn {
+    color: #fff;
+    background-color: #203966;
+    border-color: #06132e;
+}
+.nks-btn:hover {
+    color: #fff;
+    background-color: #0c1f45;
+    border-color: #154cd4;
+}
+.nks-btn:focus, .nks-btn.focus {
+    box-shadow: 0 0 0 0.2rem rgba(80, 126, 238, 0.5);
+}
+.nks-btn.disabled, .nks-btn:disabled {
+    color: #fff;
+    background-color: #3167eb;
+    border-color: #3167eb;
+}
+.nks-btn:not(:disabled):not(.disabled):active, .nks-btn:not(:disabled):not(.disabled).active, .show > .nks-btn.dropdown-toggle {
+    color: #fff;
+    background-color: #154cd4;
+    border-color: #1348c9;
+}
+.nks-btn:not(:disabled):not(.disabled):active:focus, .nks-btn:not(:disabled):not(.disabled).active:focus, .show > .nks-btn.dropdown-toggle:focus {
+    box-shadow: 0 0 0 0.2rem rgba(80, 126, 238, 0.5);
+}
