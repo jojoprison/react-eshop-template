@@ -4,15 +4,13 @@ export const Footer = () => (
     <footer className="section-footer border-top footer-fixed-bottom">
         <section className="footer-top padding-y">
             <div className='container'>
-                <div className="row position-relative">
+                 <div className="row position-relative">
 
+                    <a className= 'logo_company_footer col-lg-4 ' href="/">
+                        <img src='assets/images/logos/logo-1.png' width="200px"
+                             className="d-inline-block" alt="logo"/>
+                    </a>
 
-                    <aside className="col-4">
-                        <a id='logo_company_footer' href="/">
-                            <img src='assets/images/logos/logo-1.png' width="200px"
-                                 className="d-inline-block" alt="logo"/>
-                        </a>
-                    </aside>
 
 
                     <aside id='footer_comp' className="col-md col-ld-4 col-12">
@@ -40,9 +38,9 @@ export const Footer = () => (
             <div className="col-md-3">
                 <p className="text-muted">2022 ООО «НПО НКС групп»</p>
             </div>
-            <div className="col-md-6 text-md-center">
-                <span>nks.grupp@bk.ru | </span>
-                <span>+7-910-099-04-46 </span>
+            <div className="col-md-6">
+                <span><a href="mailto:zhenyaplatonov1@mail.ru">zhenyaplatonov1@mail.ru</a></span>
+                <span><a href="tel: +79010485183 ">+7 (901) 048-51-83</a></span>'>
                 <span>| г. Александров, ул. Южный проезд, д.6Б</span>
             </div>
         </section>
