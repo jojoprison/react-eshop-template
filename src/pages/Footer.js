@@ -1,12 +1,10 @@
 import React from "react";
 
 export const Footer = () => (
-    <footer className="section-footer border-top bg">
-            <section className="footer-top padding-y">
-                <div className='container'>
-                <div style={{position: 'relative'}} className="row">
-
-
+    <footer className="section-footer border-top footer-fixed-bottom">
+        <section className="footer-top padding-y">
+            <div className='container'>
+                <div className="row position-relative">
 
 
                     <aside className="col-4">
@@ -15,8 +13,6 @@ export const Footer = () => (
                                  className="d-inline-block" alt="logo"/>
                         </a>
                     </aside>
-
-
 
 
                     <aside id='footer_comp' className="col-md col-ld-4 col-12">
@@ -36,20 +32,20 @@ export const Footer = () => (
                             <li><a href="#"> <u>Корзина</u> </a></li>
                         </ul>
                     </aside>
-                    </div>
                 </div>
-            </section>
+            </div>
+        </section>
 
-            <section className="footer-bottom row">
-                <div className="col-md-2">
-                    <p className="text-muted">2022 ООО «НПО НКС групп»</p>
-                </div>
-                <div className="col-md-8 text-md-center">
-                    <span>nks.grupp@bk.ru | </span>
-                    <span>+7-910-099-04-46 </span>
-                    <span>| г. Александров, ул. Южный проезд, д.6Б</span>
-                </div>
-            </section>
+        <section className="footer-bottom row m-0">
+            <div className="col-md-3">
+                <p className="text-muted">2022 ООО «НПО НКС групп»</p>
+            </div>
+            <div className="col-md-6 text-md-center">
+                <span>nks.grupp@bk.ru | </span>
+                <span>+7-910-099-04-46 </span>
+                <span>| г. Александров, ул. Южный проезд, д.6Б</span>
+            </div>
+        </section>
 
     </footer>
 )
