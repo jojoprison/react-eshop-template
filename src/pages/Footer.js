@@ -4,8 +4,10 @@ export const Footer = () => (
     <footer className="section-footer border-top footer-fixed-bottom">
         <section className="footer-top padding-y">
 
-            
-                <aside className="col-4 col-lg-5 logo_company_footer">
+            {/*//создает первый контейнер*/}
+            <div className='container'>
+
+            <aside className="col-4 col-lg-5 logo_company_footer">
                     <a href="/">
                         <img src='assets/images/logos/logo-new.png' width="250px"
                              className="relative float-lg-left" alt="logo"/>
@@ -32,6 +34,7 @@ export const Footer = () => (
                         </ul>
                     </aside>
                 </div>
+            </div>
         </section>
 
         {/*создает второй контейнер*/}
