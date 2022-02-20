@@ -68,3 +68,8 @@
     /*max-height: 40px;*/
     width: auto;
 }
+
+.maps-element {
+    border-radius: 50px !important;
+    overflow: hidden !important;
+}
