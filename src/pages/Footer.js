@@ -3,17 +3,18 @@ import React from "react";
 export const Footer = () => (
     <footer className="section-footer border-top footer-fixed-bottom">
         <section className="footer-top padding-y">
+
+            {/*//создает первый контейнер*/}
             <div className='container'>
-                 <div className="row position-relative">
+                <aside className="col-4 col-lg-5 logo_company_footer">
+                    <a href="/">
+                        <img src='assets/images/logos/logo-new.png' width="250px"
+                             className="relative float-lg-left" alt="logo"/>
+                    </a>
+                </aside>
 
-                    <aside className="col-4">
-                        <a id='logo_company_footer' href="/">
-                            <img src='assets/images/logos/logo-1.png' width="200px"
-                                 className="d-inline-block" alt="logo"/>
-                        </a>
-                    </aside>
-
-                    <aside id='footer_comp' className="col-md col-ld-4 col-12">
+                <div className="row position-relative">
+                    <aside className="relative col-md col-lg-10 col-12 company">
                         <h6 className="title">Компания</h6>
                         <ul className="list-unstyled col-12">
                             <li><a href="#"> <u>Каталог</u> </a></li>
@@ -25,24 +26,33 @@ export const Footer = () => (
                     <aside className="col-md col-ld-4 col-12">
                         <h6 className="title">Профиль</h6>
                         <ul className="list-unstyled col-12">
-                            <li><a href="#"> <u>Вход</u> </a></li>
-                            <li><a href="#"> <u>Регистрация</u> </a></li>
+                            <li><a href="#"> <u>Личный кабинет</u> </a></li>
                             <li><a href="#"> <u>Корзина</u> </a></li>
+                            <li><a href="#"> <u>Избранное</u> </a></li>
+                            <li><a href="#"> <u>История заказов</u> </a></li>
                         </ul>
                     </aside>
                 </div>
             </div>
         </section>
 
-        <section className="footer-bottom row m-0">
-            <div className="col-md-4">
-                <p className="text-muted">2022 ООО «НПО НКС групп»</p>
+        {/*создает второй контейнер*/}
+        <div className='container'>
+            <div style={{paddingBottom: '1%'}} className="container-fluid">
+                <div className="row">
+
+                    <div className="col-sm-3 col-md-6 col-lg-3 align-items-center">
+                        <p className="text-muted">2022 ООО «НПО НКС групп»</p>
+                    </div>
+
+                    <div style={{textAlign: 'left'}} className="col-sm-9 col-md-6 col-lg-8 ">
+                        <span><a href="mailto:nks.grupp@bk.ru">nks.grupp@bk.ru |</a></span>
+                        <span><a href="tel: +7-910-099-04-46"> +7 (910) 099-04-46 </a></span>
+                        <span>| г. Александров, ул. Южный проезд, д.6Б</span>
+                    </div>
+
+                </div>
             </div>
-            <div className="col-md-6">
-                <span><a href="mailto:zhenyaplatonov1@mail.ru">zhenyaplatonov1@mail.ru</a></span>
-                <span><a href="tel: +79010485183 ">+7 (901) 048-51-83</a></span>'>
-                <span>| г. Александров, ул. Южный проезд, д.6Б</span>
-            </div>
-        </section>
+        </div>
     </footer>
 )

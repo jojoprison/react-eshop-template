@@ -1,19 +1,25 @@
 import React from 'react';
 
 export const Ad = () => (
-    <section className="section-main bg padding-y">
+    <section className="bg padding-y">
         <div className="container">
             <div className="row">
                 <aside className="col-md-3">
                     <nav className="card">
                         <ul className="menu-category">
-                            <li><a href="#">Best clothes</a></li>
-                            <li><a href="#">Automobiles</a></li>
-                            <li><a href="#">Home interior</a></li>
-                            <li><a href="#">Electronics</a></li>
-                            <li><a href="#">Technologies</a></li>
-                            <li><a href="#">Digital goods</a></li>
-                            <li><a href="#">Online goods</a></li>
+                            <li><a href="#">Столы лабораторные</a></li>
+                            <li><a href="#">Тумбы для столов лабораторных</a></li>
+                            <li><a href="#">Столы-мойки лабораторные</a></li>
+                            <li><a href="#">Шкафы лабораторные</a></li>
+                            <li><a href="#">Стеллажи</a></li>
+                            <li><a href="#">Стулья, табуреты, кресла</a></li>
+                            <li><a href="#">Весовые столы</a></li>
+                            <li><a href="#">Стеллажи для выращивания растений</a></li>
+                            <li><a href="#">Дополнительное оснащение</a></li>
+
+                            {/* TODO узнать у Эльвиры, нужно ли делать вот эту хню тут или просто в фильтрах отображать*/}
+                            <li><a href="#">MML</a></li>
+                            <li><a href="#">NL</a></li>
                         </ul>
                     </nav>
                 </aside>
