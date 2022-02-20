@@ -6,8 +6,12 @@ export const Header = () => (
                 <div className="container">
                     <div className="row align-items-baseline">
 
-                        {/*TODO лого сайта, не забыть обернуть в див с классами типа "col-1 col-md-1..." (в истории гита)*/}
-
+                        <div className="col-lg-3 col-md-6 p-lg-0 pt-md-2">
+                            <a href="/">
+                                <img src='assets/images/logos/logo-new-2.png' width="250px"
+                                     className="" alt="logo"/>
+                            </a>
+                        </div>
 
                         <div className="col-xxl-5 col-xl-5 col-lg-5 col-md-auto m-0 order-lg-1 order-md-last">
                             <form action="#" className="search">
@@ -27,7 +31,7 @@ export const Header = () => (
                             <a className="header-text" href="#">Контакты</a>
                         </div>
 
-                        <div className="col-xl-3 col-lg col-md order-md-2 align-self-start p-lg-0 mb-md-3">
+                        <div className="col-xl-3 col-lg col-md order-md-2 align-self-center p-lg-0 mb-md-3">
                             <div className="widget-header mr-3">
                                 <a href="#" className="icon icon-sm rounded-circle border">
                                     <i className="fa fa-shopping-cart"/></a>
