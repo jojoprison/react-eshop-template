@@ -6,13 +6,14 @@ export const Footer = () => (
 
                 <aside className="col-4 col-lg-5 logo_company_footer">
                     <a href="/">
-                        <img src='assets/images/logos/logo-new.png' width="250px"
+                        <img src='assets/images/logos/logo-1.png' width="250px"
                              className="relative float-lg-left" alt="logo"/>
                     </a>
                 </aside>
 
-                <div className="row position-relative">
-                    <aside className="relative col-md col-lg-10 col-12 company">
+            {/*<div className="container"*/}
+                <div className="row position-relative container">
+                    <aside className="relative col-md col-lg-3">
                         <h6 className="title">Компания</h6>
                         <ul className="list-unstyled col-12">
                             <li><a href="#"> <u>Каталог</u> </a></li>
@@ -21,7 +22,7 @@ export const Footer = () => (
                         </ul>
                     </aside>
 
-                    <aside className="col-md col-ld-4 col-12">
+                    <aside className="col-md col-lg-3">
                         <h6 className="title">Профиль</h6>
                         <ul className="list-unstyled col-12">
                             <li><a href="#"> <u>Личный кабинет</u> </a></li>
