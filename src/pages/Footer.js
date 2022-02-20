@@ -4,36 +4,32 @@ export const Footer = () => (
     <footer className="section-footer border-top footer-fixed-bottom">
         <section className="footer-top padding-y">
 
-            {/*//создает первый контейнер*/}
-            <div className='container'>
-
             <aside className="col-4 col-lg-5 logo_company_footer">
-                    <a href="/">
-                        <img src='assets/images/logos/logo-new.png' width="250px"
-                             className="relative float-lg-left" alt="logo"/>
-                    </a>
+                <a href="/">
+                    <img src='assets/images/logos/logo-new.png' width="250px"
+                         className="relative float-lg-left" alt="logo"/>
+                </a>
+            </aside>
+
+            <div className="row position-relative">
+                <aside className="relative col-md col-lg-10 col-12 company">
+                    <h6 className="title">Компания</h6>
+                    <ul className="list-unstyled col-12">
+                        <li><a href="#"> <u>Каталог</u> </a></li>
+                        <li><a href="#"> <u>Контакты</u> </a></li>
+                        <li><a href="#"> <u>Доставка</u> </a></li>
+                    </ul>
                 </aside>
 
-                <div className="row position-relative">
-                    <aside className="relative col-md col-lg-10 col-12 company">
-                        <h6 className="title">Компания</h6>
-                        <ul className="list-unstyled col-12">
-                            <li><a href="#"> <u>Каталог</u> </a></li>
-                            <li><a href="#"> <u>Контакты</u> </a></li>
-                            <li><a href="#"> <u>Доставка</u> </a></li>
-                        </ul>
-                    </aside>
-
-                    <aside className="col-md col-ld-4 col-12">
-                        <h6 className="title">Профиль</h6>
-                        <ul className="list-unstyled col-12">
-                            <li><a href="#"> <u>Личный кабинет</u> </a></li>
-                            <li><a href="#"> <u>Корзина</u> </a></li>
-                            <li><a href="#"> <u>Избранное</u> </a></li>
-                            <li><a href="#"> <u>История заказов</u> </a></li>
-                        </ul>
-                    </aside>
-                </div>
+                <aside className="col-md col-ld-4 col-12">
+                    <h6 className="title">Профиль</h6>
+                    <ul className="list-unstyled col-12">
+                        <li><a href="#"> <u>Личный кабинет</u> </a></li>
+                        <li><a href="#"> <u>Корзина</u> </a></li>
+                        <li><a href="#"> <u>Избранное</u> </a></li>
+                        <li><a href="#"> <u>История заказов</u> </a></li>
+                    </ul>
+                </aside>
             </div>
         </section>
 
