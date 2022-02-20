@@ -25,7 +25,7 @@ export const Ad = () => (
                 </aside>
                 <div className="col-md-9">
                     <article className="banner-wrap">
-                        <img src="assets/images/2.jpg" className="w-100 rounded"/>
+                        <img src="assets/images/ad_element_template_1.jpg" className="w-100 rounded"/>
                     </article>
                 </div>
             </div>

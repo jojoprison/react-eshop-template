@@ -52,3 +52,19 @@
 .nks-btn:not(:disabled):not(.disabled):active:focus, .nks-btn:not(:disabled):not(.disabled).active:focus, .show > .nks-btn.dropdown-toggle:focus {
     box-shadow: 0 0 0 0.2rem rgba(80, 126, 238, 0.5);
 }
+
+
+/*card element*/
+.card-props {
+    position: relative;
+    margin-bottom: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.card-props-column {
+    align-items: center;
+    /*max-height: 40px;*/
+    width: auto;
+}
