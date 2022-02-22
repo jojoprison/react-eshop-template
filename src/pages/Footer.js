@@ -10,7 +10,7 @@ export const Footer = () => (
                     <div className="col-7 offset-1">
                         <aside className="logo_company_footer">
                             <a href="/">
-                                <img src='assets/images/logos/logo-1.png' width="250px"
+                                <img src='assets/images/logos/logo-new-2.png' width="250px"
                                      className="float-lg-left" alt="logo"/>
                             </a>
                         </aside>
