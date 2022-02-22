@@ -24,9 +24,9 @@ export const Ad = () => (
                     </nav>
                 </aside>
                 <div className="col-md-9">
-                    <article className="banner-wrap">
+                    <div className="banner-wrap">
                         <img src="assets/images/ad_element_template_1.jpg" className="w-100 rounded"/>
-                    </article>
+                    </div>
                 </div>
             </div>
         </div>
