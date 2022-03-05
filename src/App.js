@@ -5,6 +5,7 @@ import {Table} from "./components/Table";
 import {Home} from "./pages/Home";
 import {Header} from "./pages/Header";
 import {Footer} from "./pages/Footer";
+import {Catalog} from "./components/Catalog";
 import './App.css';
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
                     {/*component={Home} dont work!*/}
                     <Route path="/" element={<Home/>} exact/>
                     <Route path="/table" element={<Table/>}/>
+                    <Route path="/catalog" element={<Catalog/>}/>
                 </Routes>
 
                 <Footer/>

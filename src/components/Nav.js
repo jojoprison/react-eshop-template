@@ -13,6 +13,7 @@ export default function Navigation() {
                     <Nav className="mr-auto">
                         <NavLink to="/">Home</NavLink>
                         <NavLink to="/table">Table</NavLink>
+                        <NavLink to="/catalog">Catalog</NavLink>
                     </Nav>
                 </Navbar.Collapse>
             </div>
