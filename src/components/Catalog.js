@@ -2,19 +2,20 @@ import React, {Component} from 'react';
 import {Header} from "../pages/Header";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import {Footer} from "../pages/Footer";
+import {Table as BootstrapTable} from 'react-bootstrap';
 
 export class Catalog extends Component {
 
     constructor(props) {
         super(props);
-        this.state = {products: []}
+        this.state = {catalog: []}
     }
 
     refreshList() {
         fetch(process.env.REACT_APP_NKS_API + 'catalog')
             .then(response => response.json())
             .then(data => {
-                this.setState({tables: data});
+                this.setState({catalog: data});
             })
     }
 
@@ -23,14 +24,16 @@ export class Catalog extends Component {
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
-        this.refreshList();
+        if(JSON.stringify(prevState) !== JSON.stringify(this.state))
+            this.refreshList()
     }
 
     render() {
+        // TODO products или catalog оставляем?
         const {catalog} = this.state;
 
         return (
-            <Bootstrap className="mt-4" striped bordered hover size="sm">
+            <BootstrapTable className="mt-4" striped bordered hover size="sm">
                 <thead>
                 <tr>
                     <th>TableId</th>
@@ -39,14 +42,14 @@ export class Catalog extends Component {
                 </tr>
                 </thead>
                 <tbody>
-                {catalog.map(table =>
-                    <tr key={table.id}>
-                        <td>{table.id}</td>
-                        <td>{table.title}</td>
+                {catalog.map(product =>
+                    <tr key={product.id}>
+                        <td>{product.id}</td>
+                        <td>{product.title}</td>
                         <td>Edit / Delete</td>
                     </tr>)}
                 </tbody>
-            </Bootstrap>
+            </BootstrapTable>
         )
 
     }
