@@ -23,6 +23,12 @@
     /*font-size: 16px;*/
 }
 
+.map iframe {
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+
 
 /* button */
 
