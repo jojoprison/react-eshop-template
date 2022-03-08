@@ -23,6 +23,12 @@
     /*font-size: 16px;*/
 }
 
+.map iframe {
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+
 
 /* button */
 
@@ -67,4 +73,9 @@
     align-items: center;
     /*max-height: 40px;*/
     width: auto;
+}
+
+.maps-element {
+    border-radius: 50px !important;
+    overflow: hidden !important;
 }
