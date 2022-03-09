@@ -21,7 +21,7 @@ export const Footer = () => (
                             <h6 className="title">Компания</h6>
                             <ul className="list-unstyled col-12">
                                 <li><a href="#"> <u>Каталог</u> </a></li>
-                                <li><a href="#"> <u>Контакты</u> </a></li>
+                                <li><a href="/contacts"> <u>Контакты</u> </a></li>
                                 <li><a href="#"> <u>Доставка</u> </a></li>
                             </ul>
                         </aside>

@@ -23,7 +23,7 @@ export const Products = () => (
 
                             <div className="card-body">
                                 <h6>
-                                    <a href="" className="title card-title card-link stretched-link">
+                                    <a href="/product" className="title card-title card-link stretched-link">
                                         Пристенный лабораторный стол 600x600x900, NL
                                     </a>
                                 </h6>

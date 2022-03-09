@@ -1,7 +1,4 @@
 import React, {Component} from 'react';
-import {Header} from "../pages/Header";
-import {BrowserRouter, Route, Routes} from "react-router-dom";
-import {Footer} from "../pages/Footer";
 import {Table as BootstrapTable} from 'react-bootstrap';
 
 export class Catalog extends Component {
