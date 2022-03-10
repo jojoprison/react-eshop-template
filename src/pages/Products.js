@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 
 export const Products = () => (
     <section className="padding-y-sm">
@@ -23,9 +24,9 @@ export const Products = () => (
 
                             <div className="card-body">
                                 <h6>
-                                    <a href="/product" className="title card-title card-link stretched-link">
+                                    <Link to={'product/' + 1}  className="title card-title card-link stretched-link">
                                         Пристенный лабораторный стол 600x600x900, NL
-                                    </a>
+                                    </Link>
                                 </h6>
 
                                 <figcaption className="card-props-column">
@@ -70,7 +71,7 @@ export const Products = () => (
 
                             <div className="card-body">
                                 <h6>
-                                    <a href="" className="title card-title card-link stretched-link">
+                                    <a href="/product" className="title card-title card-link stretched-link">
                                         Шкаф лабораторный навесной 600x380x400, NL
                                     </a>
                                 </h6>
@@ -382,6 +383,7 @@ export const Products = () => (
                         </div>
                     </div>
                 </div>
+
 
             </div>
 

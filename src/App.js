@@ -6,6 +6,8 @@ import {Home} from "./pages/Home";
 import {Header} from "./pages/Header";
 import {Footer} from "./pages/Footer";
 import {Catalog} from "./components/Catalog";
+import {Product} from "./components/Product";
+import {Top} from "./pages/Top";
 import './App.css';
 import $ from 'jquery';
 import Popper from "popper.js";
@@ -22,8 +24,9 @@ function App() {
                     <Route path="/" element={<Home/>} exact/>
                     <Route path="/table" element={<Table/>}/>
                     <Route path="/catalog" element={<Catalog/>}/>
+                    <Route path="product/:id" element={<Product/>}/>
                 </Routes>
-
+                <Top/>
                 <Footer/>
             </div>
         </BrowserRouter>
