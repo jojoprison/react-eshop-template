@@ -384,6 +384,7 @@ export const Products = () => (
                     </div>
                 </div>
 
+                <a href="#" className="btn btn-primary btn-lg active" role="button" aria-pressed="true">Primary link</a>
 
             </div>
 
