@@ -59,13 +59,6 @@
     box-shadow: 0 0 0 0.2rem rgba(80, 126, 238, 0.5);
 }
 
-#btn-back-to-top {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    display: none;
-}
-
 
 /*card element*/
 .card-props {
