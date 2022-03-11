@@ -42,7 +42,7 @@ function App() {
                     <Route path="/" element={<Home/>} exact/>
                     <Route path="/table" element={<Table/>}/>
                     <Route path="/catalog" element={<Catalog/>}/>
-                    <Route path="product/:id" element={<Product/>}/>
+                    <Route path="/product" element={<Product/>}/>
                 </Routes>
 
                 {showButton && (
