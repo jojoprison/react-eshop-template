@@ -7,6 +7,7 @@ import {Header} from "./pages/Header";
 import {Footer} from "./pages/Footer";
 import {Catalog} from "./components/Catalog";
 import {Product} from "./components/Product";
+import {Contacts} from "./components/Contacts";
 import './App.css';
 
 function App() {
@@ -43,6 +44,7 @@ function App() {
                     <Route path="/table" element={<Table/>}/>
                     <Route path="/catalog" element={<Catalog/>}/>
                     <Route path="/product" element={<Product/>}/>
+                    <Route path="/contacts" element={<Contacts/>}/>
                 </Routes>
 
                 {showButton && (

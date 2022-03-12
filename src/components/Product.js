@@ -34,14 +34,28 @@ export class Product extends Component {
             <section className="padding-y-sm">
                 <div className="container">
 
+                    <div className="product_description">
+                        <nav>
+                            <ul className="breadcrumb">
+                                <li className="breadcrumb-item"><a href="#">Главная</a></li>
+                                <li className="breadcrumb-item"><a href="#">Каталог товаров</a></li>
+                                <li className="breadcrumb-item"><a href="#">Столы лабораторные</a></li>
+                                <li className="breadcrumb-item active">Пристенный лабораторный стол
+                                    600x600x900, NL, LabGrade</li>
+                            </ul>
+                        </nav>
+                    </div>
+
                     <header className="section-heading">
-                        <h3 className="section-title text-left">Пристенный лабораторный стол 600x600x900</h3>
+                        <h3 className="section-title text-left">Пристенный лабораторный стол 600x600x900, NL,
+                            LabGrade</h3>
                     </header>
 
-                    <div className="col-md-3">
-                        <div className="card card-product-grid">
+                <div className="col-md-12 row">
 
-                            <div id="linked_to_card_click" style={{transform: "rotate(0)"}}>
+                    <div className="col-md-3">
+
+
 
                                 <div className="img-wrap">
                                     <img src="../assets/images/items/table_template_1.jpg" className="card-img-top"/>
@@ -58,54 +72,76 @@ export class Product extends Component {
                                             </div>
 
                                             <div className="item col">
-                                                <img src="../assets/images/items/table_template_1.jpg"
+                                                <img src="../assets/images/items/table_template_2.jpg"
                                                      className="img-fluid"/>
                                             </div>
 
                                             <div className="item col">
-                                                <img src="../assets/images/items/table_template_1.jpg"
+                                                <img src="../assets/images/items/table_template_3.jpg"
                                                      className="img-fluid"/>
                                             </div>
 
                                         </div>
-                                    </div>
-                                </div>
 
 
                             </div>
                         </div>
                     </div>
+                <div className="col-md-7">
+                    <div className="bottom-wrap d-flex p-0 align-items-baseline">
+                        <div className="col-4 card-text priceprod">4100 ₽</div>
 
 
-                    <div className="container my-5">
+
+                            <div className="col-3 row">
+                                <aside className="col">
+                                    <ul className="list-unstyled ">
+                                        <div className="card-props card-text">
+                                            <span className="font-weight-bolder">Артикул:</span>
+
+                                            <a href="#" className="text-muted"><span
+                                                className="font-weight-bold ">NL (NeatLab)</span></a>
+                                        </div>
+                                        <div className="card-props card-text">
+                                            <span className="font-weight-bolder">Серия:</span>
+                                            <span className=" font-weight-bold">NL-10-12-0П</span>
+                                        </div>
+                                    </ul>
+
+                                </aside>
+                            </div>
+
+                    </div>
+                </div>
+
+                </div>
+
+                    <div className="container my-5 col-12">
                         <nav>
                             <div className="nav nav-tabs" id="nav-tab" role="tablist">
-                                <button className="nav-link active" id="nav-feature-tab" data-bs-toggle="tab"
+                                <button className="nav-link col-6 active" id="nav-feature-tab" data-bs-toggle="tab"
                                         data-bs-target="#nav-feature" type="button" role="tab"
                                         aria-controls="nav-feature"
                                         aria-selected="True">Характеристики
                                 </button>
 
-                                <button className="nav-link" id="nav-description-tab" data-bs-toggle="tab"
+                                <button className="nav-link col-6  " id="nav-description-tab" data-bs-toggle="tab"
                                         data-bs-target="#nav-description" type="button" role="tab"
                                         aria-controls="nav-description"
                                         aria-selected="False">Описание
                                 </button>
 
-                                <button className="nav-link" id="nav-review-tab" data-bs-toggle="tab"
-                                        data-bs-target="#nav-review" type="button" role="tab" aria-controls="nav-review"
-                                        aria-selected="False">Отзывы
-                                </button>
+
                             </div>
                         </nav>
 
 
-                        <div className="tab-content" id="tab-tabContent">
+                        <div className="tab-content padding-y-sm" id="tab-tabContent">
 
-                            <div className="tab-pane fade show active p-3" id="nav-feature" role="tabpanel"
+                            <div className="tab-pane show active fade p-3" id="nav-feature" role="tabpanel"
                                  aria-labelledby="nav-feature-tab">
                                     <div className="col-md-6">
-                                <figcaption className="card-props-column">
+                                <figcaption className="card-props-column ">
                                     <div className="card-props card-text">
                                         <span className="font-weight-bolder ">Ширина</span>
                                         <span className="font-weight-bold">600</span>
@@ -196,13 +232,6 @@ export class Product extends Component {
                                     материалов, посетив наш мебельный шоурум.<br/><br/>
                                 </p>
                             </div>
-
-                            <div className="tab-pane fade p-3" id="nav-review" role="tabpanel"
-                                 aria-labelledby="nav-review-tab">
-                                <h2>Suck dick , bitches</h2>
-                                <p>Hello "Соответственно отзывы" bro</p>
-                            </div>
-
                         </div>
                     </div>
 

@@ -28,7 +28,7 @@ export const Header = () => (
                         </div>
 
                         <div className="col-xl col-lg-1 col-md order-md-1 p-lg-0">
-                            <a className="header-text" href="#">Контакты</a>
+                            <a className="header-text" href="/contacts">Контакты</a>
                         </div>
 
                         <div className="col-xl-2 col-lg-2 col-md order-md-2 align-self-center p-lg-0 mb-md-3">
