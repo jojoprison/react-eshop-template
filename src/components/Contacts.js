@@ -84,6 +84,7 @@ export class Contacts extends Component {
                             </div>
                         </div>
                     </div>
+
                     <div className="col-md-7 map-contacts">
                         <Maps/>
                     </div>
