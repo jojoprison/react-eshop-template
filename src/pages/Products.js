@@ -10,7 +10,7 @@ export const Products = () => (
                 <h3 className="section-title">Новые модели</h3>
             </header>
 
-            <div className="row">
+            <div className="row card-props-column">
 
                 {/* TODO col-lg and etc. for adaptive design (4 to 2 elems in row) */}
                 <div className="col-md-3">

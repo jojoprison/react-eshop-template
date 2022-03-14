@@ -43,8 +43,7 @@ export class Contacts extends Component {
                         </nav>
                     </div>
                 <div className="col-md-12 row">
-                    <div className= "col-md-5">
-
+                    <div className="col-md-5">
                             <div id="linked_to_card_click" style={{transform: "rotate(0)"}}>
                                 <div className="card contacts-card card-body text-left">
                                     <h2><i class="fas fa-map-marker-alt"></i>  |  Как нас найти?</h2>
@@ -86,7 +85,7 @@ export class Contacts extends Component {
                         </div>
                     </div>
                     <div className="col-md-7">
-                        <Maps class="map-contacts"/>
+                        <Maps/>
 
                     </div>
 
