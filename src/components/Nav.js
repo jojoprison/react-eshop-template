@@ -23,7 +23,7 @@ export default function Navigation() {
                         </NavDropdown>
                     </Nav>
                     <Nav>
-                        <Nav.Link href="#deets">Шутка</Nav.Link>
+                        <Nav.Link href="/filters">Фильтры</Nav.Link>
                         <Nav.Link eventKey={3} href="/filters">
                             Еще разок фильтры
                         </Nav.Link>
