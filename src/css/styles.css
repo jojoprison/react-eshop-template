@@ -102,6 +102,10 @@
 }
 
 
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 .img-wrap {
     position: relative;
 }
@@ -134,7 +138,7 @@
 }
 .contacts-card {
     margin-bottom: 20px;
-    height: 200px;
+    max-height: 200px;
 }
 
 /*breadcrumb*/
