@@ -18,7 +18,7 @@ function App() {
                     {/*component={Home} dont work!*/}
                     <Route path="/" element={<Home/>} exact/>
                     <Route path="/table" element={<Table/>}/>
-                    {/*<Route path="/catalog" element={<Catalog/>}/>*/}
+                    <Route path="/catalog" element={<Catalog/>}/>
                 </Routes>
 
                 <Footer/>
