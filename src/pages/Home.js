@@ -6,8 +6,8 @@ import {Maps} from "./Maps";
 export const Home = () => (
     <div>
         <Ad/>
-
         <Products/>
         <Maps/>
+
     </div>
 );

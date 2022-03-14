@@ -5,7 +5,10 @@ import {Table} from "./components/Table";
 import {Home} from "./pages/Home";
 import {Header} from "./pages/Header";
 import {Footer} from "./pages/Footer";
+import {Catalog} from "./components/Catalog";
 import './App.css';
+import $ from 'jquery';
+import Popper from "popper.js";
 
 function App() {
     return (
