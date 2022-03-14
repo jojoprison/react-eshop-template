@@ -854,10 +854,10 @@ a[class*=card]:hover .title {
   -o-object-fit: cover;
      object-fit: cover;
 }
-
 /* GRID STYLE PRODUCT ITEM */
 .card-product-grid {
   margin-bottom: 20px;
+  min-height: 465px;
 }
 .card-product-grid .img-wrap {
   border-radius: 0.2rem 0.2rem 0 0;

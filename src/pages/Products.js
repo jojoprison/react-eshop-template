@@ -122,7 +122,6 @@ export const Products = () => (
                                         Химический пристенный лабораторный стол 1200x600x900/1600, MML
                                     </a>
                                 </h6>
-
                                 <figcaption className="card-props-column">
                                     <div className="card-props card-text">
                                         <span className="text-muted small">Материал столешницы:</span>
@@ -134,7 +133,6 @@ export const Products = () => (
                                     </div>
                                 </figcaption>
                             </div>
-                        </div>
 
                         {/* TODO пофиксить адаптивное отображение элементов bottom-wrap для md! съезжают */}
                         <div className="bottom-wrap d-flex p-0 align-items-baseline">
@@ -153,6 +151,7 @@ export const Products = () => (
                         </div>
                     </div>
                 </div>
+            </div>
 
                 <div className="col-md-3">
                     <div className="card card-product-grid">

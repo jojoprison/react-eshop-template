@@ -47,6 +47,7 @@ function App() {
                     <Route path="/filters" element={<CatalogueFilters/>}/>
                     {/* TODO добавить юрлу когда вмерджим с веткой карточки продукта */}
                     {/*<Route path="/product/tmp" element={<ProductTemplate/>}/>*/}
+
                     <Route path="/product" element={<Product/>}/>
                     <Route path="/contacts" element={<Contacts/>}/>
                 </Routes>

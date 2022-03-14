@@ -102,10 +102,11 @@
 }
 
 
-.text-image {
+<<<<<<< series-banner
+.img-wrap {
     position: relative;
 }
-.text-image a {
+.img-wrap a {
     position: absolute;
     height: 50%;
     font-weight: bold;
@@ -121,6 +122,21 @@
     padding:10px;
 }
 
+.series-img {
+    margin-bottom: 20px;
+}
+.series-img .img-wrap {
+    border-radius: 0.2rem 0.2rem 0 0;
+    height: 100%;
+}
+.card-bottom{
+    position: absolute;
+    top: 330px;
+}
+.contacts-card {
+    margin-bottom: 20px;
+    height: 200px;
+}
 
 /*breadcrumb*/
 ul.breadcrumb {
@@ -152,3 +168,4 @@ ul.breadcrumb li a:hover {
     color: #154cd4;
     text-decoration: underline;
 }
+
