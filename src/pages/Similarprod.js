@@ -1,13 +1,12 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 
-export const Products = () => (
+export const Similarprod = () => (
     <section className="padding-y-sm">
         <div className="container">
 
             <header className="section-heading">
-                <a href="#" className="btn nks-btn btn-outline-primary float-right">Посмотреть все</a>
-                <h3 className="section-title">Новые модели</h3>
+                <h3 className="section-title text-left">Похожие модели:</h3>
             </header>
 
             <div className="row">

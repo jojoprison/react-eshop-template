@@ -18,10 +18,26 @@
     color: #f0f3fb;
     /*font-size: 16px;*/
 }
+.priceprod{
+    font-weight: bold;
+    font-size: 24px;
+}
+.product-text {
+    font-family: "Font Awesome 5 Free Solid";
+    font-size:17px;
+    font-style:italic;
+}
+
 .header-text-second {
     color: #b8c1d1;
     /*font-size: 16px;*/
 }
+
+.map iframe {
+    border-radius: 15px;
+    overflow: hidden;
+}
+
 
 
 /* button */
@@ -67,4 +83,72 @@
     align-items: center;
     /*max-height: 40px;*/
     width: auto;
+}
+
+.maps-element {
+    border-radius: 50px !important;
+    overflow: hidden !important;
+}
+
+.social-information {
+    display: flex;
+    color: black;
+    align-items: center;
+    font-size: 0.95rem
+}
+
+.bg-pics{
+    opacity: 0.25;
+}
+
+
+.text-image {
+    position: relative;
+}
+.text-image a {
+    position: absolute;
+    height: 50%;
+    font-weight: bold;
+    color: gray;
+    font-size: 35px;
+    margin-bottom: 30px;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+.jtpad{
+    padding:10px;
+}
+
+
+/*breadcrumb*/
+ul.breadcrumb {
+    padding: 10px 16px;
+    list-style: none;
+    background-color: #FFFFFF;
+}
+
+/* Display list items side by side */
+ul.breadcrumb li {
+    display: inline;
+    font-size: 18px;
+}
+
+/* Add a slash symbol (/) before/behind each list item */
+ul.breadcrumb li+li:before {
+    color: black;
+    content: "/\00a0";
+}
+
+/* Add a color to all links inside the list */
+ul.breadcrumb li a {
+    color: #0275d8;
+    text-decoration: none;
+}
+
+/* Add a color on mouse-over */
+ul.breadcrumb li a:hover {
+    color: #154cd4;
+    text-decoration: underline;
 }
