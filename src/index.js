@@ -9,8 +9,32 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import {Header} from "./pages/Header";
+import Navigation from "./components/Nav";
+import {BrowserRouter, Route, Routes} from "react-router-dom";
+import {Home} from "./pages/Home";
+import {Table} from "./components/Table";
+import {Catalog} from "./components/Catalog";
+import {Product} from "./components/Product";
+import {Footer} from "./pages/Footer";
 
 ReactDOM.render(
+    // <BrowserRouter>
+    //     <div className="App">
+    //         <Header/>
+    //         <Navigation/>
+    //
+    //         <Routes>
+    //             {/*component={Home} dont work!*/}
+    //             <Route path="/" element={<Home/>} exact/>
+    //             <Route path="table" element={<Table/>}/>
+    //             <Route path="catalog" element={<Catalog/>}/>
+    //             <Route path="product/:id" element={<Product/>}/>
+    //         </Routes>
+    //
+    //         <Footer/>
+    //     </div>
+    // </BrowserRouter>
   <React.StrictMode>
     <App />
   </React.StrictMode>,

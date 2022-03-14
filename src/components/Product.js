@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {Link} from "react-router-dom";
 import {Similarprod} from "../pages/Similarprod";
 
+
 export class Product extends Component {
     constructor(props) {
         super(props);
@@ -29,6 +30,7 @@ export class Product extends Component {
     render() {
         // TODO products или catalog оставляем?
         const {product} = this.state;
+
         return (
 
             <section className="padding-y-sm">
