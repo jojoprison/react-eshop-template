@@ -35,7 +35,7 @@ export class ProductsDynamic extends Component {
 
                                         <div className="card-body">
                                             <h6>
-                                                <a href="/product/tmp"
+                                                <a href="/product"
                                                    className="title card-title card-link stretched-link">
                                                     {product.title}
                                                 </a>
