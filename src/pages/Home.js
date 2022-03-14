@@ -8,6 +8,5 @@ export const Home = () => (
         <Ad/>
         <Products/>
         <Maps/>
-
     </div>
 );

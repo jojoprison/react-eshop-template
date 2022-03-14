@@ -47,7 +47,7 @@ export const Footer = () => (
             <div style={{paddingBottom: '1%'}} className="container-fluid">
                 <div className="row">
 
-                    <div className="col-sm-3 col-md-6 col-lg-3 align-items-center">
+                    <div className="col-sm-3 col-md-6 col-lg-2 align-items-center">
                         <p className="text-muted">2022 ООО «НПО НКС групп»</p>
                     </div>
 

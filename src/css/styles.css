@@ -102,6 +102,7 @@
 }
 
 
+<<<<<<< series-banner
 .img-wrap {
     position: relative;
 }
@@ -136,6 +137,7 @@
     margin-bottom: 20px;
     height: 200px;
 }
+
 /*breadcrumb*/
 ul.breadcrumb {
     padding: 10px 16px;
@@ -166,3 +168,4 @@ ul.breadcrumb li a:hover {
     color: #154cd4;
     text-decoration: underline;
 }
+
