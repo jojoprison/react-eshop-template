@@ -4346,6 +4346,7 @@ input[type=button].btn-block {
   display: flex;
   flex-direction: column;
   min-width: 0;
+  /* TODO вот тут поправить надо */
   min-height: 430px;
   word-wrap: break-word;
   background-color: #fff;
