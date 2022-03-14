@@ -44,7 +44,7 @@ export class Contacts extends Component {
                     </div>
                 <div className="col-md-12 row">
                     <div className= "col-md-5">
-                        <div className="card card-product-grid">
+                        <div className="card contacts-card">
                             <div id="linked_to_card_click" style={{transform: "rotate(0)"}}>
                                 <div className="card-body text-left">
                                     <h2><i class="fas fa-map-marker-alt"></i>  |  Как нас найти?</h2>
@@ -58,7 +58,7 @@ export class Contacts extends Component {
 
 
                         </div>
-                        <div className="card card-product-grid">
+                        <div className="card contacts-card">
                             <div id="linked_to_card_click" style={{transform: "rotate(0)"}}>
                                 <div className="card-body text-left">
                                     <h2><i className="fas fa-phone-alt"></i> | Телефон для связи</h2>
@@ -70,7 +70,7 @@ export class Contacts extends Component {
                                 </div>
                             </div>
                         </div>
-                        <div className="card card-product-grid">
+                        <div className="card contacts-card">
                             <div id="linked_to_card_click" style={{transform: "rotate(0)"}}>
 
                                 <div className="card-body text-left">

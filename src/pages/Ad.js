@@ -4,7 +4,7 @@ export const Ad = () => (
     <section className="">
         <div className="container ">
             <div className="row">
-                <aside className="col-md-3 bg padding-y">
+                <aside className="col-md-3 padding-y">
                     <nav className="card">
                         <ul className="menu-category">
                             <li><a href="#">Столы лабораторные</a></li>
@@ -23,18 +23,18 @@ export const Ad = () => (
                     </nav>
                 </aside>
                 <div className="col-md-9 jtpad">
-                        <div className="center-x card card-product-grid col-md-2 border-gray">
+                        <div className="center-x col-md-12">
                             <h2>Серии</h2>
                         </div>
 
                     <div className="row">
 
 
-                        <div className="card card-product-grid col-md-6 border-light">
+                        <div className="card series-img col-md-6 border-light">
 
                             <div id="linked_to_card_click" style={{transform: "rotate(0)"}}>
                                 <div className="row">
-                                    <div className="text-image">
+                                    <div className="img-wrap">
                                         <img src="assets/images/items/nl_photo1.jpg" className="bg-pics img-responsive"/>
                                             <a href="#">NL</a>
                                     </div>
@@ -42,10 +42,10 @@ export const Ad = () => (
                             </div>
 
                         </div>
-                        <div className="card card-product-grid col-md-6 border-light">
+                        <div className="card series-img col-md-6 border-light">
                             <div id="linked_to_card_click" style={{transform: "rotate(0)"}}>
                                 <div className="row">
-                                    <div className="text-image">
+                                    <div className="img-wrap">
                                         <img src="assets/images/items/mml_photo.jpg" className="bg-pics img-responsive"/>
                                         <a href="#">MML</a>
                                     </div>

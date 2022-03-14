@@ -32,7 +32,7 @@ export const Footer = () => (
                                 <li><a href="#"> <u>Личный кабинет</u> </a></li>
                                 <li><a href="#"> <u>Корзина</u> </a></li>
                                 <li><a href="#"> <u>Избранное</u> </a></li>
-                                <li><a href="#"> <u>История заказов</u> </a></li>
+                                {/*<li><a href="#"> <u>История заказов</u> </a></li>*/}
                             </ul>
                         </aside>
 
@@ -51,7 +51,7 @@ export const Footer = () => (
                         <p className="text-muted">2022 ООО «НПО НКС групп»</p>
                     </div>
 
-                    <div style={{textAlign: 'left'}} className="col-sm-9 col-md-6 col-lg-8 ">
+                    <div style={{textAlign: 'left'}} className="col-sm-9 col-md-6 col-lg-6 text-right">
                         <span><a href="mailto:nks.grupp@bk.ru">nks.grupp@bk.ru |</a></span>
                         <span><a href="tel: +7-910-099-04-46"> +7 (910) 099-04-46 </a></span>
                         <span>| г. Александров, ул. Южный проезд, д.6Б</span>
