@@ -10,6 +10,7 @@ import {Product} from "./components/Product";
 import {Contacts} from "./components/Contacts";
 import './App.css';
 import {CatalogueFilters} from "./components/CatalogueFilters";
+import {ContactUs} from "./components/ContactUs";
 
 function App() {
     const [showButton, setShowButton] = useState(false);
@@ -45,6 +46,7 @@ function App() {
                     <Route path="/table" element={<Table/>}/>
                     <Route path="/catalog" element={<Catalog/>}/>
                     <Route path="/filters" element={<CatalogueFilters/>}/>
+                    <Route path="/contact" element={<ContactUs/>}/>
                     {/* TODO добавить юрлу когда вмерджим с веткой карточки продукта */}
                     {/*<Route path="/product/tmp" element={<ProductTemplate/>}/>*/}
 

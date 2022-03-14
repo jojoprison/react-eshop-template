@@ -109,13 +109,14 @@ export class Product extends Component {
                                             <span className=" font-weight-bold">NL-10-12-0П</span>
                                         </div>
                                     </ul>
-
                                 </aside>
                             </div>
-
+                        <div className="row product-bottom">
+                            <button type="button" className="btn btn-primary margbutton btn-lg">В корзину</button>
+                            <button type="button" className="btn btn-primary margbutton btn-lg">Быстрый заказ</button>
+                        </div>
                     </div>
                 </div>
-
                 </div>
 
                     <div className="container my-5 col-12">

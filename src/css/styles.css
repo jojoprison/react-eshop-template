@@ -132,6 +132,15 @@
     position: absolute;
     top: 330px;
 }
+.product-bottom{
+    position: absolute;
+    bottom: 0;
+    margin-left: 50px;
+}
+.margbutton{
+    margin-left: 10px;
+    margin-right: 10px;
+}
 .contacts-card {
     margin-bottom: 10px;
     height: 190px;
@@ -166,5 +175,68 @@ ul.breadcrumb li a {
 ul.breadcrumb li a:hover {
     color: #154cd4;
     text-decoration: underline;
+}
+
+
+
+.box {
+    margin: auto
+}
+
+.modal-page {
+    padding: 8%;
+    padding-top: 35px;
+    margin-top: 60px;
+    margin-bottom: 80px
+}
+
+textarea[name="message"] {
+    resize: none
+}
+#name{
+    height: 45px;
+}
+
+#e-mail {
+    height: 45px
+}
+
+#message {
+    height: 120px
+}
+
+input.input-box,
+textarea.input-box {
+    background-color: #616161;
+    border: #616161;
+    color: #BDBDBD
+}
+
+input.input-box:focus,
+textarea.input-box:focus {
+    background-color: #000000;
+    color: #BDBDBD
+}
+.modal-border{
+    border-radius: 15px;
+}
+
+.rm-border:focus {
+    border-color: inherit;
+    -webkit-box-shadow: none;
+    box-shadow: none
+}
+
+form .form-control::-webkit-input-placeholder {
+    color: #9E9E9E
+}
+
+::-moz-placeholder {
+    color: #9E9E9E !important
+}
+
+input.btn-purple {
+    background-color: #5C6BC0;
+    color: #ffffff
 }
 
