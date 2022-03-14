@@ -14,6 +14,7 @@ export default function Navigation() {
                         <NavLink to="/">Home</NavLink>
                         <NavLink to="/table">Table</NavLink>
                         <NavLink to="/catalog">Catalog</NavLink>
+                        <NavLink to="/filters">Filters</NavLink>
                     </Nav>
                 </Navbar.Collapse>
             </div>
