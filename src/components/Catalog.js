@@ -1,7 +1,4 @@
 import React, {Component} from 'react';
-import {Header} from "../pages/Header";
-import {BrowserRouter, Route, Routes} from "react-router-dom";
-import {Footer} from "../pages/Footer";
 import {Table as BootstrapTable} from 'react-bootstrap';
 
 export class Catalog extends Component {
@@ -12,7 +9,7 @@ export class Catalog extends Component {
     }
 
     refreshList() {
-        fetch(process.env.REACT_APP_NKS_API + 'catalog')
+        fetch(process.env.REACT_APP_NKS_API + 'products')
             .then(response => response.json())
             .then(data => {
                 this.setState({catalog: data});
@@ -24,19 +21,18 @@ export class Catalog extends Component {
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
-        if(JSON.stringify(prevState) !== JSON.stringify(this.state))
+        if (JSON.stringify(prevState) !== JSON.stringify(this.state))
             this.refreshList()
     }
 
     render() {
-        // TODO products или catalog оставляем?
         const {catalog} = this.state;
 
         return (
             <BootstrapTable className="mt-4" striped bordered hover size="sm">
                 <thead>
                 <tr>
-                    <th>TableId</th>
+                    <th>Product_ID</th>
                     <th>TableTitle</th>
                     <th>Options</th>
                 </tr>
@@ -51,6 +47,5 @@ export class Catalog extends Component {
                 </tbody>
             </BootstrapTable>
         )
-
     }
 }
