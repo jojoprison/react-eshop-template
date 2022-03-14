@@ -1,5 +1,5 @@
 import React from 'react';
-import {Navbar, Nav, Container, NavDropdown, Dropdown, Button} from "react-bootstrap";
+import {Navbar, Nav, Container, NavDropdown} from "react-bootstrap";
 
 export default function Navigation() {
 
