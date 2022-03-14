@@ -97,6 +97,31 @@
     font-size: 0.95rem
 }
 
+.bg-pics{
+    opacity: 0.25;
+}
+
+
+.text-image {
+    position: relative;
+}
+.text-image a {
+    position: absolute;
+    height: 50%;
+    font-weight: bold;
+    color: gray;
+    font-size: 35px;
+    margin-bottom: 30px;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+.jtpad{
+    padding:10px;
+}
+
+
 /*breadcrumb*/
 ul.breadcrumb {
     padding: 10px 16px;
