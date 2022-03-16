@@ -33,7 +33,7 @@ export const Header = () => (
 
                         <div className="col-xl-2 col-lg-2 col-md order-md-2 align-self-center p-lg-0 mb-md-3">
                             <div className="widget-header mr-3">
-                                <a href="#" className="icon icon-sm rounded-circle">
+                                <a href="/basket" className="icon icon-sm rounded-circle">
                                     <i className="fa fa-shopping-cart"/></a>
                                 <span className="badge badge-pill badge-danger notify">0</span>
                             </div>

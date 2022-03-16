@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Link} from "react-router-dom";
 import {Similarprod} from "../pages/Similarprod";
+import {ContactUs} from "./ContactUs";
 
 
 export class Product extends Component {

@@ -11,6 +11,7 @@ import {Contacts} from "./components/Contacts";
 import './App.css';
 import {CatalogueFilters} from "./components/CatalogueFilters";
 import {ContactUs} from "./components/ContactUs";
+import {ShoppingCart} from "./components/ShoppingCart";
 
 function App() {
     const [showButton, setShowButton] = useState(false);
@@ -49,7 +50,7 @@ function App() {
                     <Route path="/contact" element={<ContactUs/>}/>
                     {/* TODO добавить юрлу когда вмерджим с веткой карточки продукта */}
                     {/*<Route path="/product/tmp" element={<ProductTemplate/>}/>*/}
-
+                    <Route path="/basket" element={<ShoppingCart/>}/>
                     <Route path="/product" element={<Product/>}/>
                     <Route path="/contacts" element={<Contacts/>}/>
                 </Routes>
