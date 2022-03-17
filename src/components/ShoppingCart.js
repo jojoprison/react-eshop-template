@@ -123,12 +123,13 @@ export class ShoppingCart extends Component {
                                             <div className="price-wrap"><var className="price">$9</var> <small
                                                 className="text-muted"> $6 each</small></div>
                                         </td>
-                                        <td className="text-right d-none d-md-block"><a
-                                            data-original-title="Save to Wishlist" title="" href=""
-                                            className="btn btn-light" data-toggle="tooltip" data-abc="true"> <i
-                                            className="fa fa-heart"></i></a> <a href=""
-                                                                                className="btn btn-light btn-round"
-                                                                                data-abc="true"> Удалить</a></td>
+                                        <td className="text-right d-none d-md-block">
+                                            <a data-original-title="Save to Wishlist" title="" href=""
+                                            className="btn btn-light" data-toggle="tooltip" data-abc="true">
+                                                <i className="fa fa-heart"></i>
+                                            </a>
+                                            <a href="" className="btn btn-light btn-round"
+                                               data-abc="true"> Удалить</a></td>
                                     </tr>
                                     </tbody>
                                 </table>
@@ -141,17 +142,13 @@ export class ShoppingCart extends Component {
                                 <form>
                                     <div className="card">
                                         <div className="card-body">
-                                            <dl className="dlist-align">
-                                                <dt>Total price:</dt>
+                                            <dl className="dlist-align text-left">
+                                                <dt>Товаров в корзине:</dt>
+                                                <dd className="text-right ml-3">3</dd>
+                                            </dl>
+                                            <dl className="dlist-align text-left">
+                                                <dt>Общая цена:</dt>
                                                 <dd className="text-right ml-3">$69.97</dd>
-                                            </dl>
-                                            <dl className="dlist-align">
-                                                <dt>Discount:</dt>
-                                                <dd className="text-right text-danger ml-3">- $10.00</dd>
-                                            </dl>
-                                            <dl className="dlist-align">
-                                                <dt>Total:</dt>
-                                                <dd className="text-right text-dark b ml-3"><strong>$59.97</strong></dd>
                                             </dl>
                                             <hr/><a href="#" className="btn btn-out btn-primary btn-square btn-main"
                                                     data-abc="true"> Оформить заказ </a> <a href="#"

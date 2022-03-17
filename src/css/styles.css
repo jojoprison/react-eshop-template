@@ -219,6 +219,7 @@ textarea.input-box:focus {
 }
 .modal-border{
     border-radius: 15px;
+    color: #FFFFFF;
 }
 
 .rm-border:focus {
