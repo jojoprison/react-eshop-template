@@ -1,139 +1,166 @@
-import React, {Component} from 'react';
+import React, {Component, useState} from 'react';
+import {Button, Col, Container, Form, Row} from "react-bootstrap";
+import {useCart} from "react-use-cart";
 
 
-export class ShoppingCart extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {product: []}
+
+
+export default function ShoppingCart(props) {
+    const [state, setState] = useState(
+        {filters: [], searchFilters: {}, products: []}
+    );
+
+
+
+    const { items } = useCart();
+    const runCallback = (cb) => {
+        return cb();
     }
 
-    refreshList() {
-        fetch(process.env.REACT_APP_NKS_API + 'basket')
-            .then(response => response.json())
-            .then(data => {
-                this.setState({product: data});
-            })
-    }
-
-    componentDidMount() {
-        this.refreshList();
-    }
-
-    componentDidUpdate(prevProps, prevState, snapshot) {
-        if (JSON.stringify(prevState) !== JSON.stringify(this.state))
-            this.refreshList()
-    }
-
-
-    render() {
-        // TODO products или catalog оставляем?
-        const {product} = this.state;
-
-        return (
+    return (
+        <div className="padding-y">
             <div className="container-fluid">
-                <div className="row">
+                <div className="row ">
                     <aside className="col-lg-9">
-                        <div className="card">
-                            <div className="table-responsive">
-                                <table className="table table-borderless table-shopping-cart">
-                                    <thead className="text-muted">
-                                    <tr className="small text-uppercase">
-                                        <th scope="col">Продукт</th>
-                                        <th scope="col" width="120">Количество</th>
-                                        <th scope="col" width="120">Стоимость</th>
-                                        <th scope="col" className="text-right d-none d-md-block" width="200"></th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <tr>
-                                        <td>
-                                            <figure className="itemside align-items-center">
-                                                <div className="aside"><img src="https://i.imgur.com/1eq5kmC.png"
-                                                                            className="img-sm"/></div>
-                                                <figcaption className="info"><a href="#" className="title text-dark"
-                                                                                data-abc="true">Tshirt with round
-                                                    nect</a>
-                                                    <p className="text-muted small">SIZE: L <br/> Brand: MAXTRA</p>
-                                                </figcaption>
-                                            </figure>
-                                        </td>
-                                        <td><select className="form-control">
-                                            <option>1</option>
-                                            <option>2</option>
-                                            <option>3</option>
-                                            <option>4</option>
-                                        </select></td>
-                                        <td>
-                                            <div className="price-wrap"><var className="price">$10.00</var> <small
-                                                className="text-muted"> $9.20 each </small></div>
-                                        </td>
-                                        <td className="text-right d-none d-md-block">
-                                            <a data-original-title="Save to Wishlist" title="" href=""
-                                            className="btn btn-light" data-toggle="tooltip" data-abc="true">
 
-                                            <i className="fa fa-heart"></i>
-                                        </a> <a href="" className="btn btn-light" data-abc="true"> Удалить</a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <figure className="itemside align-items-center">
-                                                <div className="aside"><img src="https://i.imgur.com/hqiAldf.jpg"
-                                                                            className="img-sm"/></div>
-                                                <figcaption className="info"><a href="#" className="title text-dark"
-                                                                                data-abc="true">Flower Formal
-                                                    T-shirt</a>
-                                                    <p className="text-muted small">SIZE: L <br/> Brand: ADDA</p>
-                                                </figcaption>
-                                            </figure>
-                                        </td>
-                                        <td><select className="form-control">
-                                            <option>1</option>
-                                            <option>2</option>
-                                            <option>3</option>
-                                            <option>4</option>
-                                        </select></td>
-                                        <td>
-                                            <div className="price-wrap"><var className="price">$15</var> <small
-                                                className="text-muted"> $12 each </small></div>
-                                        </td>
-                                        <td className="text-right d-none d-md-block"><a
-                                            data-original-title="Save to Wishlist" title="" href=""
-                                            className="btn btn-light" data-toggle="tooltip" data-abc="true"> <i
-                                            className="fa fa-heart"></i></a> <a href=""
-                                                                                className="btn btn-light btn-round"
-                                                                                data-abc="true"> Удалить</a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <figure className="itemside align-items-center">
-                                                <div className="aside"><img src="https://i.imgur.com/UwvU0cT.jpg"
-                                                                            className="img-sm"/></div>
-                                                <figcaption className="info"><a href="#" className="title text-dark"
-                                                                                data-abc="true">Printed White Tshirt</a>
-                                                    <p className="small text-muted">SIZE:M <br/> Brand: Cantabil</p>
-                                                </figcaption>
-                                            </figure>
-                                        </td>
-                                        <td><select className="form-control">
-                                            <option>1</option>
-                                            <option>2</option>
-                                            <option>3</option>
-                                        </select></td>
-                                        <td>
-                                            <div className="price-wrap"><var className="price">$9</var> <small
-                                                className="text-muted"> $6 each</small></div>
-                                        </td>
-                                        <td className="text-right d-none d-md-block">
-                                            <a data-original-title="Save to Wishlist" title="" href=""
-                                            className="btn btn-light" data-toggle="tooltip" data-abc="true">
-                                                <i className="fa fa-heart"></i>
-                                            </a>
-                                            <a href="" className="btn btn-light btn-round"
-                                               data-abc="true"> Удалить</a></td>
-                                    </tr>
-                                    </tbody>
-                                </table>
-                            </div>
+                        <div className="card">
+                            <table className="table">
+
+                                {
+                                    runCallback(() => {
+                                        const selects = [];
+                                        const shopcart = [];
+                                        for (let i = 0; i < 2; i++) {
+                                            shopcart.push(
+                                                <div className="container-fluid">
+                                                    <div className="row ">
+                                                        <aside className="col-lg-12">
+                                                            <table className="table">
+                                                                <tr>
+                                                                    <td>
+                                                                        <figure className="itemside align-items-top">
+                                                                            <div className="aside card">
+                                                                                <img src="../assets/images/items/table_template_1.jpg"
+                                                                                     className="img-md"/>
+                                                                                <div className="container">
+                                                                                </div>
+                                                                            </div>
+
+                                                                            <figcaption className="info">
+
+
+                                                                                <div className="row">
+                                                                                    <a href="#" className="title align-top font-weight-bolder"
+                                                                                       data-abc="true">Пристенный лабораторный стол</a>
+                                                                                    <button type="button"
+                                                                                            className="btn btn-sm dropdown-toggle
+                                                                        dropdown-toggle-split"
+                                                                                            data-bs-toggle="collapse"
+                                                                                            data-bs-target="#firstProd" aria-expanded="true"
+                                                                                            aria-controls="collapseOne">
+                                                                                        <span className="sr-only">Toggle Dropdown</span>
+                                                                                    </button>
+                                                                                </div>
+                                                                                <ul className="list-unstyled ">
+                                                                                    <div className="card-props card-text">
+                                                                                        <span className="font-weight-bold">Артикул:</span>
+
+                                                                                        <a href="#" className="text-muted"><span
+                                                                                            className="font-weight-bold ">NL (NeatLab)</span></a>
+                                                                                    </div>
+                                                                                    <div className="card-props card-text">
+                                                                                        <span className="font-weight-bold">Серия:</span>
+                                                                                        <span className=" font-weight-bold">NL-10-12-0П</span>
+                                                                                    </div>
+                                                                                </ul>
+
+                                                                            </figcaption>
+                                                                        </figure>
+
+                                                                    </td>
+                                                                    <td><select className="form-control">
+                                                                        <option>1</option>
+                                                                        <option>2</option>
+                                                                        <option>3</option>
+                                                                        <option>4</option>
+                                                                    </select></td>
+                                                                    <td>
+                                                                        <div className="price-wrap"><var className="price">$10.00</var> <small
+                                                                            className="text-muted"> $9.20 each </small></div>
+                                                                    </td>
+                                                                    <td className="text-right d-none d-md-block">
+                                                                        {/*    <a data-original-title="Save to Wishlist" title="" href=""*/}
+                                                                        {/*    className="btn btn-light" data-toggle="tooltip" data-abc="true">*/}
+
+
+                                                                        {/*    <i className="fa fa-heart"></i>*/}
+                                                                        {/*</a> */}
+                                                                        <a href="" className="btn btn-light" data-abc="true"> Удалить</a></td>
+                                                                </tr>
+
+
+                                                                <div className="container series-img">
+                                                                    <div className="accordion" id="accordionExample">
+                                                                        <div className="accordion-item">
+                                                                            <div id="firstProd" className="accordion-collapse collapse"
+                                                                                 aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                                                                <div className="accordion-body ">
+                                                                                    <div className="card-props card-text">
+                                                                                        <span className="font-weight-bolder ">Ширина</span>
+                                                                                        <span className="font-weight-bold">600</span>
+                                                                                    </div>
+                                                                                    <div className="card-props card-text">
+                                                                                        <span className="font-weight-bolder">Глубина</span>
+                                                                                        <span className="font-weight-bold">600</span>
+                                                                                    </div>
+                                                                                    <div className="card-props card-text">
+                                                                                        <span className="font-weight-bolder">Высота</span>
+                                                                                        <span className="font-weight-bold">900</span>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </table>
+                                                        </aside>
+                                                    </div>
+                                                </div>
+
+                                            );
+                                        }
+
+                                        return [selects, shopcart];
+                                    })
+
+                                }
+
+
+
+                                <div className="container series-img">
+                                    <div className="accordion" id="accordionExample">
+                                        <div className="accordion-item">
+                                            <div id="thirdProd" className="accordion-collapse collapse"
+                                                 aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                                <div className="accordion-body ">
+                                                    <div className="card-props card-text">
+                                                        <span className="font-weight-bolder ">Ширина</span>
+                                                        <span className="font-weight-bold">600</span>
+                                                    </div>
+                                                    <div className="card-props card-text">
+                                                        <span className="font-weight-bolder">Глубина</span>
+                                                        <span className="font-weight-bold">600</span>
+                                                    </div>
+                                                    <div className="card-props card-text">
+                                                        <span className="font-weight-bolder">Высота</span>
+                                                        <span className="font-weight-bold">900</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </table>
                         </div>
                     </aside>
                     <aside className="col-lg-3">
@@ -142,18 +169,19 @@ export class ShoppingCart extends Component {
                                 <form>
                                     <div className="card">
                                         <div className="card-body">
-                                            <dl className="dlist-align text-left">
-                                                <dt>Товаров в корзине:</dt>
+
+                                            <dl className="dlist-align">
+                                                <dt className="text-left">Товаров в корзине:</dt>
                                                 <dd className="text-right ml-3">3</dd>
                                             </dl>
-                                            <dl className="dlist-align text-left">
-                                                <dt>Общая цена:</dt>
-                                                <dd className="text-right ml-3">$69.97</dd>
+                                            <dl className="dlist-align">
+                                                <dt className="text-left">Стоимость:</dt>
+                                                <dd className="text-right text-dark b ml-3"><strong>12.000Р</strong></dd>
                                             </dl>
                                             <hr/><a href="#" className="btn btn-out btn-primary btn-square btn-main"
                                                     data-abc="true"> Оформить заказ </a> <a href="#"
-                                                                                           className="btn btn-out btn-success btn-square btn-main mt-2"
-                                                                                           data-abc="true">Продолжить покупки</a>
+                                                                                            className="btn btn-out btn-success btn-square btn-main mt-2"
+                                                                                            data-abc="true">Продолжить покупки</a>
                                         </div>
                                     </div>
                                 </form>
@@ -163,6 +191,6 @@ export class ShoppingCart extends Component {
                     </aside>
                 </div>
             </div>
-        )
-    }
+        </div>
+    )
 }
