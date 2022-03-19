@@ -11,7 +11,7 @@ import {Contacts} from "./components/Contacts";
 import './App.css';
 import CatalogueFilters from "./components/products/CatalogueFilters";
 import {ContactUs} from "./components/ContactUs";
-import {ShoppingCart} from "./components/ShoppingCart";
+import ShoppingCart from "./components/ShoppingCart";
 import {CartProvider, useCart} from 'react-use-cart';
 
 function App() {
