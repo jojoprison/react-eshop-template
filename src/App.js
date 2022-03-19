@@ -11,7 +11,7 @@ import {Contacts} from "./components/Contacts";
 import './App.css';
 import {CatalogueFilters} from "./components/CatalogueFilters";
 import {ContactUs} from "./components/ContactUs";
-import {ShoppingCart} from "./components/ShoppingCart";
+import ShoppingCart from "./components/ShoppingCart";
 
 function App() {
     const [showButton, setShowButton] = useState(false);
