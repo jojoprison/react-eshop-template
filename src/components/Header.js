@@ -1,6 +1,11 @@
 import React from "react";
+import {useCart} from "react-use-cart";
+import {Button} from "react-bootstrap";
 
-export const Header = () => (
+export default function Header(props) {
+    const {totalItems, emptyCart} = useCart();
+
+    return (
         <header className="section-header nks-bg-color">
             <section className="header-main border-bottom">
                 <div className="container">
@@ -35,29 +40,23 @@ export const Header = () => (
                             <div className="widget-header mr-3">
                                 <a href="/basket" className="icon icon-sm rounded-circle">
                                     <i className="fa fa-shopping-cart"/></a>
-                                <span className="badge badge-pill badge-danger notify">0</span>
+                                <span className="badge badge-pill badge-danger notify">{totalItems}</span>
                             </div>
 
                             <div className="widget-header icontext">
                                 <a href="#" className="icon icon-sm rounded-circle">
                                     <i className="fa fa-user"/></a>
-                                {/*<div className="text mobile-hide ">*/}
-                                {/*    <div>*/}
-                                {/*        <button className="btn btn-sm nks-btn mb-1" type="submit">*/}
-                                {/*            Регистрация*/}
-                                {/*        </button>*/}
-                                {/*    </div>*/}
-                                {/*    <div>*/}
-                                {/*        <button className="btn btn-sm nks-btn" type="submit">*/}
-                                {/*            Вход*/}
-                                {/*        </button>*/}
-                                {/*    </div>*/}
-                                {/*</div>*/}
                             </div>
+
+                            <Button variant='link' size='lg' title='Очистить'
+                                    onClick={() => emptyCart()}>
+                                <i className="fa fa-shopping-cart"/>
+                            </Button>
                         </div>
 
                     </div>
                 </div>
             </section>
         </header>
-);
+    );
+}
