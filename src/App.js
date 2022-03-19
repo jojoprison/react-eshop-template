@@ -3,15 +3,16 @@ import {BrowserRouter, Route, Routes} from "react-router-dom";
 import Navigation from './components/Nav'
 import {Table} from "./components/Table";
 import {Home} from "./pages/Home";
-import {Header} from "./pages/Header";
+import Header from "./components/Header";
 import {Footer} from "./pages/Footer";
 import {Catalog} from "./components/Catalog";
 import {Product} from "./components/Product";
 import {Contacts} from "./components/Contacts";
 import './App.css';
-import {CatalogueFilters} from "./components/CatalogueFilters";
+import CatalogueFilters from "./components/products/CatalogueFilters";
 import {ContactUs} from "./components/ContactUs";
-import ShoppingCart from "./components/ShoppingCart";
+import {ShoppingCart} from "./components/ShoppingCart";
+import {CartProvider, useCart} from 'react-use-cart';
 
 function App() {
     const [showButton, setShowButton] = useState(false);
@@ -36,34 +37,36 @@ function App() {
     };
 
     return (
-        <BrowserRouter>
-            <div className="App">
-                <Header/>
-                <Navigation/>
+        <CartProvider>
+            <BrowserRouter>
+                <div className="App">
+                    <Header/>
+                    <Navigation/>
 
-                <Routes>
-                    {/*component={Home} dont work!*/}
-                    <Route path="/" element={<Home/>} exact/>
-                    <Route path="/table" element={<Table/>}/>
-                    <Route path="/catalog" element={<Catalog/>}/>
-                    <Route path="/filters" element={<CatalogueFilters/>}/>
-                    <Route path="/contact" element={<ContactUs/>}/>
-                    {/* TODO добавить юрлу когда вмерджим с веткой карточки продукта */}
-                    {/*<Route path="/product/tmp" element={<ProductTemplate/>}/>*/}
-                    <Route path="/basket" element={<ShoppingCart/>}/>
-                    <Route path="/product" element={<Product/>}/>
-                    <Route path="/contacts" element={<Contacts/>}/>
-                </Routes>
+                    <Routes>
+                        {/*component={Home} dont work!*/}
+                        <Route path="/" element={<Home/>} exact/>
+                        <Route path="/table" element={<Table/>}/>
+                        <Route path="/catalog" element={<Catalog/>}/>
+                        <Route path="/filters" element={<CatalogueFilters/>}/>
+                        <Route path="/contact" element={<ContactUs/>}/>
+                        {/* TODO добавить юрлу когда вмерджим с веткой карточки продукта */}
+                        {/*<Route path="/product/tmp" element={<ProductTemplate/>}/>*/}
+                        <Route path="/basket" element={<ShoppingCart/>}/>
+                        <Route path="/product" element={<Product/>}/>
+                        <Route path="/contacts" element={<Contacts/>}/>
+                    </Routes>
 
-                {showButton && (
-                    <button onClick={scrollToTop} className='back-to-top'>
-                        &#8679;
-                    </button>
-                )}
+                    {showButton && (
+                        <button onClick={scrollToTop} className='back-to-top'>
+                            &#8679;
+                        </button>
+                    )}
 
-                <Footer/>
-            </div>
-        </BrowserRouter>
+                    <Footer/>
+                </div>
+            </BrowserRouter>
+        </CartProvider>
     );
 }
 
