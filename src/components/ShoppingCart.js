@@ -17,6 +17,7 @@ export default function ShoppingCart(props) {
         return cb();
     }
 
+
     return (
         <div className="padding-y">
             <div className="container-fluid">
