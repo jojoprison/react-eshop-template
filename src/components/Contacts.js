@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {Maps} from "../pages/Maps";
 import {Link} from "react-router-dom";
 
+// TODO переписать все компоненты из классов на функции
 export class Contacts extends Component {
 
     constructor(props) {
@@ -27,9 +28,6 @@ export class Contacts extends Component {
     }
 
     render() {
-        // TODO products или catalog оставляем?
-        const {contacts} = this.state;
-
         return (
             <section className="padding-y-sm">
                 <div className="container">
