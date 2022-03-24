@@ -110,6 +110,8 @@ card-basket{
 }
 .img-wrap {
     position: relative;
+    /*border-radius: 50px;*/
+    /*border: 2px solid;*/
 }
 .img-wrap a {
     position: absolute;
