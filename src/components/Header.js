@@ -2,7 +2,7 @@ import React from "react";
 import {useCart} from "react-use-cart";
 import {Button} from "react-bootstrap";
 
-export default function Header(props) {
+const Header = () => {
     const {totalItems, emptyCart} = useCart();
 
     return (
@@ -13,6 +13,7 @@ export default function Header(props) {
 
                         <div className="col-lg-3 col-md-6 p-lg-0 pt-md-2">
                             <a href="/">
+                                {/* TODO BUG картинка подгружается после рендера всего остального в хедере */}
                                 <img src='assets/images/logos/logo-new-2.png' width="250px"
                                      className="" alt="logo"/>
                             </a>
@@ -59,4 +60,6 @@ export default function Header(props) {
             </section>
         </header>
     );
-}
+};
+
+export default React.memo(Header);

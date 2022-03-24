@@ -2,7 +2,7 @@ import {Col, Form} from "react-bootstrap";
 import React from "react";
 
 
-const Selects = React.memo(({fieldList, selectedValues, handleChangeSelect}) => {
+const Selects = React.memo(({fieldList, selectedValues, handlerChangeSelect}) => {
     // const [selectedFiltersValues] = useContext(SelectedFiltersContext);
 
     // useEffect(() => {
@@ -19,7 +19,7 @@ const Selects = React.memo(({fieldList, selectedValues, handleChangeSelect}) => 
     return fieldList.map((filterSelect, index) =>
         <SelectFilter
             key={filterSelect + '_' + index}
-            handler={handleChangeSelect}
+            handler={handlerChangeSelect}
             product_prop={filterSelect.product_prop}
             name={filterSelect.name}
             values={filterSelect.values}

@@ -38,24 +38,26 @@ function App() {
 
     return (
         <CartProvider>
-            <BrowserRouter>
+
                 <div className="App">
                     <Header/>
-                    <Navigation/>
+                    <BrowserRouter>
+                        <Navigation/>
 
-                    <Routes>
-                        {/*component={Home} dont work!*/}
-                        <Route path="/" element={<Home/>} exact/>
-                        <Route path="/table" element={<Table/>}/>
-                        <Route path="/catalog" element={<Catalog/>}/>
-                        <Route path="/filters" element={<CatalogueFilters/>}/>
-                        <Route path="/contact" element={<ContactUs/>}/>
-                        {/* TODO добавить юрлу когда вмерджим с веткой карточки продукта */}
-                        {/*<Route path="/product/tmp" element={<ProductTemplate/>}/>*/}
-                        <Route path="/basket" element={<ShoppingCart/>}/>
-                        <Route path="/product" element={<Product/>}/>
-                        <Route path="/contacts" element={<Contacts/>}/>
-                    </Routes>
+                        <Routes>
+                            {/*component={Home} dont work!*/}
+                            <Route path="/" element={<Home/>} exact/>
+                            <Route path="/table" element={<Table/>}/>
+                            <Route path="/catalog" element={<Catalog/>}/>
+                            <Route path="/filters" element={<CatalogueFilters/>}/>
+                            <Route path="/contact" element={<ContactUs/>}/>
+                            {/* TODO добавить юрлу когда вмерджим с веткой карточки продукта */}
+                            {/*<Route path="/product/tmp" element={<ProductTemplate/>}/>*/}
+                            <Route path="/basket" element={<ShoppingCart/>}/>
+                            <Route path="/product" element={<Product/>}/>
+                            <Route path="/contacts" element={<Contacts/>}/>
+                        </Routes>
+                    </BrowserRouter>
 
                     {showButton && (
                         <button onClick={scrollToTop} className='back-to-top'>
@@ -65,7 +67,7 @@ function App() {
 
                     <Footer/>
                 </div>
-            </BrowserRouter>
+
         </CartProvider>
     );
 }

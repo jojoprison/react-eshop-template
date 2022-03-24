@@ -27,6 +27,22 @@ const CatalogueFilters = React.memo((props) => {
         fetchInitData();
     }, []);
 
+    const getProducts = async (filtersQueryParams) => {
+        if (!filtersQueryParams) {
+            filtersQueryParams = '';
+        }
+
+        await fetch(process.env.REACT_APP_NKS_API + `products/filter?${filtersQueryParams}`)
+            .then(res => res.json())
+            .then((products) => {
+                setProducts(products);
+                return products;
+            }, (error) => {
+                console.log('Не удалось получить продукты');
+                return null;
+            })
+    };
+
     const handleSubmit = (event) => {
         // Event: Cancels Event (Stops HTML Default Form Submit)
         event.preventDefault();
@@ -44,22 +60,19 @@ const CatalogueFilters = React.memo((props) => {
         })
 
         convertedQueryParams = convertedQueryParams.substring(0, convertedQueryParams.length - 1);
+        console.log(convertedQueryParams);
 
-        fetch(process.env.REACT_APP_NKS_API + `products/filter?${convertedQueryParams}`)
-            .then(res => res.json())
-            .then((products) => {
-                setProducts(products);
-            }, (error) => {
-                alert('Не удалось получить продукты');
-            })
+        getProducts(convertedQueryParams);
     }
 
     const clearFilters = () => {
         async function reset() {
             await setSelectedFiltersValues({});
+            getProducts();
         }
 
         reset();
+        // console.log(selectedFiltersValues);
     }
 
     const runCallback = (cb) => {
@@ -133,7 +146,7 @@ const CatalogueFilters = React.memo((props) => {
                         <Selects fieldList={filterVariants.select}
                             // resetValues={resetSelectsKey}
                                  selectedValues={selectedFiltersValues}
-                                 handleChange={handlerCHANGER}
+                                 handlerChangeSelect={handlerCHANGER}
                         />
                     )}
                 </Row>
@@ -161,7 +174,10 @@ const CatalogueFilters = React.memo((props) => {
                 <Form.Control.Feedback type="invalid">НЕПРАВ</Form.Control.Feedback>
             </Form>
 
-            {!loading && (<ProductsDynamic products={products}/>)}
+            {/* TODO это чтобы блок с продуктами не пропадал, даже если пустой - переделать на норм*/}
+            <div style={{ height: '900px' } } >
+                {!loading && (<ProductsDynamic products={products}/>)}
+            </div>
 
         </Container>
     )
