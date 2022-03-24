@@ -1,6 +1,7 @@
 .nks-bg-color,
 .section-footer {
-    background-color: #A6B1DB;
+    /*background-color: #A6B1DB;*/
+    background-color: #96adfc;
 }
 
 .contact {
@@ -22,10 +23,13 @@
     font-weight: bold;
     font-size: 24px;
 }
-.product-text {
-    font-family: "Font Awesome 5 Free Solid";
+.features-text {
+    font-family: "Century Gothic", sans-serif;
+    font-size:16px;
+}
+.description-text {
+    font-family: "Century Gothic", sans-serif;
     font-size:17px;
-    font-style:italic;
 }
 
 .header-text-second {
@@ -104,8 +108,6 @@ card-basket{
 .bg-pics{
     opacity: 0.25;
 }
-
-
 .img-wrap {
     position: relative;
 }
@@ -121,8 +123,18 @@ card-basket{
     width: 100%;
 }
 
-.jtpad{
-    padding:10px;
+.download-info a{
+    color: white;
+    font-size: 20px;
+}
+.download-info a:hover{
+    color: black;
+}
+
+.border-img{
+    padding: 15px;
+    border-radius: 30px;
+    height: 80%;
 }
 
 .series-img {
@@ -139,7 +151,7 @@ card-basket{
 .product-bottom{
     position: absolute;
     bottom: 0;
-    margin-left: 50px;
+    margin-left: 7%;
 }
 .margbutton{
     margin-left: 10px;
@@ -181,19 +193,6 @@ ul.breadcrumb li a:hover {
     text-decoration: underline;
 }
 
-
-
-.box {
-    margin: auto
-}
-
-.modal-page {
-    padding: 8%;
-    padding-top: 35px;
-    margin-top: 60px;
-    margin-bottom: 80px
-}
-
 textarea[name="message"] {
     resize: none
 }
@@ -211,33 +210,19 @@ textarea[name="message"] {
 
 input.input-box,
 textarea.input-box {
-    background-color: #616161;
+    background-color: white;
     border: #616161;
-    color: #BDBDBD
+    color: #555555;
 }
 
 input.input-box:focus,
 textarea.input-box:focus {
-    background-color: #000000;
+    background-color: rgba(166, 177, 219, 0.2);
     color: #BDBDBD
-}
-.modal-border{
-    border-radius: 15px;
-    color: #FFFFFF;
-}
-
-.rm-border:focus {
-    border-color: inherit;
-    -webkit-box-shadow: none;
-    box-shadow: none
 }
 
 form .form-control::-webkit-input-placeholder {
     color: #9E9E9E
-}
-
-::-moz-placeholder {
-    color: #9E9E9E !important
 }
 
 input.btn-purple {
@@ -277,5 +262,130 @@ input.btn-purple {
 
 .btn-apply {
     font-size: 11px
+}
+
+/*Для shopping cart*/
+
+.quantity_inner * {
+    box-sizing: border-box;
+}
+.quantity_inner {
+    display: inline-flex;
+    border-radius: 26px;
+    border: 2px solid gray;
+}
+.quantity_inner .bt_minus,
+.quantity_inner .bt_plus,
+.quantity_inner .quantity {
+    height: 40px;
+    width: 30px;
+    padding: 0;
+    border: 0;
+    margin: 0;
+    background: transparent;
+    cursor: pointer;
+    outline: 0;
+}
+.quantity_inner .quantity {
+    width: 40px;
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+    color: #000;
+    font-family: Menlo,Monaco,Consolas,"Courier New",monospace;
+}
+.quantity_inner .bt_minus svg,
+.quantity_inner .bt_plus svg {
+    stroke: #337AB7;
+    stroke-width: 4;
+    transition: 0.5s;
+    margin: 10px;
+}
+.quantity_inner .bt_minus:hover svg,
+.quantity_inner .bt_plus:hover svg {
+    stroke: #000;
+}
+
+/* ordering page*/
+.order-block{
+    height: 370px;
+    width: 100%;
+    background-color: rgba(37,69,87,0.05);
+    /*border: 1px solid gray;*/
+    border-radius: 17px;
+    padding-left: 15px;
+    padding-top: 5px;
+}
+
+.ordering_img{
+    width: 105px;
+    height: 80px;
+    margin-left: 10px;
+    /*border: 3px solid #C90E0E;*/
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+    border-radius: 15px;
+}
+
+.personal-details{
+    height: 975px;
+    width: 100%;
+    background-color: rgba(37,69,87,0.05);
+    /*border: 1px solid gray;*/
+    border-radius: 17px;
+    padding-left: 15px;
+    padding-top: 5px;
+}
+
+/*******/
+
+#ordered_link{
+    color: #002AF8E4;
+    font-size: 17px;
+}
+#ordered_link:hover{
+    color: #D81316;
+    font-weight: 600;
+}
+
+.small-info{
+    font-size: 12px;
+    width: calc(100% - 120px);
+    text-align: left;
+}
+
+.banner-alert{
+    background-color: #96adfc;
+    border-radius: 20px;
+    color: #fff8f8;
+    border: 1px solid black;
+}
+.error-page{
+    width: 90vw;
+    /*position: relative;*/
+}
+.error-page h1{
+    font-size: 150px;
+    /*letter-spacing: 2px;*/
+    color: rgba(201, 198, 255, 0.61);
+    font-family: 'lato';
+    top: 50px;
+    left: 55px;
+    z-index: 5;
+}
+.error-page h3{
+    font-size: 70px;
+    font-family: 'lato';
+    left: -120px;
+    top: 25px;
+    z-index: 2;
+}
+.object-text{
+    text-align: center;
+    top:64px;
+}
+.back-home{
+    left: -240px;
+    top: 50px;
+    font-family: 'lato';
 }
 

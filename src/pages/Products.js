@@ -2,8 +2,11 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 
 export const Products = () => (
+
+
     <section className="padding-y-sm">
         <div className="container">
+
 
             <header className="section-heading">
                 <a href="#" className="btn nks-btn btn-outline-primary float-right">Посмотреть все</a>
@@ -19,7 +22,7 @@ export const Products = () => (
                         <div id="linked_to_card_click" style={{transform: "rotate(0)"}}>
 
                             <div className="img-wrap">
-                                <img src="assets/images/items/table_template_1.jpg" className="card-img-top"/>
+                                <img src="assets/images/items/table_template_1.jpg" className="card-img border-img"/>
                             </div>
 
                             <div className="card-body">
@@ -38,12 +41,16 @@ export const Products = () => (
                                         <span className="text-muted small">Материал исполнения:</span>
                                         <span className="text-muted small">DOD</span>
                                     </div>
+                                    <div className="card-props card-text">
+                                        <span className="text-muted small">Материал исполнения:</span>
+                                        <span className="text-muted small">DOD</span>
+                                    </div>
                                 </figcaption>
                             </div>
                         </div>
 
                         {/* TODO пофиксить адаптивное отображение элементов bottom-wrap для md! съезжают */}
-                        <div className="bottom-wrap d-flex p-0 align-items-baseline">
+                        <div className="bottom-wrap mt-auto d-flex p-0 align-items-baseline">
                             <div className="widget-header col-4">
                                 <a href="#" className="icon icon-sm card-link">
                                     <i className="far fa-heart"/></a>
@@ -66,7 +73,7 @@ export const Products = () => (
                         <div id="linked_to_card_click" style={{transform: "rotate(0)"}}>
 
                             <div className="img-wrap">
-                                <img src="assets/images/items/cupboard_template_1.jpg" className="card-img-top"/>
+                                <img src="assets/images/items/cupboard_template_1.jpg" className="card-img border-img"/>
                             </div>
 
                             <div className="card-body">
@@ -85,12 +92,16 @@ export const Products = () => (
                                         <span className="text-muted small">Материал исполнения:</span>
                                         <span className="text-muted small">ЛДСП</span>
                                     </div>
+                                    <div className="card-props card-text">
+                                        <span className="text-muted small">Материал исполнения:</span>
+                                        <span className="text-muted small">DOD</span>
+                                    </div>
                                 </figcaption>
                             </div>
                         </div>
 
                         {/* TODO пофиксить адаптивное отображение элементов bottom-wrap для md! съезжают */}
-                        <div className="bottom-wrap d-flex p-0 align-items-baseline">
+                        <div className="bottom-wrap d-flex mt-auto p-0 align-items-baseline">
                             <div className="widget-header col-4">
                                 <a href="#" className="icon icon-sm card-link">
                                     <i className="far fa-heart"/></a>
@@ -113,35 +124,41 @@ export const Products = () => (
                         <div id="linked_to_card_click" style={{transform: "rotate(0)"}}>
 
                             <div className="img-wrap">
-                                <img src="assets/images/items/table_template_2.jpg" className="card-img-top"/>
+                                <img src="assets/images/items/table_template_2.jpg" className="card-img border-img"/>
                             </div>
 
                             <div className="card-body">
                                 <h6>
-                                    <a href="" className="title card-title card-link stretched-link">
+                                    <a href="/product" className="title card-title card-link stretched-link">
                                         Химический пристенный лабораторный стол 1200x600x900/1600, MML
                                     </a>
                                 </h6>
+
                                 <figcaption className="card-props-column">
                                     <div className="card-props card-text">
                                         <span className="text-muted small">Материал столешницы:</span>
-                                        <span className="text-muted small">Пластик типа ЛАБ (П)</span>
+                                        <span className="text-muted small">Пластик типа ЛАБ</span>
                                     </div>
                                     <div className="card-props card-text">
                                         <span className="text-muted small">Материал исполнения:</span>
                                         <span className="text-muted small">Металл</span>
                                     </div>
+                                    <div className="card-props card-text">
+                                        <span className="text-muted small">Материал исполнения:</span>
+                                        <span className="text-muted small">DOD</span>
+                                    </div>
                                 </figcaption>
                             </div>
+                        </div>
 
                         {/* TODO пофиксить адаптивное отображение элементов bottom-wrap для md! съезжают */}
-                        <div className="bottom-wrap d-flex p-0 align-items-baseline">
+                        <div className="bottom-wrap d-flex mt-auto p-0 align-items-baseline">
                             <div className="widget-header col-4">
                                 <a href="#" className="icon icon-sm card-link">
                                     <i className="far fa-heart"/></a>
                             </div>
 
-                            <div className="price col-4 card-text price-wrap">32700 Р</div>
+                            <div className="price col-4 card-text price-wrap">6600 Р</div>
 
                             <div className="widget-header col-4">
                                 <a href="#" className="icon icon-sm card-link">
@@ -151,7 +168,6 @@ export const Products = () => (
                         </div>
                     </div>
                 </div>
-            </div>
 
                 <div className="col-md-3">
                     <div className="card card-product-grid">
@@ -159,7 +175,7 @@ export const Products = () => (
                         <div id="linked_to_card_click" style={{transform: "rotate(0)"}}>
 
                             <div className="img-wrap">
-                                <img src="assets/images/items/stellage_template_1.jpg" className="card-img-top"/>
+                                <img src="assets/images/items/stellage_template_1.jpg" className="card-img border-img"/>
                             </div>
 
                             <div className="card-body">
@@ -178,11 +194,15 @@ export const Products = () => (
                                         <span className="text-muted small">Материал исполнения:</span>
                                         <span className="text-muted small">Металл</span>
                                     </div>
+                                    <div className="card-props card-text">
+                                        <span className="text-muted small">Материал исполнения:</span>
+                                        <span className="text-muted small">DOD</span>
+                                    </div>
                                 </figcaption>
                             </div>
                         </div>
 
-                        <div className="bottom-wrap d-flex p-0 align-items-baseline">
+                        <div className="bottom-wrap mt-auto d-flex p-0 align-items-baseline">
                             <div className="widget-header col-4">
                                 <a href="#" className="icon icon-sm card-link">
                                     <i className="far fa-heart"/></a>
@@ -205,7 +225,7 @@ export const Products = () => (
                         <div id="linked_to_card_click" style={{transform: "rotate(0)"}}>
 
                             <div className="img-wrap">
-                                <img src="assets/images/items/cupboard_template_2.jpg" className="card-img-top"/>
+                                <img src="assets/images/items/cupboard_template_2.jpg" className="card-img border-img"/>
                             </div>
 
                             <div className="card-body">
@@ -224,11 +244,15 @@ export const Products = () => (
                                         <span className="text-muted small">Материал рабочей камеры:</span>
                                         <span className="text-muted small">Металл</span>
                                     </div>
+                                    <div className="card-props card-text">
+                                        <span className="text-muted small">Материал исполнения:</span>
+                                        <span className="text-muted small">DOD</span>
+                                    </div>
                                 </figcaption>
                             </div>
                         </div>
 
-                        <div className="bottom-wrap d-flex p-0 align-items-baseline">
+                        <div className="bottom-wrap mt-auto d-flex p-0 align-items-baseline">
                             <div className="widget-header col-4">
                                 <a href="#" className="icon icon-sm card-link">
                                     <i className="far fa-heart"/></a>
@@ -251,7 +275,7 @@ export const Products = () => (
                         <div id="linked_to_card_click" style={{transform: "rotate(0)"}}>
 
                             <div className="img-wrap">
-                                <img src="assets/images/items/table_template_3.jpg" className="card-img-top"/>
+                                <img src="assets/images/items/table_template_3.jpg" className="card-img border-img"/>
                             </div>
 
                             <div className="card-body">
@@ -270,11 +294,15 @@ export const Products = () => (
                                         <span className="text-muted small">Расположение:</span>
                                         <span className="text-muted small">Пристенное</span>
                                     </div>
+                                    <div className="card-props card-text">
+                                        <span className="text-muted small">Материал исполнения:</span>
+                                        <span className="text-muted small">DOD</span>
+                                    </div>
                                 </figcaption>
                             </div>
                         </div>
 
-                        <div className="bottom-wrap d-flex p-0 align-items-baseline">
+                        <div className="bottom-wrap mt-auto d-flex p-0 align-items-baseline">
                             <div className="widget-header col-4">
                                 <a href="#" className="icon icon-sm card-link">
                                     <i className="far fa-heart"/></a>
@@ -297,7 +325,7 @@ export const Products = () => (
                         <div id="linked_to_card_click" style={{transform: "rotate(0)"}}>
 
                             <div className="img-wrap">
-                                <img src="assets/images/items/table_template_4.jpg" className="card-img-top"/>
+                                <img src="assets/images/items/table_template_4.jpg" className="card-img border-img"/>
                             </div>
 
                             <div className="card-body">
@@ -316,11 +344,15 @@ export const Products = () => (
                                         <span className="text-muted small">Количество полок:</span>
                                         <span className="text-muted small">1 (Одна)</span>
                                     </div>
+                                    <div className="card-props card-text">
+                                        <span className="text-muted small">Материал исполнения:</span>
+                                        <span className="text-muted small">DOD</span>
+                                    </div>
                                 </figcaption>
                             </div>
                         </div>
 
-                        <div className="bottom-wrap d-flex p-0 align-items-baseline">
+                        <div className="bottom-wrap mt-auto d-flex p-0 align-items-baseline">
                             <div className="widget-header col-4">
                                 <a href="#" className="icon icon-sm card-link">
                                     <i className="far fa-heart"/></a>
@@ -343,7 +375,7 @@ export const Products = () => (
                         <div id="linked_to_card_click" style={{transform: "rotate(0)"}}>
 
                             <div className="img-wrap">
-                                <img src="assets/images/items/table_template_5.jpg" className="card-img-top"/>
+                                <img src="assets/images/items/table_template_5.jpg" className="card-img border-img"/>
                             </div>
 
                             <div className="card-body">
@@ -362,11 +394,15 @@ export const Products = () => (
                                         <span className="text-muted small">Назначение:</span>
                                         <span className="text-muted small">Лабораторный</span>
                                     </div>
+                                    <div className="card-props card-text">
+                                        <span className="text-muted small">Материал исполнения:</span>
+                                        <span className="text-muted small">DOD</span>
+                                    </div>
                                 </figcaption>
                             </div>
                         </div>
 
-                        <div className="bottom-wrap d-flex p-0 align-items-baseline">
+                        <div className="bottom-wrap mt-auto d-flex p-0 align-items-baseline">
                             <div className="widget-header col-4">
                                 <a href="#" className="icon icon-sm card-link">
                                     <i className="far fa-heart"/></a>

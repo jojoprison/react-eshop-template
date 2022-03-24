@@ -43,15 +43,11 @@ export default function Header(props) {
                                 <span className="badge badge-pill badge-danger notify">{totalItems}</span>
                             </div>
 
-                            <div className="widget-header icontext">
-                                <a href="#" className="icon icon-sm rounded-circle">
-                                    <i className="fa fa-user"/></a>
-                            </div>
+                            {/*<div className="widget-header icontext">*/}
+                            {/*    <a href="#" className="icon icon-sm rounded-circle">*/}
+                            {/*        <i className="fa fa-user"/></a>*/}
+                            {/*</div>*/}
 
-                            <Button variant='link' size='lg' title='Очистить'
-                                    onClick={() => emptyCart()}>
-                                <i className="fa fa-shopping-cart"/>
-                            </Button>
                         </div>
 
                     </div>

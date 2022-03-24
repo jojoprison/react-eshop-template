@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import {Link} from "react-router-dom";
-import {Similarprod} from "../pages/Similarprod";
 import {ContactUs} from "./ContactUs";
 
 
@@ -44,7 +43,8 @@ export class Product extends Component {
                                 <li className="breadcrumb-item"><a href="#">Каталог товаров</a></li>
                                 <li className="breadcrumb-item"><a href="#">Столы лабораторные</a></li>
                                 <li className="breadcrumb-item active">Пристенный лабораторный стол
-                                    600x600x900, NL, LabGrade</li>
+                                    600x600x900, NL, LabGrade
+                                </li>
                             </ul>
                         </nav>
                     </div>
@@ -54,71 +54,44 @@ export class Product extends Component {
                             LabGrade</h3>
                     </header>
 
-                <div className="col-md-12 row">
+                    <div className="col-md-12 row">
 
-                    <div className="col-md-3">
+                        <div className="col-md-3">
 
 
+                            <div className="img-wrap card">
+                                <img src="../assets/images/items/table_template_1.jpg" className="card-img-top"/>
+                            </div>
+                        </div>
+                        <div className="col-md-9">
+                            <div className="bottom-wrap d-flex p-0 align-items-baseline">
+                                <div className="col-4 card-text priceprod">4100 ₽</div>
 
-                                <div className="img-wrap">
-                                    <img src="../assets/images/items/table_template_1.jpg" className="card-img-top"/>
+                                <div className="col-3 row">
+                                    <aside className="col">
+                                        <ul className="list-unstyled ">
+                                            <div className="card-props card-text">
+                                                <span className="font-weight-bolder">Артикул:</span>
+
+                                                <a href="#" className="text-muted"><span
+                                                    className="font-weight-bold ">NL (NeatLab)</span></a>
+                                            </div>
+                                            <div className="card-props card-text">
+                                                <span className="font-weight-bolder">Серия:</span>
+                                                <span className=" font-weight-bold">NL-10-12-0П</span>
+                                            </div>
+                                        </ul>
+                                    </aside>
                                 </div>
 
-                                <div className="col-md">
-
-
-                                    <div className="slider center">
-                                        <div className="preview-carousel row">
-                                            <div className="item col">
-                                                <img src="../assets/images/items/table_template_1.jpg"
-                                                     className="img-fluid"/>
-                                            </div>
-
-                                            <div className="item col">
-                                                <img src="../assets/images/items/table_template_2.jpg"
-                                                     className="img-fluid"/>
-                                            </div>
-
-                                            <div className="item col">
-                                                <img src="../assets/images/items/table_template_3.jpg"
-                                                     className="img-fluid"/>
-                                            </div>
-
-                                        </div>
-
-
+                                <div className="row product-bottom col-5">
+                                    <button type="button" className="btn btn-primary margbutton btn-lg">В корзину
+                                    </button>
+                                    {/*<button type="button" className="btn btn-primary margbutton btn-lg">Быстрый заказ</button>*/}
+                                </div>
                             </div>
                         </div>
                     </div>
-                <div className="col-md-7">
-                    <div className="bottom-wrap d-flex p-0 align-items-baseline">
-                        <div className="col-4 card-text priceprod">4100 ₽</div>
-
-
-
-                            <div className="col-3 row">
-                                <aside className="col">
-                                    <ul className="list-unstyled ">
-                                        <div className="card-props card-text">
-                                            <span className="font-weight-bolder">Артикул:</span>
-
-                                            <a href="#" className="text-muted"><span
-                                                className="font-weight-bold ">NL (NeatLab)</span></a>
-                                        </div>
-                                        <div className="card-props card-text">
-                                            <span className="font-weight-bolder">Серия:</span>
-                                            <span className=" font-weight-bold">NL-10-12-0П</span>
-                                        </div>
-                                    </ul>
-                                </aside>
-                            </div>
-                        <div className="row product-bottom">
-                            <button type="button" className="btn btn-primary margbutton btn-lg">В корзину</button>
-                            <button type="button" className="btn btn-primary margbutton btn-lg">Быстрый заказ</button>
-                        </div>
-                    </div>
-                </div>
-                </div>
 
                     <div className="container my-5 col-12">
                         <nav>
@@ -129,7 +102,7 @@ export class Product extends Component {
                                         aria-selected="True">Характеристики
                                 </button>
 
-                                <button className="nav-link col-6  " id="nav-description-tab" data-bs-toggle="tab"
+                                <button className="nav-link col-6" id="nav-description-tab" data-bs-toggle="tab"
                                         data-bs-target="#nav-description" type="button" role="tab"
                                         aria-controls="nav-description"
                                         aria-selected="False">Описание
@@ -144,53 +117,53 @@ export class Product extends Component {
 
                             <div className="tab-pane show active fade p-3" id="nav-feature" role="tabpanel"
                                  aria-labelledby="nav-feature-tab">
-                                    <div className="col-md-6">
-                                <figcaption className="card-props-column ">
-                                    <div className="card-props card-text">
-                                        <span className="font-weight-bolder ">Ширина</span>
-                                        <span className="font-weight-bold">600</span>
-                                    </div>
-                                    <div className="card-props card-text">
-                                        <span className="font-weight-bolder">Глубина</span>
-                                        <span className="font-weight-bold">600</span>
-                                    </div>
-                                    <div className="card-props card-text">
-                                        <span className="font-weight-bolder">Высота</span>
-                                        <span className="font-weight-bold">900</span>
-                                    </div>
-                                    <div className="card-props card-text">
-                                        <span className="font-weight-bolder ">Материал столешницы</span>
-                                        <span className="font-weight-bold">Пластик типа ЛАБ (П)</span>
-                                    </div>
-                                    <div className="card-props card-text">
-                                        <span className="font-weight-bolder">Расположение</span>
-                                        <span className="font-weight-bold">Пристенное</span>
-                                    </div>
-                                    <div className="card-props card-text">
-                                        <span className="font-weight-bolder">Материал исполнения</span>
-                                        <span className="font-weight-bold">Металл</span>
-                                    </div>
-                                    <div className="card-props card-text">
-                                        <span className="font-weight-bolder">Тип тумбы</span>
-                                        <span className="font-weight-bold">Мобильная/Подвесная</span>
-                                    </div>
-                                    <div className="card-props card-text">
-                                        <span className="font-weight-bolder">Материал столешницы</span>
-                                        <span className="font-weight-bold">Пластик типа ЛАБ (П)</span>
-                                    </div>
-                                    <div className="card-props card-text">
-                                        <span className="font-weight-bolder">Назначение</span>
-                                        <span className="font-weight-bold">Лабораторный</span>
-                                    </div>
-                                </figcaption>
-                                    </div>
+                                <div className="col-md-6">
+                                    <figcaption className="card-props-column features-text">
+                                        <div className="card-props card-text">
+                                            <span className="font-weight-bolder ">Ширина</span>
+                                            <span className="font-weight-bold">600</span>
+                                        </div>
+                                        <div className="card-props card-text">
+                                            <span className="font-weight-bolder">Глубина</span>
+                                            <span className="font-weight-bold">600</span>
+                                        </div>
+                                        <div className="card-props card-text">
+                                            <span className="font-weight-bolder">Высота</span>
+                                            <span className="font-weight-bold">900</span>
+                                        </div>
+                                        <div className="card-props card-text">
+                                            <span className="font-weight-bolder ">Материал столешницы</span>
+                                            <span className="font-weight-bold">Пластик типа ЛАБ (П)</span>
+                                        </div>
+                                        <div className="card-props card-text">
+                                            <span className="font-weight-bolder">Расположение</span>
+                                            <span className="font-weight-bold">Пристенное</span>
+                                        </div>
+                                        <div className="card-props card-text">
+                                            <span className="font-weight-bolder">Материал исполнения</span>
+                                            <span className="font-weight-bold">Металл</span>
+                                        </div>
+                                        <div className="card-props card-text">
+                                            <span className="font-weight-bolder">Тип тумбы</span>
+                                            <span className="font-weight-bold">Мобильная/Подвесная</span>
+                                        </div>
+                                        <div className="card-props card-text">
+                                            <span className="font-weight-bolder">Материал столешницы</span>
+                                            <span className="font-weight-bold">Пластик типа ЛАБ (П)</span>
+                                        </div>
+                                        <div className="card-props card-text">
+                                            <span className="font-weight-bolder">Назначение</span>
+                                            <span className="font-weight-bold">Лабораторный</span>
+                                        </div>
+                                    </figcaption>
+                                </div>
 
                             </div>
 
                             <div className="tab-pane fade p-3" id="nav-description" role="tabpanel"
                                  aria-labelledby="nav-description-tab">
-                                <h2 className="text-left ">Описание товара:</h2>
-                                <p className="text-left product-text">Для организации комфортного рабочего места
+                                <h2 className="text-left">Описание товара:</h2>
+                                <p className="text-left description-text">Для организации комфортного рабочего места
                                     предлагаем надёжный и функциональный стол
                                     серии NL. Пристенный лабораторный стол 600x600x900, NL, LabGrade имеет
                                     сборно-разборный объёмный каркас и столешницу Пластик типа ЛАБ (П). Долговечный
@@ -238,8 +211,6 @@ export class Product extends Component {
                             </div>
                         </div>
                     </div>
-
-                    <Similarprod/>
 
 
                 </div>

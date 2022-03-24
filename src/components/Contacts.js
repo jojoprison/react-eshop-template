@@ -35,7 +35,7 @@ export class Contacts extends Component {
                     <div className="product_description">
                         <nav>
                             <ul className="breadcrumb">
-                                <li className="breadcrumb-item"><a href="#">Главная</a></li>
+                                <li className="breadcrumb-item"><a href="./">Главная</a></li>
                                 <li className="breadcrumb-item active">Контактная информация</li>
                             </ul>
                         </nav>
@@ -83,8 +83,13 @@ export class Contacts extends Component {
                         </div>
                     </div>
                     <div className="col-md-7">
-                        <Maps/>
 
+                        <div className="text-right">
+                            <Maps/>
+                            <button type="button" className="btn btn-danger download-info btn-lg mr-5">
+                                <a href="assets/docs/card-company.docx" download>Юридическая информация</a>
+                            </button>
+                        </div>
                     </div>
 
                 </div>

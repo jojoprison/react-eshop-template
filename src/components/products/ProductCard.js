@@ -30,8 +30,7 @@ export default function ProductCard(props) {
                             <span className="text-muted small">{product.time_create}</span>
                         </div>
                         <div className="card-props card-text">
-                                                    <span
-                                                        className="text-muted small">Время последнего обновления:</span>
+                            <span className="text-muted small">Время последнего обновления:</span>
                             <span className="text-muted small">{product.time_update}</span>
                         </div>
                     </figcaption>

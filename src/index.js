@@ -7,6 +7,7 @@ import './css/styles.css';
 import './index.css';
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Popup from 'react-popup';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 

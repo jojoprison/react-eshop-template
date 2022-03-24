@@ -13,9 +13,13 @@ import CatalogueFilters from "./components/products/CatalogueFilters";
 import {ContactUs} from "./components/ContactUs";
 import ShoppingCart from "./components/ShoppingCart";
 import {CartProvider, useCart} from 'react-use-cart';
+import OrderPage from "./components/OrderPage";
+import Modal from "./Modal/Modal";
+import Error404 from "./components/Error404";
 
 function App() {
     const [showButton, setShowButton] = useState(false);
+    const [modalActive, setModalActive] = useState(true)
 
     useEffect(() => {
         window.addEventListener('scroll', () => {
@@ -44,9 +48,9 @@ function App() {
                     <Navigation/>
 
                     <Routes>
-                        {/*component={Home} dont work!*/}
                         <Route path="/" element={<Home/>} exact/>
                         <Route path="/table" element={<Table/>}/>
+                        <Route path="/error" element={<Error404/>}/>
                         <Route path="/catalog" element={<Catalog/>}/>
                         <Route path="/filters" element={<CatalogueFilters/>}/>
                         <Route path="/contact" element={<ContactUs/>}/>
@@ -55,6 +59,7 @@ function App() {
                         <Route path="/basket" element={<ShoppingCart/>}/>
                         <Route path="/product" element={<Product/>}/>
                         <Route path="/contacts" element={<Contacts/>}/>
+                        <Route path="/ordering" element={<OrderPage/>}/>
                     </Routes>
 
                     {showButton && (
@@ -64,8 +69,12 @@ function App() {
                     )}
 
                     <Footer/>
+                    {/*<Modal active={modalActive} setActive={setModalActive}>*/}
+                    {/*    <h5>Товар успешно добавлен в корзину!</h5>*/}
+                    {/*</Modal>*/}
                 </div>
             </BrowserRouter>
+
         </CartProvider>
     );
 }

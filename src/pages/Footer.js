@@ -29,10 +29,9 @@ export const Footer = () => (
                         <aside className="col">
                             <h6 className="title">Профиль</h6>
                             <ul className="list-unstyled col-12">
-                                <li><a href="#"> <u>Личный кабинет</u> </a></li>
-                                <li><a href="#"> <u>Корзина</u> </a></li>
+                                {/*<li><a href="#"> <u>Личный кабинет</u> </a></li>*/}
+                                <li><a href="/basket"> <u>Корзина</u> </a></li>
                                 <li><a href="#"> <u>Избранное</u> </a></li>
-                                {/*<li><a href="#"> <u>История заказов</u> </a></li>*/}
                             </ul>
                         </aside>
 
