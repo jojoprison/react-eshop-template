@@ -1,64 +1,40 @@
 import React, {Component, useEffect, useState} from 'react';
-import {Button, Col, Container, Form, Row} from "react-bootstrap";
+import {Button,Image, Col, Container, Form, Row} from "react-bootstrap";
 import {useCart} from "react-use-cart";
+import {useParams} from "react-router-dom";
 import $ from 'jquery';
 
 
 export default function ShoppingCart(props) {
-    // id={'cart_item_quantity_plus_' + cartItem.id}
-
-    // const shopCart = [];
-    // items.map((filterSelect, index) =>
-        // TODO col-lg and etc. for adaptive design (4 to 2 elems in row)
-    //     shopCart.push(
-    //         <div className="col-md-3" key={filterSelect.product_prop + '_' + index}>
-    //             <div>
-    //                 name={filterSelect.product_prop}
-    //                 quantity={}
-    //                 price={}
-    //                 features={}
-    //             </div>
-    //             />
-    //         </div>)
-    // );
 
 
-    const {setItems, items, emptyCart} = useCart();
+    const params = useParams();
+    const {setItems, items, emptyCart,removeItem, isEmpty, updateItemQuantity,totalItems,
+        cartTotal,} = useCart();
+    const [product, setProduct] = useState({});
+    // const [loading, setLoading] = useState(true);
 
-
-    // передавать вторым аргументом state, при изменении которого должна вызываться функция чтоб не было лишних
     useEffect(() => {
-        const cartItems = [
-            {
-                id: '1',
-                title: "Стол",
-                depth: 900,
-                width: 600,
-                height: 900,
-                price: 1,
-            },
-            {
-                id: '125',
-                title: "Стеллаж",
-                depth: 333,
-                width: 100,
-                height: 800,
-                price: 788,
-            },
-        ];
+        async function fetchInitData() {
+            // const resProduct = await fetch(process.env.REACT_APP_NKS_API + `product/${params.id}`);
+            // const dataProduct = await resProduct.json();
+
+            // setProduct(dataProduct);
+            // setLoading(false);
+        }
+
+        fetchInitData();
+    }, []);
 
 
 
-        setItems(cartItems);
-    }, [])
 
-    console.log(items);
 
 
     const runCallback = (cb) => {
         return cb();
     }
-
+    if(isEmpty) return <div className="empty-page"><h1 className="text-center">Your Cart is Empty</h1></div>
     function renderCartItems() {
         if (items) {
 
@@ -73,34 +49,6 @@ export default function ShoppingCart(props) {
                             const shopcart = [];
                             items.map((cartItem, index) => {
 
-
-                                $('#cart_item_quantity_plus_' + cartItem.id).unbind('click').bind('click', function () {
-                                    let value = $('#number_quantity_' + cartItem.id).val();
-
-                                    if (value < 5) {
-                                        value++;
-                                        $('#number_quantity_' + cartItem.id).val(value);
-                                    }
-                                });
-
-                                $('#cart_item_quantity_minus_' + cartItem.id).unbind('click').bind('click', function () {
-                                    let value = $('#number_quantity_' + cartItem.id).val();
-
-                                    if (value > 1) {
-                                        value--;
-                                        $('#number_quantity_' + cartItem.id).val(value);
-                                    }
-                                });
-
-                                $('#number_quantity_' + cartItem.id).bind('click', function () {
-                                    if (this.value > 0) {
-                                        if (this.value >= ($('.quantity'))){
-                                            this.value = 5;
-                                        }
-                                    }
-                                });
-
-
                                 shopcart.push(
                                     <div key={'cart_item' + index} className="container-fluid">
                                         <div className="row">
@@ -110,11 +58,8 @@ export default function ShoppingCart(props) {
                                                         <td>
                                                             <figure className="itemside align-items-top">
                                                                 <div className="aside card">
-                                                                    <img
-                                                                        src="../assets/images/items/table_template_1.jpg"
-                                                                        className="img-md"/>
-                                                                    <div className="container">
-                                                                    </div>
+                                                                    <img src={process.env.REACT_APP_NKS_PHOTO_PRODUCTS_PATH + cartItem.photo_file_name}
+                                                                    className="img-md"/>
                                                                 </div>
 
                                                                 <figcaption className="info">
@@ -141,14 +86,14 @@ export default function ShoppingCart(props) {
 
                                                                             <a href="#"
                                                                                className="text-muted"><span
-                                                                                className="font-weight-bold ">NL (NeatLab)</span></a>
+                                                                                className="font-weight-bold ">{cartItem.article}</span></a>
                                                                         </div>
                                                                         <div
                                                                             className="card-props card-text">
                                                                                         <span
                                                                                             className="font-weight-bold">Серия:</span>
                                                                             <span
-                                                                                className=" font-weight-bold">NL-10-12-0П</span>
+                                                                                className=" font-weight-bold">{cartItem.series}</span>
                                                                         </div>
                                                                     </ul>
 
@@ -160,15 +105,17 @@ export default function ShoppingCart(props) {
 
                                                             <div className="quantity_inner">
                                                                 <button id={'cart_item_quantity_minus_' + cartItem.id}
-                                                                        className="bt_minus">
+                                                                        onClick ={() => updateItemQuantity(cartItem.id, cartItem.quantity-1)}
+                                                                            className="bt_minus">
                                                                     <svg viewBox="0 0 24 24">
                                                                         <line x1="5" y1="12" x2="19" y2="12"></line>
                                                                     </svg>
                                                                 </button>
-                                                                <input id={'number_quantity_' + cartItem.id} type="text"
-                                                                       value="1" size="2" className="quantity"
-                                                                        name="quantity_prod"/>
-                                                                <button id={'cart_item_quantity_plus_' + cartItem.id}
+                                                                <button type="button" disabled
+                                                                        className="btn btn-outline-dark"
+                                                                >  {cartItem.quantity}</button>
+                                                                <button  onClick ={() => updateItemQuantity(cartItem.id, cartItem.quantity+1)}
+                                                                    id={'cart_item_quantity_plus_' + cartItem.id}
                                                                         className="bt_plus">
                                                                     <svg viewBox="0 0 24 24">
                                                                         <line x1="12" y1="5" x2="12" y2="19"></line>
@@ -181,7 +128,7 @@ export default function ShoppingCart(props) {
                                                         <td>
                                                             <div className="price-wrap"><var
                                                                 className="item_price" id={'item_price_' + cartItem.id}
-                                                                name="item_price">{cartItem.price}</var>
+                                                                name="item_price">{cartItem.price} ₽</var>
                                                             </div>
                                                         </td>
                                                         <td className="text-right d-none d-md-block">
@@ -191,8 +138,10 @@ export default function ShoppingCart(props) {
 
                                                             {/*    <i className="fa fa-heart"></i>*/}
                                                             {/*</a> */}
-                                                            <a href="" className="btn btn-light"
-                                                               data-abc="true"> Удалить</a></td>
+                                                            <button onClick={() => removeItem(cartItem.id)}
+                                                                className="btn btn-light"
+                                                               data-abc="true"> Удалить</button>
+                                                        </td>
                                                     </tr>
 
 
@@ -239,7 +188,7 @@ export default function ShoppingCart(props) {
 
                             })
 
-                            console.log(shopcart);
+                            // console.log(shopcart);
                             return shopcart;
                         })
                     }
@@ -249,7 +198,6 @@ export default function ShoppingCart(props) {
 
         return null;
     }
-
 
 
     return (
@@ -272,12 +220,12 @@ export default function ShoppingCart(props) {
 
                                             <dl className="dlist-align">
                                                 <dt className="text-left">Товаров в корзине:</dt>
-                                                <dd className="text-right ml-3">3</dd>
+                                                <dd className="text-right ml-3">{totalItems}</dd>
                                             </dl>
                                             <dl className="dlist-align">
                                                 <dt className="text-left">Стоимость:</dt>
                                                 <dd id="total_price" name="total_price"
-                                                    className="text-right text-dark b ml-3"><strong>12.000</strong>
+                                                    className="text-right text-dark b ml-3"><strong>{cartTotal} ₽</strong>
                                                 </dd>
                                             </dl>
                                             <hr/>
@@ -291,27 +239,9 @@ export default function ShoppingCart(props) {
 
                                         </div>
                                     </div>
-
-                                    {/*<div className="form-check text-left">*/}
-                                    {/*    <input className="form-check-input" type="radio" name="flexRadioDefault"*/}
-                                    {/*           id="flexRadioDefault1" checked/>*/}
-                                    {/*    <label className="form-check-label" htmlFor="flexRadioDefault1">*/}
-                                    {/*        Самовывоз*/}
-                                    {/*    </label>*/}
-                                    {/*</div>*/}
-
-                                    {/*<div className="form-check text-left">*/}
-                                    {/*    <input className="form-check-input" type="radio" name="flexRadioDefault"*/}
-                                    {/*           id="flexRadioDefault2" />*/}
-                                    {/*    <label className="form-check-label" htmlFor="flexRadioDefault2">*/}
-                                    {/*        Доставка*/}
-                                    {/*    </label>*/}
-                                    {/*</div>*/}
-
                                 </form>
                             </div>
                         </div>
-
                     </aside>
                 </div>
             </div>

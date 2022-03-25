@@ -156,14 +156,14 @@ const CatalogueFilters = React.memo((props) => {
                 {/*}*/}
 
                 <Row>
-                    <Col xs={{offset: 4}}>
-                        <Button type="submit" className='nks-btn center'>
+                    <Col xs={{offset: 8}}>
+                        <Button type="submit" className='filters-btn'>
                             {/*TODO сделать из нее Spinner Buttons bootstrap*/}
                             Применить фильтры
                         </Button>
                     </Col>
                     <Col xs={{order: 'last'}}>
-                        <Button variant="primary" className='nks-btn float-right'
+                        <Button variant="primary" className='filters-btn float-right'
                                 onClick={clearFilters}>
                             Сбросить фильтры
                         </Button>
@@ -175,7 +175,7 @@ const CatalogueFilters = React.memo((props) => {
             </Form>
 
             {/* TODO это чтобы блок с продуктами не пропадал, даже если пустой - переделать на норм*/}
-            <div style={{ height: '900px' } } >
+            <div style={{ minHeight: '900px' }} >
                 {!loading && (<ProductsDynamic products={products}/>)}
             </div>
 

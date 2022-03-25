@@ -2,11 +2,11 @@ import React, {useEffect, useState} from "react";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import Navigation from './components/Nav'
 import {Table} from "./components/Table";
-import {Home} from "./pages/Home";
+import Home from "./pages/Home";
 import Header from "./components/Header";
 import {Footer} from "./pages/Footer";
 import {Catalog} from "./components/Catalog";
-import {Product} from "./components/Product";
+import ProductDetail from "./components/ProductDetail";
 import {Contacts} from "./components/Contacts";
 import './App.css';
 import CatalogueFilters from "./components/products/CatalogueFilters";
@@ -57,7 +57,7 @@ function App() {
                         {/* TODO добавить юрлу когда вмерджим с веткой карточки продукта */}
                         {/*<Route path="/product/tmp" element={<ProductTemplate/>}/>*/}
                         <Route path="/basket" element={<ShoppingCart/>}/>
-                        <Route path="/product" element={<Product/>}/>
+                        <Route path="/product/:id" element={<ProductDetail/>}/>
                         <Route path="/contacts" element={<Contacts/>}/>
                         <Route path="/ordering" element={<OrderPage/>}/>
                     </Routes>

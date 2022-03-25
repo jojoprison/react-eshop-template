@@ -3,9 +3,8 @@
     /*background-color: #A6B1DB;*/
     background-color: #96adfc;
 }
-
-.contact {
-    color: black;
+.header-height{
+    max-height: 110px;
 }
 
 .logo_company_footer{
@@ -13,7 +12,6 @@
     position: relative;
     margin-top: 4%;
 }
-
 .header-text {
     font-weight: 600;
     color: #f0f3fb;
@@ -32,19 +30,23 @@
     font-size:17px;
 }
 
-.header-text-second {
-    color: #b8c1d1;
-    /*font-size: 16px;*/
-}
-
 .map iframe {
     border-radius: 15px;
     overflow: hidden;
 }
 
+.empty-page{
+    height: 500px;
+}
 
 
 /* button */
+.filters-btn{
+    background-color: #5d81ff;
+}
+.filters-btn:hover{
+    background-color: #3950c4;
+}
 
 .nks-btn {
     color: #fff;
@@ -82,10 +84,6 @@
     flex-wrap: wrap;
     justify-content: space-between;
 }
-card-basket{
-    margin-bottom: 20px;
-    min-height: 3100px;
-}
 
 .card-props-column {
     align-items: center;
@@ -96,13 +94,6 @@ card-basket{
 .maps-element {
     border-radius: 50px !important;
     overflow: hidden !important;
-}
-
-.social-information {
-    display: flex;
-    color: black;
-    align-items: center;
-    font-size: 0.95rem
 }
 
 .bg-pics{
@@ -145,10 +136,6 @@ card-basket{
 .series-img .img-wrap {
     border-radius: 0.2rem 0.2rem 0 0;
     height: 100%;
-}
-.card-bottom{
-    position: absolute;
-    top: 330px;
 }
 .product-bottom{
     position: absolute;
@@ -195,6 +182,8 @@ ul.breadcrumb li a:hover {
     text-decoration: underline;
 }
 
+/*orderPage*/
+
 textarea[name="message"] {
     resize: none
 }
@@ -219,8 +208,8 @@ textarea.input-box {
 
 input.input-box:focus,
 textarea.input-box:focus {
-    background-color: rgba(166, 177, 219, 0.2);
-    color: #BDBDBD
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #000000
 }
 
 form .form-control::-webkit-input-placeholder {
@@ -265,8 +254,6 @@ input.btn-purple {
 .btn-apply {
     font-size: 11px
 }
-
-/*Для shopping cart*/
 
 .quantity_inner * {
     box-sizing: border-box;
@@ -315,6 +302,7 @@ input.btn-purple {
     background-color: rgba(37,69,87,0.05);
     /*border: 1px solid gray;*/
     border-radius: 17px;
+    margin-left: 0px;
     padding-left: 15px;
     padding-top: 5px;
 }
@@ -338,8 +326,6 @@ input.btn-purple {
     padding-top: 5px;
 }
 
-/*******/
-
 #ordered_link{
     color: #002AF8E4;
     font-size: 17px;
@@ -361,6 +347,8 @@ input.btn-purple {
     color: #fff8f8;
     border: 1px solid black;
 }
+
+/*Error Page404*/
 .error-page{
     width: 90vw;
     /*position: relative;*/
@@ -389,5 +377,10 @@ input.btn-purple {
     left: -240px;
     top: 50px;
     font-family: 'lato';
+}
+
+/*icons styles*/
+.basket-icon{
+    color: blue;
 }
 

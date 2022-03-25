@@ -6,19 +6,19 @@ export default function ProductCard(props) {
     const {addItem} = useCart();
 
     return (
-        <div className="card card-product-grid">
+        <div className="card card-product-grid p-3">
 
             <div id="linked_to_card_click" style={{transform: "rotate(0)"}}>
 
                 <div className="img-wrap">
                     <img
                         src={process.env.REACT_APP_NKS_PHOTO_PRODUCTS_PATH + product.photo_file_name}
-                        className="card-img-top"/>
+                        className="card-img border-img"/>
                 </div>
 
                 <div className="card-body">
                     <h6>
-                        <a href="/product"
+                        <a href={"/product/" + product.id}
                            className="title card-title card-link stretched-link">
                             {product.title}
                         </a>
@@ -38,14 +38,14 @@ export default function ProductCard(props) {
             </div>
 
             {/* TODO пофиксить адаптивное отображение элементов bottom-wrap для md! съезжают */}
-            <div className="bottom-wrap d-flex p-0 align-items-baseline">
+            <div className="bottom-wrap d-flex p-0 align-items-baseline mt-auto">
                 {/*TODO добавим когда сделаем личный кабинет*/}
                 {/*<div className="widget-header col-4">*/}
                 {/*    <a href="#" className="icon icon-sm card-link">*/}
                 {/*        <i className="far fa-heart"/></a>*/}
                 {/*</div>*/}
 
-                <div className="price col card-text price-wrap">{product.price}</div>
+                <div className="price col card-text price-wrap">{product.price} ₽</div>
 
                 <div className="col">
                     {/*TODO поменять цвет иконки (при наведении тоже)*/}
