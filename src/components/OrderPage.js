@@ -74,7 +74,7 @@ const OrderPage = (props) => {
 
                                 <div className="form-check custom-radio">
                                     <input className="form-check-input" checked={radio === "self-delivery"}
-                                           defaultChecked type="radio" name="flexRadioDefault"
+                                           type="radio" name="flexRadioDefault"
                                            id="flexRadioDefault1" value="self-delivery"
                                            onChange={(e) => {
                                                setRadio(e.target.value)

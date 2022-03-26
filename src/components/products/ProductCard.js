@@ -1,12 +1,13 @@
 import {Button} from "react-bootstrap";
 import {useCart} from "react-use-cart";
+// import addCartItem from "../../Modal/Notification";
 
 export default function ProductCard(props) {
     const {product} = props;
     const {addItem} = useCart();
 
     return (
-        <div className="card card-product-grid p-3">
+        <div className="card card-product-grid p-3 product-card">
 
             <div id="linked_to_card_click" style={{transform: "rotate(0)"}}>
 

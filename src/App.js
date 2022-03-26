@@ -14,7 +14,7 @@ import {ContactUs} from "./components/ContactUs";
 import ShoppingCart from "./components/ShoppingCart";
 import {CartProvider, useCart} from 'react-use-cart';
 import OrderPage from "./components/OrderPage";
-import Modal from "./Modal/Modal";
+import addCartItem from "./Modal/Notification";
 import Error404 from "./components/Error404";
 
 function App() {
@@ -70,9 +70,6 @@ function App() {
                     )}
 
                     <Footer/>
-                    {/*<Modal active={modalActive} setActive={setModalActive}>*/}
-                    {/*    <h5>Товар успешно добавлен в корзину!</h5>*/}
-                    {/*</Modal>*/}
                 </div>
             </BrowserRouter>
 

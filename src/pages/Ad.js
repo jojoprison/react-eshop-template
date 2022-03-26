@@ -11,7 +11,7 @@ export const Ad = () => (
                 <aside className="col-md-3 padding-y">
 
                     <nav className="card">
-                        <ul className="menu-category ">
+                        <ul className="menu-category text-left">
                             <li><a href="#">Столы лабораторные</a></li>
                             <li><a href="#">Тумбы для столов лабораторных</a></li>
                             {/*<li><a href="#">Столы-мойки лабораторные</a></li>*/}
@@ -27,7 +27,7 @@ export const Ad = () => (
                         </ul>
                     </nav>
                 </aside>
-                <div className="col-md-9 p-2">
+                <div className="col-md-9 ">
                     <div className="row">
                         <div className="center-x col-md-12">
                             <h2>Серии</h2>

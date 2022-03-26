@@ -49,6 +49,7 @@ export default function ShoppingCart(props) {
                             const shopcart = [];
                             items.map((cartItem, index) => {
 
+
                                 shopcart.push(
                                     <div key={'cart_item' + index} className="container-fluid">
                                         <div className="row">
@@ -57,9 +58,9 @@ export default function ShoppingCart(props) {
                                                     <tr>
                                                         <td>
                                                             <figure className="itemside align-items-top">
-                                                                <div className="aside card">
+                                                                <div className="aside">
                                                                     <img src={process.env.REACT_APP_NKS_PHOTO_PRODUCTS_PATH + cartItem.photo_file_name}
-                                                                    className="img-md"/>
+                                                                    className="img-md rounded card"/>
                                                                 </div>
 
                                                                 <figcaption className="info">
@@ -79,7 +80,7 @@ export default function ShoppingCart(props) {
                                                                             <span className="sr-only">Toggle Dropdown</span>
                                                                         </button>
                                                                     </div>
-                                                                    <ul className="list-unstyled ">
+                                                                    <ul className="list-unstyled col-md-7">
                                                                         <div
                                                                             className="card-props card-text">
                                                                                     <span className="font-weight-bold">Артикул:</span>
@@ -211,11 +212,10 @@ export default function ShoppingCart(props) {
                         </div>
 
                     </aside>
-                    <aside className="col-lg-3">
-                        <div className="card mb-3">
-                            <div className="card-body">
-                                <form>
-                                    <div className="card">
+                        <aside className="col-lg-3">
+                            <div className="card mb-3">
+                                <div className="card-body">
+                                    <form>
                                         <div className="card-body">
 
                                             <dl className="dlist-align">
@@ -236,15 +236,13 @@ export default function ShoppingCart(props) {
                                                     <button onClick={() => emptyCart()} className="btn btn-out btn-main
                                                     btn-success">Очистить корзину</button>
                                             </div>
-
                                         </div>
-                                    </div>
-                                </form>
+                                    </form>
+                                </div>
                             </div>
-                        </div>
-                    </aside>
+                        </aside>
+                    </div>
                 </div>
             </div>
-        </div>
     )
 }

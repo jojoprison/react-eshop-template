@@ -1,13 +1,12 @@
 import React from 'react';
 import {Navbar, Nav, Container, NavDropdown} from "react-bootstrap";
-import $ from 'jquery';
 
 export default function Navigation() {
 
 
     return (
 
-        <Navbar collapseOnSelect expand="lg" bg="blue" variant="dark">
+        <Navbar collapseOnSelect expand="lg" variant="" className="nav-style">
             <Container>
                 {/*<Navbar.Brand href="/">Главная</Navbar.Brand>*/}
                 {/* TODO пробнуть aria-controls="basic-navbar-nav", пока хз в чем разница) */}
@@ -21,14 +20,14 @@ export default function Navigation() {
                             <NavDropdown.Divider />
                             <NavDropdown.Item href="#action/3.3">Весовые столы</NavDropdown.Item>
                         </NavDropdown>
-                        <Nav.Link href="/table">Тумбы</Nav.Link>
-                        <Nav.Link href="/catalog">Шкафы</Nav.Link>
+                        <Nav.Link className="nav-text" href="/table">Тумбы</Nav.Link>
+                        <Nav.Link className="nav-text" href="/catalog">Шкафы</Nav.Link>
                         {/* TODO вот такой дропдаун - точно юзаем */}
                     </Nav>
                     <Nav>
-                        <Nav.Link href="/filters">Стеллажи</Nav.Link>
-                        <Nav.Link href="/filters">Стулья/Кресла</Nav.Link>
-                        <Nav.Link href="/filters">Доп.оснащения</Nav.Link>
+                        <Nav.Link className="nav-text" href="/filters">Стеллажи</Nav.Link>
+                        <Nav.Link className="nav-text" href="/filters">Стулья/Кресла</Nav.Link>
+                        <Nav.Link className="nav-text" href="/filters">Доп.оснащения</Nav.Link>
                         {/*<Nav.Link eventKey={3} href="/filters">*/}
                         {/*    Еще разок фильтры*/}
                         {/*</Nav.Link>*/}

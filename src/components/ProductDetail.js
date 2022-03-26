@@ -22,15 +22,18 @@ const ProductDetail = () => {
 
     const {addItem} = useCart();
 
+
+
     const fillContent = () => {
         console.log('FILL_CONTENT');
+
 
         return (
             <div>
                 <div className="product_description">
                     <nav>
                         <ul className="breadcrumb">
-                            <li className="breadcrumb-item"><a href="#">Главная</a></li>
+                            <li className="breadcrumb-item"><a href="/">Главная</a></li>
                             <li className="breadcrumb-item"><a href="#">Каталог товаров</a></li>
                             <li className="breadcrumb-item"><a href="#">Столы лабораторные</a></li>
                             <li className="breadcrumb-item active">{product.title}
@@ -48,7 +51,6 @@ const ProductDetail = () => {
                 <div className="col-md-12 row">
 
                     <div className="col-md-3">
-
 
                         <div className="img-wrap card">
                             <img src={process.env.REACT_APP_NKS_PHOTO_PRODUCTS_PATH + product.photo_file_name}
@@ -78,7 +80,7 @@ const ProductDetail = () => {
 
                             <div className="row product-bottom col-5">
                                 <button onClick={() => addItem(product)}
-                                        type="button" className="btn btn-primary margbutton btn-lg">В корзину
+                                        type="button" id="addCart" className="btn btn-primary margbutton btn-lg">В корзину
                                 </button>
                                 {/*<button type="button" className="btn btn-primary margbutton btn-lg">Быстрый заказ</button>*/}
                             </div>
@@ -113,16 +115,16 @@ const ProductDetail = () => {
                             <div className="col-md-6">
                                 <figcaption className="card-props-column features-text">
                                     <div className="card-props card-text">
-                                        <span className="font-weight-bolder ">Ширина</span>
-                                        <span className="font-weight-bold">600</span>
+                                        <span className="font-weight-bolder">Ширина</span>
+                                        <span className="font-weight-bold">{product.width}</span>
                                     </div>
                                     <div className="card-props card-text">
                                         <span className="font-weight-bolder">Глубина</span>
-                                        <span className="font-weight-bold">600</span>
+                                        <span className="font-weight-bold">{product.depth}</span>
                                     </div>
                                     <div className="card-props card-text">
                                         <span className="font-weight-bolder">Высота</span>
-                                        <span className="font-weight-bold">900</span>
+                                        <span className="font-weight-bold">{product.height}</span>
                                     </div>
                                     <div className="card-props card-text">
                                         <span className="font-weight-bolder ">Материал столешницы</span>
@@ -134,7 +136,7 @@ const ProductDetail = () => {
                                     </div>
                                     <div className="card-props card-text">
                                         <span className="font-weight-bolder">Материал исполнения</span>
-                                        <span className="font-weight-bold">Металл</span>
+                                        <span className="font-weight-bold">{product.execution_material}</span>
                                     </div>
                                     <div className="card-props card-text">
                                         <span className="font-weight-bolder">Тип тумбы</span>
@@ -157,7 +159,9 @@ const ProductDetail = () => {
                         <div className="tab-pane fade p-3" id="nav-description" role="tabpanel"
                              aria-labelledby="nav-description-tab">
                             <h2 className="text-left">Описание товара:</h2>
-                            <p className="text-left description-text">Для организации комфортного рабочего места
+                            <p className="text-left description-text">{product.description}
+                                <br/><br/><br/><br/>
+                                Для организации комфортного рабочего места
                                 предлагаем надёжный и функциональный стол
                                 серии NL. Пристенный лабораторный стол 600x600x900, NL, LabGrade имеет
                                 сборно-разборный объёмный каркас и столешницу Пластик типа ЛАБ (П). Долговечный
