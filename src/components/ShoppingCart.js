@@ -225,7 +225,7 @@ export default function ShoppingCart(props) {
                                             <dl className="dlist-align">
                                                 <dt className="text-left">Стоимость:</dt>
                                                 <dd id="total_price" name="total_price"
-                                                    className="text-right text-dark b ml-3"><strong>{cartTotal} ₽</strong>
+                                                    className="text-right text-dark b ml-2"><strong>{cartTotal} ₽</strong>
                                                 </dd>
                                             </dl>
                                             <hr/>

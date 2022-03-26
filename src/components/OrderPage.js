@@ -5,22 +5,24 @@ import {useCart} from "react-use-cart";
 const OrderPage = (props) => {
     const {totalItems, cartTotal} = useCart();
     const [radio, setRadio] = useState();
+    const [name, setName] = useState('');
+    const [phone, setPhone] = useState('');
+    const [email, setEmail] = useState('');
+    const [city, setCity] = useState('');
+    const [commentary, setCommentary] = useState('');
 
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        const price = cartTotal
+        const order = {name, phone, email, city, commentary, price};
 
-    const handleSubmit = (event) =>
-    {
-        event.preventDefault();
         fetch(process.env.REACT_APP_NKS_API + 'order', {
             method: 'POST',
             headers: {
-                'Accept': 'application/json',
+                // 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({
-                client: event.target.client.value,
-                price: event.target.price.value,
-                products: event.target.products.value,
-            })
+            body: JSON.stringify(order)
         })
             .then(res => res.json())
             .then((result) => {
@@ -46,11 +48,11 @@ const OrderPage = (props) => {
         }
     }
 
-// render()
-//     {
-        return (
-            <section className="container">
-                <div className="padding-y-sm">
+
+    return (
+        <section className="container">
+            <div className="padding-y-sm">
+                <form onSubmit={handleSubmit}>
 
                     <div className="product_description padding-bottom-sm">
                         <nav>
@@ -90,7 +92,8 @@ const OrderPage = (props) => {
                                     <div className="text-wrap">
                                         <a href="#" id="ordered_link">Самовывоз</a>
                                     </div>
-                                    <span className="text-muted small-info">Владимирская область, город Александров</span>
+                                    <span
+                                        className="text-muted small-info">Владимирская область, город Александров</span>
                                 </figcaption>
                             </figure>
                         </div>
@@ -184,118 +187,61 @@ const OrderPage = (props) => {
                             </div>
 
                             <div className="row m-1">
-                                <div className="col-md-6">
+                                <div className="col-md-5">
                                     <div className="form-group mb-2">
                                         <p className="mb-1 text-left">ФИО</p>
-                                        <input id="name" type="text" required
+                                        <input type="text" required
                                                placeholder="ФИО контактного лица"
-                                               name="name"
-                                               className="form-control input-box rm-border"/>
+                                               value={name}
+                                               className="form-control input-box"
+                                               onChange={(e) =>
+                                                   setName(e.target.value)}/>
                                     </div>
                                 </div>
 
                                 <div className="col-md-6">
                                     <div className="form-group mb-1">
                                         <p className="mb-1 text-left">Контактный телефон</p>
-                                        <input id="name" type="tel"
+                                        <input type="tel"
                                                placeholder="Контактный телефон" required
-                                               name="phone"
-                                               className="form-control input-box rm-border"/>
+                                               value={phone}
+                                               className="form-control input-box"
+                                               onChange={(e) =>
+                                                   setPhone(e.target.value)}/>
                                     </div>
                                 </div>
                             </div>
-
-
                             <div className="row m-1">
-                                <div className="col-md-6">
-                                    <div className="form-group mb-2">
-                                        <p className="mb-1 text-left">Email</p>
-                                        <input id="e-mail" type="email" required
-                                               placeholder="Ваша электронная почта"
-                                               name="email"
-                                               className="form-control input-box rm-border"/>
-                                    </div>
+                                <div className="col-md-5">
+                                    <p className="mb-1 text-left">Email</p>
+                                    <input type="email" required
+                                           placeholder="Ваша электронная почта"
+                                           value={email}
+                                           className="form-control input-box"
+                                           onChange={(e) =>
+                                               setEmail(e.target.value)}/>
                                 </div>
 
                                 <div className="col-md-6">
-                                    <div className="form-group mb-2">
-                                        <p className="mb-1 text-left">Наименование
-                                            организации</p>
-                                        <input id="name" type="text"
-                                               placeholder="Наименование организации"
-                                               name="name"
-                                               className="form-control input-box rm-border"/>
-                                    </div>
+                                    <p className="mb-1 text-left">Адрес доставки</p>
+                                    <input type="text" required
+                                           placeholder="Город"
+                                           value={city}
+                                           className="form-control input-box"
+                                           onChange={(e) =>
+                                               setCity(e.target.value)}/>
                                 </div>
                             </div>
 
-                            <div className="row m-1">
-                                <div className="col-md-12">
-                                    <div className="form-group row mb-3">
-                                        <div className="col-md-6">
-                                            <p className="mb-1 text-left">ИНН</p>
-                                            <input id="name" type="text"
-                                                   placeholder="ИНН"
-                                                   name="name"
-                                                   className="form-control input-box rm-border"/>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div className="col-md-12 padding-top-sm">
-                                <h5 className="text-left mb-4">Адрес доставки:</h5>
-                            </div>
-
-
-                            <div className="col-md-12">
-                                <div className="form-group row mb-3">
-
-                                    <div className="col-md-4">
-                                        <p className="mb-1 text-left">Почтовый индекс</p>
-                                        <input id="name" type="text"
-                                               placeholder="Почтовый индекс"
-                                               name="name"
-                                               className="form-control input-box rm-border"/>
-                                    </div>
-                                    <div className="col-md-4">
-                                        <p className="mb-1 text-left">Страна</p>
-                                        <select id="name" className="form-control input-box rm-border"
-                                                name="name">
-                                            <option>Страна</option>
-                                            <option value="RU">Россия</option>
-                                            <option value="KZ">Казахстан</option>
-                                            <option value="BY">Беларусь</option>
-                                            <option value="UA">Украина</option>
-                                            <option value="AM">Армения</option>
-                                        </select>
-                                    </div>
-                                    <div className="col-md-4">
-                                        <p className="mb-1 text-left">Город</p>
-                                        <input id="name" type="text"
-                                               placeholder="Город"
-                                               name="name"
-                                               className="form-control input-box rm-border"/>
-                                    </div>
-
-                                </div>
-                            </div>
-
-                            <div className="col-md-8 mb-3">
-                                <p className="mb-1 text-left">Улица</p>
-                                <input id="name" type="text"
-                                       placeholder="Улица"
-                                       name="name"
-                                       className="form-control input-box rm-border"/>
-                            </div>
-
-                            <div className="form-group">
+                            <div className="form-group padding-top-sm">
                                 <div className="col-md-8">
                                     <p className="mb-1 text-left">Комментарий к заказу</p>
-                                    <textarea id="message" type="text"
+                                    <textarea type="text"
                                               placeholder="Текст сообщения"
-                                              name="message"
-                                              className="form-control input-box rm-border">
+                                              value={commentary}
+                                              className="form-control input-box"
+                                              onChange={(e) =>
+                                                  setCommentary(e.target.value)}>
                                             </textarea>
                                 </div>
                             </div>
@@ -330,19 +276,19 @@ const OrderPage = (props) => {
                                     </div>
                                 </div>
                                 <div className="col-md-3 text-left">
-                                    <input type="submit" value="Оформить заказ"
-                                           className="btn btn-danger download-info btn-lg"/>
+                                    <button type="submit" value="Оформить заказ"
+                                            className="btn btn-danger download-info btn-lg">Оформить заказ
+                                    </button>
                                     {/*<input onSubmit={this.handleSubmit} type="submit" value="Оформить заказ"*/}
                                     {/*       className="btn btn-danger download-info btn-lg"/>*/}
                                 </div>
                             </footer>
                         </div>
                     </div>
-                </div>
-            </section>
-        )
-    // }
-
+                </form>
+            </div>
+        </section>
+    )
 }
 
 export default OrderPage;
