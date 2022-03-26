@@ -5,8 +5,8 @@ import Selects from "./filters/SelectFilter";
 
 
 const CatalogueFilters = React.memo((props) => {
-    const [products, setProducts] = useState([]);
     const [filterVariants, setFilterVariants] = useState({});
+    const [products, setProducts] = useState([]);
     // TODO через пропсы засовывать сюда уже selectedFiltersValues когда будем на страницах разных продуктов делать
     const [selectedFiltersValues, setSelectedFiltersValues] = useState({});
     const [loading, setLoading] = useState(true);
@@ -39,7 +39,6 @@ const CatalogueFilters = React.memo((props) => {
                 return products;
             }, (error) => {
                 console.log('Не удалось получить продукты');
-                return null;
             })
     };
 

@@ -317,7 +317,7 @@ input.btn-purple {
 }
 
 .personal-details{
-    height: 975px;
+    /*height: 975px;*/
     width: 100%;
     background-color: rgba(37,69,87,0.05);
     /*border: 1px solid gray;*/
