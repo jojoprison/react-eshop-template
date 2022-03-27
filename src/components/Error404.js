@@ -13,7 +13,7 @@ export default function Error404(props) {
                         <h3>404</h3>
                     </div>
                 </div>
-                <h2 className="back-home">Вернуться на <a href="#">главную</a></h2>
+                <h2 className="back-home">Вернуться на <a href="/">главную</a></h2>
             </div>
         </div>
     </section>

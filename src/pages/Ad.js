@@ -30,7 +30,7 @@ export const Ad = () => (
                 <div className="col-md-9 ">
                     <div className="row">
                         <div className="center-x col-md-12">
-                            <h2>Серии</h2>
+                            <h1>Серии</h1>
                         </div>
                     </div>
 
@@ -60,8 +60,6 @@ export const Ad = () => (
                                 </div>
                             </div>
                         </div>
-
-
                     </div>
                 </div>
             </div>

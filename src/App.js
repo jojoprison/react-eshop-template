@@ -14,7 +14,6 @@ import {ContactUs} from "./components/ContactUs";
 import ShoppingCart from "./components/ShoppingCart";
 import {CartProvider, useCart} from 'react-use-cart';
 import OrderPage from "./components/OrderPage";
-import addCartItem from "./Modal/Notification";
 import Error404 from "./components/Error404";
 
 function App() {

@@ -224,7 +224,7 @@ const OrderPage = (props) => {
 
                                 <div className="col-md-6">
                                     <p className="mb-1 text-left">Адрес доставки</p>
-                                    <input type="text" required
+                                    <input type="text"
                                            placeholder="Город"
                                            value={city}
                                            className="form-control input-box"
@@ -236,7 +236,7 @@ const OrderPage = (props) => {
                             <div className="form-group padding-top-sm">
                                 <div className="col-md-8">
                                     <p className="mb-1 text-left">Комментарий к заказу</p>
-                                    <textarea type="text"
+                                    <textarea type="text" name="message"
                                               placeholder="Текст сообщения"
                                               value={commentary}
                                               className="form-control input-box"
