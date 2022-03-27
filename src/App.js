@@ -15,6 +15,7 @@ import ShoppingCart from "./components/ShoppingCart";
 import {CartProvider, useCart} from 'react-use-cart';
 import OrderPage from "./components/OrderPage";
 import Error404 from "./components/Error404";
+import {Pagination} from "./components/products/Pagination";
 
 function App() {
     const [showButton, setShowButton] = useState(false);
@@ -48,7 +49,7 @@ function App() {
 
                     <Routes>
                         <Route path="/" element={<Home/>} exact/>
-                        <Route path="/table" element={<Table/>}/>
+                        <Route path="/table" element={<Pagination/>}/>
                         <Route path="/error" element={<Error404/>}/>
                         <Route path="/catalog" element={<Catalog/>}/>
                         <Route path="/filters" element={<CatalogueFilters/>}/>
