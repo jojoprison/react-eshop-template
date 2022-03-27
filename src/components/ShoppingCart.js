@@ -34,14 +34,29 @@ export default function ShoppingCart(props) {
     const runCallback = (cb) => {
         return cb();
     }
-    if(isEmpty) return <div className="empty-page"><h1 className="text-center">Your Cart is Empty</h1></div>
+    if(isEmpty) return <div className="empty-page">
+        <div className="padding-y-sm">
+            <div className="container">
+                <div className="product_description">
+                    <nav>
+                        <ul className="breadcrumb">
+                            <li className="breadcrumb-item"><a href="/">Главная</a></li>
+                            <li className="breadcrumb-item active">Корзина</li>
+                        </ul>
+                    </nav>
+                </div>
+        <h1 className="text-center center-xy">Ваша корзина пуста!</h1>
+            </div>
+        </div>
+    </div>
     function renderCartItems() {
         if (items) {
 
+
             // setLoading(false);
             return(
-                <table className="table">
 
+                <table className="table">
 
                     {
 
@@ -64,8 +79,6 @@ export default function ShoppingCart(props) {
                                                                 </div>
 
                                                                 <figcaption className="info">
-
-
                                                                     <div className="row">
                                                                         <a href={"product/" + cartItem.id}
                                                                            className="title align-top font-weight-bolder"
@@ -202,10 +215,20 @@ export default function ShoppingCart(props) {
 
 
     return (
-        <div className="padding-y">
+        <div className="padding-y-sm">
             <div className="container-fluid">
+                <div className="product_description">
+                    <nav>
+                        <ul className="breadcrumb">
+                            <li className="breadcrumb-item"><a href="/">Главная</a></li>
+                            <li className="breadcrumb-item active">Корзина</li>
+                        </ul>
+                    </nav>
+                </div>
+
                 <div className="row ">
                     <aside className="col-lg-9">
+
 
                         <div className="card">
                             { renderCartItems() }

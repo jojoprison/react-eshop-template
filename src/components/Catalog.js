@@ -33,14 +33,16 @@ export class Catalog extends Component {
                 <thead>
                 <tr>
                     <th>Product_ID</th>
+                    <th>TypeID</th>
                     <th>TableTitle</th>
                     <th>Options</th>
                 </tr>
                 </thead>
                 <tbody>
-                {catalog.map(product =>
+                {catalog.map(product  =>
                     <tr key={product.id}>
                         <td>{product.id}</td>
+                        <td>{product.type}</td>
                         <td>{product.title}</td>
                         <td>Edit / Delete</td>
                     </tr>)}
