@@ -67,7 +67,7 @@ export default function ShoppingCart(props) {
 
 
                                                                     <div className="row">
-                                                                        <a href="#"
+                                                                        <a href={"product/" + cartItem.id}
                                                                            className="title align-top font-weight-bolder"
                                                                            data-abc="true">{cartItem.title}</a>
                                                                         <button type="button"
