@@ -18,7 +18,10 @@ const CatalogueFilters = React.memo((props) => {
     useEffect(() => {
         async function fetchInitData() {
             const resFilterVariants = await fetch(
-                process.env.REACT_APP_NKS_API + 'products/filtersAll'
+                process.env.REACT_APP_NKS_API + 'products/filtersAll', {
+                    method: 'GET',
+                    headers: {'Accept': 'application/json', 'Content-Type': 'application/json'}
+                }
             );
             const resProducts = await fetch(
                 process.env.REACT_APP_NKS_API + 'products/filter'
