@@ -88,8 +88,9 @@ export class Contacts extends Component {
 
                         <div className="text-right">
                             <Maps/>
-                            <button type="button" className="btn btn-danger download-info btn-lg mr-5">
-                                <a href="assets/docs/card-company.docx" download>Юридическая информация</a>
+                            <button type="button" className="btn btn-primary-light download-info btn-lg mr-5">
+                                <a href={process.env.PUBLIC_URL + 'assets/docs/card-company.docx'}
+                                   download>Юридическая информация</a>
                             </button>
                         </div>
                     </div>

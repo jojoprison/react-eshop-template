@@ -2,6 +2,9 @@ import React, {useEffect, useState} from 'react';
 import {Button, Col, Container, Form, Row} from "react-bootstrap";
 import ProductsDynamic from "./ProductsDynamic";
 import Selects from "./filters/SelectFilter";
+import ReactPaginate from 'react-paginate';
+import ProductsPaginated from "./ProductsPaginated";
+import PaginatedItems from "./ProductsPaginated";
 
 
 const CatalogueFilters = React.memo((props) => {
@@ -25,6 +28,7 @@ const CatalogueFilters = React.memo((props) => {
         }
 
         fetchInitData();
+        console.log(products);
     }, []);
 
     const getProducts = async (filtersQueryParams) => {
@@ -135,7 +139,7 @@ const CatalogueFilters = React.memo((props) => {
     return (
         <Container>
             <header className="section-heading">
-                <h3 className="section-title">Продукты</h3>
+                <h3 className="section-title">Изделия</h3>
             </header>
 
             <Form onSubmit={handleSubmit}>
@@ -175,8 +179,9 @@ const CatalogueFilters = React.memo((props) => {
             </Form>
 
             {/* TODO это чтобы блок с продуктами не пропадал, даже если пустой - переделать на норм*/}
-            <div style={{ minHeight: '900px' }} >
-                {!loading && (<ProductsDynamic products={products}/>)}
+            <div className="padding-y-sm" style={{minHeight: '900px'}}>
+                {/*{!loading && (<ProductsDynamic products={products}/>)}*/}
+                {!loading && (<PaginatedItems products={products} productsPerPage={12}/>)}
             </div>
 
         </Container>
