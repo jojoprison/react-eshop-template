@@ -17,12 +17,14 @@ const CatalogueFilters = React.memo((props) => {
     // передавать вторым аргументом state, при изменении которого должна вызываться функция чтоб не было лишних
     useEffect(() => {
         async function fetchInitData() {
-            const resFilterVariants = await fetch(process.env.REACT_APP_NKS_API + 'products/filtersAll', {
-                credentials: "include"
-            });
-            const resProducts = await fetch(process.env.REACT_APP_NKS_API + 'products/filter', {
-                credentials: "include"
-            });
+            const resFilterVariants = await fetch(
+                process.env.REACT_APP_NKS_API + 'products/filtersAll',
+                {mode: 'cors'}
+            );
+            const resProducts = await fetch(
+                process.env.REACT_APP_NKS_API + 'products/filter',
+                {mode: 'cors'}
+            );
             const dataFilters = await resFilterVariants.json();
             const dataProducts = await resProducts.json();
 
@@ -142,7 +144,7 @@ const CatalogueFilters = React.memo((props) => {
 
     const content = (loading) => {
         if (!loading) {
-            return(
+            return (
                 <>
                     <Form onSubmit={handleSubmit}>
 
@@ -191,6 +193,12 @@ const CatalogueFilters = React.memo((props) => {
 
     return (
         <Container>
+            <h3 className="p-4 banner-alert mt-3">
+                В связи с тем, что в стране инфляция, цены изделий могут незначительно отличаться.
+                <br/>
+                Для уточнения звоните по телефону, указанному на странице Контакты.
+            </h3>
+
             <header className="section-heading">
                 <h3 className="section-title">Изделия</h3>
             </header>
