@@ -53,38 +53,6 @@ export default function Navigation() {
                         <Nav.Item>
                             <Nav.Link href="/filters">Дополнительное оснащение</Nav.Link>
                         </Nav.Item>
-
-
-                        {/*<nav class="navbar navbar-expand-sm navbar-custom py-0">*/}
-                        {/*    <a href="/" class="navbar-brand">Custom</a>*/}
-                        {/*    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCustom">*/}
-                        {/*        <i class="fa fa-bars fa-lg py-1 text-white"></i>*/}
-                        {/*    </button>*/}
-                        {/*    <div class="navbar-collapse collapse" id="navbarCustom">*/}
-                        {/*        <ul class="navbar-nav">*/}
-                        {/*            <li class="nav-item active">*/}
-                        {/*                <a class="nav-link" href="#">Active</a>*/}
-                        {/*            </li>*/}
-                        {/*            <li class="nav-item">*/}
-                        {/*                <a class="nav-link" href="#">Link</a>*/}
-                        {/*            </li>*/}
-                        {/*            <li class="nav-item">*/}
-                        {/*                <a class="nav-link" href="#">Link</a>*/}
-                        {/*            </li>*/}
-                        {/*            <li class="nav-item dropdown">*/}
-                        {/*                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">*/}
-                        {/*                    Dropdown*/}
-                        {/*                </a>*/}
-                        {/*                <div class="dropdown-menu" aria-labelledby="navbarDropdown">*/}
-                        {/*                    <a class="dropdown-item" href="#">Action</a>*/}
-                        {/*                    <a class="dropdown-item" href="#">Another action</a>*/}
-                        {/*                    <a class="dropdown-item" href="#">Something else here</a>*/}
-                        {/*                </div>*/}
-                        {/*            </li>*/}
-                        {/*        </ul>*/}
-                        {/*        <span class="ml-auto navbar-text">Text</span>*/}
-                        {/*    </div>*/}
-                        {/*</nav>*/}
                     </Nav>
                     {/*<Nav>*/}
                     {/*    <Nav.Link eventKey={3} href="/filters">*/}

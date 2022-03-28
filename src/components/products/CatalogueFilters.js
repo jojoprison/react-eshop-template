@@ -136,53 +136,106 @@ const CatalogueFilters = React.memo((props) => {
         );
     };
 
+    const content = (loading) => {
+        if (!loading) {
+            return(
+                <>
+                    <Form onSubmit={handleSubmit}>
+
+                        <Row className="mb-3">
+                            <Selects fieldList={filterVariants.select}
+                                // resetValues={resetSelectsKey}
+                                     selectedValues={selectedFiltersValues}
+                                     handlerChangeSelect={handlerCHANGER}
+                            />
+                        </Row>
+
+                        {/*{!loading ?*/}
+                        {/*    checkboxList() : null*/}
+                        {/*}*/}
+
+                        <Row>
+                            <Col xs={{offset: 8}}>
+                                <Button type="submit" className='filters-btn'>
+                                    {/*TODO сделать из нее Spinner Buttons bootstrap*/}
+                                    Применить фильтры
+                                </Button>
+                            </Col>
+                            <Col xs={{order: 'last'}}>
+                                <Button variant="primary" className='filters-btn float-right'
+                                        onClick={clearFilters}>
+                                    Сбросить фильтры
+                                </Button>
+                            </Col>
+                        </Row>
+
+                        {/* TODO хз как юзать */}
+                        <Form.Control.Feedback type="invalid">НЕПРАВ</Form.Control.Feedback>
+                    </Form>
+
+                    {/* TODO это чтобы блок с продуктами не пропадал, даже если пустой - переделать на норм*/}
+                    <div className="padding-y-sm" style={{minHeight: '900px'}}>
+                        {/*{!loading && (<ProductsDynamic products={products}/>)}*/}
+                        <PaginatedItems products={products} productsPerPage={12}/>
+                    </div>
+                </>
+            );
+        } else {
+            return null;
+        }
+    }
+
     return (
         <Container>
             <header className="section-heading">
                 <h3 className="section-title">Изделия</h3>
             </header>
 
-            <Form onSubmit={handleSubmit}>
-
-                <Row className="mb-3">
-
-                    {!loading && (
-                        <Selects fieldList={filterVariants.select}
-                            // resetValues={resetSelectsKey}
-                                 selectedValues={selectedFiltersValues}
-                                 handlerChangeSelect={handlerCHANGER}
-                        />
-                    )}
-                </Row>
-
-                {/*{!loading ?*/}
-                {/*    checkboxList() : null*/}
-                {/*}*/}
-
-                <Row>
-                    <Col xs={{offset: 8}}>
-                        <Button type="submit" className='filters-btn'>
-                            {/*TODO сделать из нее Spinner Buttons bootstrap*/}
-                            Применить фильтры
-                        </Button>
-                    </Col>
-                    <Col xs={{order: 'last'}}>
-                        <Button variant="primary" className='filters-btn float-right'
-                                onClick={clearFilters}>
-                            Сбросить фильтры
-                        </Button>
-                    </Col>
-                </Row>
-
-                {/* TODO хз как юзать */}
-                <Form.Control.Feedback type="invalid">НЕПРАВ</Form.Control.Feedback>
-            </Form>
-
-            {/* TODO это чтобы блок с продуктами не пропадал, даже если пустой - переделать на норм*/}
             <div className="padding-y-sm" style={{minHeight: '900px'}}>
-                {/*{!loading && (<ProductsDynamic products={products}/>)}*/}
-                {!loading && (<PaginatedItems products={products} productsPerPage={12}/>)}
+                {content(loading)}
             </div>
+
+            {/*<Form onSubmit={handleSubmit}>*/}
+
+            {/*    <Row className="mb-3">*/}
+
+            {/*        {!loading && (*/}
+            {/*            <Selects fieldList={filterVariants.select}*/}
+            {/*                // resetValues={resetSelectsKey}*/}
+            {/*                     selectedValues={selectedFiltersValues}*/}
+            {/*                     handlerChangeSelect={handlerCHANGER}*/}
+            {/*            />*/}
+            {/*        )}*/}
+            {/*    </Row>*/}
+
+            {/*    /!*{!loading ?*!/*/}
+            {/*    /!*    checkboxList() : null*!/*/}
+            {/*    /!*}*!/*/}
+
+            {/*    <Row>*/}
+            {/*        <Col xs={{offset: 8}}>*/}
+            {/*            <Button type="submit" className='filters-btn'>*/}
+            {/*                /!*TODO сделать из нее Spinner Buttons bootstrap*!/*/}
+            {/*                Применить фильтры*/}
+            {/*            </Button>*/}
+            {/*        </Col>*/}
+            {/*        <Col xs={{order: 'last'}}>*/}
+            {/*            <Button variant="primary" className='filters-btn float-right'*/}
+            {/*                    onClick={clearFilters}>*/}
+            {/*                Сбросить фильтры*/}
+            {/*            </Button>*/}
+            {/*        </Col>*/}
+            {/*    </Row>*/}
+
+            {/*    /!* TODO хз как юзать *!/*/}
+            {/*    <Form.Control.Feedback type="invalid">НЕПРАВ</Form.Control.Feedback>*/}
+            {/*</Form>*/}
+
+            {/*/!* TODO это чтобы блок с продуктами не пропадал, даже если пустой - переделать на норм*!/*/}
+            {/*<div className="padding-y-sm" style={{minHeight: '900px'}}>*/}
+            {/*    /!*{!loading && (<ProductsDynamic products={products}/>)}*!/*/}
+            {/*    {!loading && (<PaginatedItems products={products} productsPerPage={12}/>)}*/}
+            {/*</div>*/}
 
         </Container>
     )
