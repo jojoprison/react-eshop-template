@@ -9,7 +9,7 @@ export default function ShoppingCart(props) {
 
 
     const params = useParams();
-    const {setItems, items, emptyCart,removeItem, isEmpty, updateItemQuantity,totalItems,
+    const {setItems, items, emptyCart, removeItem, isEmpty, updateItemQuantity,totalItems,
         cartTotal,} = useCart();
     const [product, setProduct] = useState({});
     // const [loading, setLoading] = useState(true);

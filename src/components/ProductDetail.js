@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {useCart} from "react-use-cart";
 import {useParams} from "react-router-dom";
+import { ToastContainer, toast, Zoom } from "react-toastify";
 
 
 const ProductDetail = () => {
@@ -26,6 +27,14 @@ const ProductDetail = () => {
 
     const fillContent = () => {
         console.log('FILL_CONTENT');
+        function notify(){
+            toast.info("Товар успешно добавлен в корзину!", {
+                pauseOnFocusLoss: false,
+                transition: Zoom,
+                autoClose: 2000,
+                closeOnClick: true,
+            })
+        }
 
 
         return (
@@ -79,7 +88,8 @@ const ProductDetail = () => {
                             </div>
 
                             <div className="row product-bottom col-5">
-                                <button onClick={() => addItem(product)}
+                                <button onClick={() => notify}
+                                    onClick={() => addItem(product)}
                                         type="button" id="addCart" className="btn btn-primary margbutton btn-lg">В корзину
                                 </button>
                                 {/*<button type="button" className="btn btn-primary margbutton btn-lg">Быстрый заказ</button>*/}
@@ -210,6 +220,11 @@ const ProductDetail = () => {
                         </div>
                     </div>
                 </div>
+                <ToastContainer pauseOnFocusLoss={false}
+                                pauseOnHover={false}
+                                closeOnClick
+                                position="top-right"
+                                autoClose={2000} />
             </div>
         );
     };

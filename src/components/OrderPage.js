@@ -3,18 +3,34 @@ import {useCart} from "react-use-cart";
 
 
 const OrderPage = (props) => {
-    const {totalItems, cartTotal} = useCart();
-    const [radio, setRadio] = useState();
+    const {totalItems, cartTotal, items} = useCart();
+    let [radio, setRadio] = useState();
     const [name, setName] = useState('');
     const [phone, setPhone] = useState('');
     const [email, setEmail] = useState('');
     const [city, setCity] = useState('');
-    const [commentary, setCommentary] = useState('');
+    const [commentary, setCommentary] = useState(undefined);
+
+
+    const convertRadioValue = (radio) => {
+        if (radio == 'self-delivery') {
+            return 'Самовывоз'
+        } else if (radio == 'sdc') {
+            return '«СДЭК»';
+        } else if (radio == 'shipping') {
+            return 'Доставка'
+        } else if (radio == 'business-lines') {
+            return '«Деловые линии»'
+        } else {
+            return 'Выберите способ доставки'
+        }
+    }
 
     const handleSubmit = (e) => {
         e.preventDefault();
         const price = cartTotal
-        const order = {name, phone, email, city, commentary, price};
+        radio = convertRadioValue(radio)
+        const order = {name, phone, email, city, commentary, price, radio};
 
         fetch(process.env.REACT_APP_NKS_API + 'order', {
             method: 'POST',
@@ -34,25 +50,11 @@ const OrderPage = (props) => {
     }
 
 
-    const convertRadioValue = (radio) => {
-        if (radio == 'self-delivery') {
-            return 'Самовывоз'
-        } else if (radio == 'sdc') {
-            return '«СДЭК»';
-        } else if (radio == 'shipping') {
-            return 'Доставка'
-        } else if (radio == 'business-lines') {
-            return '«Деловые линии»'
-        } else {
-            return 'Выберите способ доставки'
-        }
-    }
-
-
     return (
         <section className="container">
             <div className="padding-y-sm">
                 <form onSubmit={handleSubmit}>
+                    {/*{console.log(items)}*/}
 
                     <div className="product_description padding-bottom-sm">
                         <nav>
@@ -268,7 +270,7 @@ const OrderPage = (props) => {
                                         <div className="col-md-3 m-3">
                                             <ul className="text-left list-unstyled">
                                                 <li><span
-                                                    className="text-muted small-info">Вы выбрали способ доставки::</span>
+                                                    className="text-muted small-info">Вы выбрали способ доставки:</span>
                                                 </li>
                                                 <li><h5>{convertRadioValue(radio)}</h5></li>
                                             </ul>
