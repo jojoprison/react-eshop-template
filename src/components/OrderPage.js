@@ -31,7 +31,7 @@ const OrderPage = (props) => {
         e.preventDefault();
         const price = cartTotal
         radio = convertRadioValue(radio)
-        const order = {name, phone, email, city, commentary, price, radio};
+        const order = {name, phone, email, city, commentary, price, radio, items};
 
         fetch(process.env.REACT_APP_NKS_API + 'order', {
             method: 'POST',
