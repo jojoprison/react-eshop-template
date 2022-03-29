@@ -42,7 +42,7 @@ const Header = () => {
                                 <a href="/basket" className="icon-sm rounded-circle">
                                     <i className="fa fa-shopping-cart"/>
                                 </a>
-                                <span className="badge badge-pill badge-danger notify">{totalItems}</span>
+                                <span className="badge badge-pill badge-dark notify">{totalItems}</span>
                             </div>
 
                             {/*<div className="widget-header icontext">*/}

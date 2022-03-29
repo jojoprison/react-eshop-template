@@ -2,6 +2,9 @@ import React, {useEffect, useState} from 'react';
 import {Button, Col, Container, Form, Row} from "react-bootstrap";
 import ProductsDynamic from "./ProductsDynamic";
 import Selects from "./filters/SelectFilter";
+import ReactPaginate from 'react-paginate';
+import ProductsPaginated from "./ProductsPaginated";
+import PaginatedItems from "./ProductsPaginated";
 
 
 const CatalogueFilters = React.memo((props) => {
@@ -14,17 +17,35 @@ const CatalogueFilters = React.memo((props) => {
     // передавать вторым аргументом state, при изменении которого должна вызываться функция чтоб не было лишних
     useEffect(() => {
         async function fetchInitData() {
-            const resFilterVariants = await fetch(process.env.REACT_APP_NKS_API + 'products/filtersAll');
-            const resProducts = await fetch(process.env.REACT_APP_NKS_API + 'products/filter');
-            const dataFilters = await resFilterVariants.json();
-            const dataProducts = await resProducts.json();
+            await fetch(process.env.REACT_APP_NKS_API + 'products/filtersAll', {
+                method: 'GET',
+                mode: 'cors',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json',
+                    'Origin': ''
+                }
+            })
+                .then(res => res.json())
+                .then((filters) => {
+                    setFilterVariants(filters);
+                }, (error) => {
+                    console.log('Не удалось получить список фильтров');
+                });
 
-            setProducts(dataProducts);
-            setFilterVariants(dataFilters);
-            setLoading(false);
+            await fetch(process.env.REACT_APP_NKS_API + 'products/filter', {
+            })
+                .then(res => res.json())
+                .then((products) => {
+                    setProducts(products);
+                }, (error) => {
+                    console.log('Не удалось получить список фильтров');
+                })
+                .then(() => setLoading(false));
         }
 
         fetchInitData();
+        console.log(products);
     }, []);
 
     const getProducts = async (filtersQueryParams) => {
@@ -132,52 +153,112 @@ const CatalogueFilters = React.memo((props) => {
         );
     };
 
+    const content = (loading) => {
+        if (!loading) {
+            return (
+                <>
+                    <Form onSubmit={handleSubmit}>
+
+                        <Row className="mb-3">
+                            <Selects fieldList={filterVariants.select}
+                                // resetValues={resetSelectsKey}
+                                     selectedValues={selectedFiltersValues}
+                                     handlerChangeSelect={handlerCHANGER}
+                            />
+                        </Row>
+
+                        {/*{!loading ?*/}
+                        {/*    checkboxList() : null*/}
+                        {/*}*/}
+
+                        <Row>
+                            <Col xs={{offset: 8}}>
+                                <Button type="submit" className='filters-btn'>
+                                    {/*TODO сделать из нее Spinner Buttons bootstrap*/}
+                                    Применить фильтры
+                                </Button>
+                            </Col>
+                            <Col xs={{order: 'last'}}>
+                                <Button variant="primary" className='filters-btn float-right'
+                                        onClick={clearFilters}>
+                                    Сбросить фильтры
+                                </Button>
+                            </Col>
+                        </Row>
+
+                        {/* TODO хз как юзать */}
+                        <Form.Control.Feedback type="invalid">НЕПРАВ</Form.Control.Feedback>
+                    </Form>
+
+                    {/* TODO это чтобы блок с продуктами не пропадал, даже если пустой - переделать на норм*/}
+                    <div className="padding-y-sm" style={{minHeight: '900px'}}>
+                        {/*{!loading && (<ProductsDynamic products={products}/>)}*/}
+                        <PaginatedItems products={products} productsPerPage={12}/>
+                    </div>
+                </>
+            );
+        } else {
+            return null;
+        }
+    }
+
     return (
         <Container>
+            <h3 className="p-4 banner-alert mt-3">
+                В связи с тем, что в стране инфляция, цены изделий могут незначительно отличаться.
+                <br/>
+                Для уточнения звоните по телефону, указанному на странице Контакты.
+            </h3>
+
             <header className="section-heading">
-                <h3 className="section-title">Продукты</h3>
+                <h3 className="section-title">Изделия</h3>
             </header>
 
-            <Form onSubmit={handleSubmit}>
-
-                <Row className="mb-3">
-
-                    {!loading && (
-                        <Selects fieldList={filterVariants.select}
-                            // resetValues={resetSelectsKey}
-                                 selectedValues={selectedFiltersValues}
-                                 handlerChangeSelect={handlerCHANGER}
-                        />
-                    )}
-                </Row>
-
-                {/*{!loading ?*/}
-                {/*    checkboxList() : null*/}
-                {/*}*/}
-
-                <Row>
-                    <Col xs={{offset: 8}}>
-                        <Button type="submit" className='filters-btn'>
-                            {/*TODO сделать из нее Spinner Buttons bootstrap*/}
-                            Применить фильтры
-                        </Button>
-                    </Col>
-                    <Col xs={{order: 'last'}}>
-                        <Button variant="primary" className='filters-btn float-right'
-                                onClick={clearFilters}>
-                            Сбросить фильтры
-                        </Button>
-                    </Col>
-                </Row>
-
-                {/* TODO хз как юзать */}
-                <Form.Control.Feedback type="invalid">НЕПРАВ</Form.Control.Feedback>
-            </Form>
-
-            {/* TODO это чтобы блок с продуктами не пропадал, даже если пустой - переделать на норм*/}
-            <div style={{ minHeight: '900px' }} >
-                {!loading && (<ProductsDynamic products={products}/>)}
+            <div className="padding-y-sm" style={{minHeight: '900px'}}>
+                {content(loading)}
             </div>
+
+            {/*<Form onSubmit={handleSubmit}>*/}
+
+            {/*    <Row className="mb-3">*/}
+
+            {/*        {!loading && (*/}
+            {/*            <Selects fieldList={filterVariants.select}*/}
+            {/*                // resetValues={resetSelectsKey}*/}
+            {/*                     selectedValues={selectedFiltersValues}*/}
+            {/*                     handlerChangeSelect={handlerCHANGER}*/}
+            {/*            />*/}
+            {/*        )}*/}
+            {/*    </Row>*/}
+
+            {/*    /!*{!loading ?*!/*/}
+            {/*    /!*    checkboxList() : null*!/*/}
+            {/*    /!*}*!/*/}
+
+            {/*    <Row>*/}
+            {/*        <Col xs={{offset: 8}}>*/}
+            {/*            <Button type="submit" className='filters-btn'>*/}
+            {/*                /!*TODO сделать из нее Spinner Buttons bootstrap*!/*/}
+            {/*                Применить фильтры*/}
+            {/*            </Button>*/}
+            {/*        </Col>*/}
+            {/*        <Col xs={{order: 'last'}}>*/}
+            {/*            <Button variant="primary" className='filters-btn float-right'*/}
+            {/*                    onClick={clearFilters}>*/}
+            {/*                Сбросить фильтры*/}
+            {/*            </Button>*/}
+            {/*        </Col>*/}
+            {/*    </Row>*/}
+
+            {/*    /!* TODO хз как юзать *!/*/}
+            {/*    <Form.Control.Feedback type="invalid">НЕПРАВ</Form.Control.Feedback>*/}
+            {/*</Form>*/}
+
+            {/*/!* TODO это чтобы блок с продуктами не пропадал, даже если пустой - переделать на норм*!/*/}
+            {/*<div className="padding-y-sm" style={{minHeight: '900px'}}>*/}
+            {/*    /!*{!loading && (<ProductsDynamic products={products}/>)}*!/*/}
+            {/*    {!loading && (<PaginatedItems products={products} productsPerPage={12}/>)}*/}
+            {/*</div>*/}
 
         </Container>
     )

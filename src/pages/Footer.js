@@ -1,4 +1,5 @@
 import React from "react";
+import {Link} from "react-router-dom";
 
 export const Footer = () => (
     <footer className="section-footer border-top footer-fixed-bottom">
@@ -11,7 +12,7 @@ export const Footer = () => (
                         <aside className="logo_company_footer">
                             <a href="/">
                                 <img src={process.env.PUBLIC_URL + '/assets/images/logos/logo-new-2.png'}
-                                     width="250px" className="float-lg-left" alt="logo" />
+                                     width="250px" className="float-lg-left" alt="logo"/>
                             </a>
                         </aside>
                     </div>
@@ -20,9 +21,11 @@ export const Footer = () => (
                         <aside className="col">
                             <h6 className="title">Компания</h6>
                             <ul className="list-unstyled col-12">
-                                <li><a href="#"> <u>Каталог</u> </a></li>
+                                <li>
+                                    <a href='/'> <u>Каталог</u> </a>
+                                </li>
                                 <li><a href="/contacts"> <u>Контакты</u> </a></li>
-                                <li><a href="#"> <u>Доставка</u> </a></li>
+                                {/*<li><a href="#"> <u>Доставка</u> </a></li>*/}
                             </ul>
                         </aside>
 
@@ -31,7 +34,7 @@ export const Footer = () => (
                             <ul className="list-unstyled col-12">
                                 {/*<li><a href="#"> <u>Личный кабинет</u> </a></li>*/}
                                 <li><a href="/basket"> <u>Корзина</u> </a></li>
-                                <li><a href="#"> <u>Избранное</u> </a></li>
+                                {/*<li><a href="#"> <u>Избранное</u> </a></li>*/}
                             </ul>
                         </aside>
 

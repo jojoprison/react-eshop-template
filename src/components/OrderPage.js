@@ -4,13 +4,13 @@ import {toast} from "react-toastify";
 
 
 const OrderPage = (props) => {
-    const {totalItems, cartTotal, items} = useCart();
-    let [radio, setRadio] = useState();
+    const {totalItems, cartTotal, items, emptyCart} = useCart();
+    let [radio, setRadio] = useState('self-delivery');
     const [name, setName] = useState('');
     const [phone, setPhone] = useState('');
     const [email, setEmail] = useState('');
-    const [city, setCity] = useState('');
-    const [commentary, setCommentary] = useState(undefined);
+    const [city, setCity] = useState(null);
+    const [commentary, setCommentary] = useState(null);
 
 
     const convertRadioValue = (radio) => {
@@ -33,10 +33,10 @@ const OrderPage = (props) => {
         radio = convertRadioValue(radio)
         const order = {name, phone, email, city, commentary, price, radio, items};
 
-        fetch(process.env.REACT_APP_NKS_API + 'order', {
+        fetch(process.env.REACT_APP_NKS_API + 'order/', {
             method: 'POST',
             headers: {
-                // 'Accept': 'application/json',
+                'Accept': 'application/json',
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(order)
@@ -44,9 +44,11 @@ const OrderPage = (props) => {
             .then(res => res.json())
             .then((result) => {
                     alert(result);
+                    emptyCart();
+                //    TODO сделать редирект на главную
                 },
                 (error) => {
-                    alert('Type Adding Failed!');
+                    alert('Заказ не оформлен');
                 })
     }
 

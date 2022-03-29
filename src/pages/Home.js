@@ -7,9 +7,11 @@ const Home = (props) => {
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true);
 
+    // TODO заливать сюда последние добавленные в базу 8-12 продуктов
     let newProduct = products.slice(0, 8)
 
-    // передавать вторым аргументом state, при изменении которого должна вызываться функция чтоб не было лишних
+    // втрым аргументом переменную, при изменении которого должна вызываться функция
+    // в данном случае вызовем только при первом рендере
     useEffect(() => {
         async function fetchInitData() {
             const resProducts = await fetch(process.env.REACT_APP_NKS_API + 'products/filter');
@@ -25,10 +27,13 @@ const Home = (props) => {
     return (
         <Container>
             <Ad/>
-            <header className="section-heading">
-                <h3 className="section-title">Новые модели</h3>
-            </header>
-            {!loading && (<ProductsDynamic products={newProduct}/>)}
+
+            {!loading && (
+                <header className="section-heading">
+                    <h3 className="section-title">Новые модели изделий</h3>
+                    <ProductsDynamic products={newProduct}/>
+                </header>
+            )}
         </Container>
     )
 };
