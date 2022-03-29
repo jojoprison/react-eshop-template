@@ -453,7 +453,7 @@ p:last-child {
   color: #3167eb;
 }
 .widget-header i {
-  color: #969696;
+  color: rgba(15, 68, 199, 0.69);
 }
 .widget-header form {
   min-width: 280px;
@@ -467,7 +467,7 @@ p:last-child {
   right: -10px;
 }
 .widget-header:hover i {
-  color: #3167eb;
+  color: #06132e;
 }
 
 /* desktop only */
