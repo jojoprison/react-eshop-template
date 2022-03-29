@@ -17,21 +17,31 @@ const CatalogueFilters = React.memo((props) => {
     // передавать вторым аргументом state, при изменении которого должна вызываться функция чтоб не было лишних
     useEffect(() => {
         async function fetchInitData() {
-            const resFilterVariants = await fetch(
-                process.env.REACT_APP_NKS_API + 'products/filtersAll', {
-                    method: 'GET',
-                    headers: {'Accept': 'application/json', 'Content-Type': 'application/json'}
+            await fetch(process.env.REACT_APP_NKS_API + 'products/filtersAll', {
+                method: 'GET',
+                mode: 'cors',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json',
+                    'Origin': ''
                 }
-            );
-            const resProducts = await fetch(
-                process.env.REACT_APP_NKS_API + 'products/filter'
-            );
-            const dataFilters = await resFilterVariants.json();
-            const dataProducts = await resProducts.json();
+            })
+                .then(res => res.json())
+                .then((filters) => {
+                    setFilterVariants(filters);
+                }, (error) => {
+                    console.log('Не удалось получить список фильтров');
+                });
 
-            setProducts(dataProducts);
-            setFilterVariants(dataFilters);
-            setLoading(false);
+            await fetch(process.env.REACT_APP_NKS_API + 'products/filter', {
+            })
+                .then(res => res.json())
+                .then((products) => {
+                    setProducts(products);
+                }, (error) => {
+                    console.log('Не удалось получить список фильтров');
+                })
+                .then(() => setLoading(false));
         }
 
         fetchInitData();
