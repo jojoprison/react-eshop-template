@@ -253,11 +253,15 @@ export default function ShoppingCart(props) {
                                             </dl>
                                             <hr/>
                                             <div className="row">
-                                                    <a href="/ordering" className="btn btn-out btn-primary btn-square
-                                                    btn-main mb-2" data-abc="true"> Оформить заказ </a>
-
-                                                    <button onClick={() => emptyCart()} className="btn btn-out btn-main
-                                                    btn-success">Очистить корзину</button>
+                                                <button type="button" onClick={() => emptyCart()}
+                                                        className="btn btn-block nks-btn">
+                                                    Оформить заказ</button>
+                                                    {/*<button onClick={() => emptyCart()} className="btn btn-out btn-main*/}
+                                                    {/*btn-success">Очистить корзину</button>*/}
+                                                    <button type="button" onClick={() => emptyCart()}
+                                                            className="btn btn-block btn-gray-light">
+                                                        Очистить корзину
+                                                    </button>
                                             </div>
                                         </div>
                                     </form>
