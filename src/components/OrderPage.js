@@ -1,37 +1,16 @@
 import React, {useEffect, useState} from "react";
 import {useCart} from "react-use-cart";
+import {toast} from "react-toastify";
 
 
 const OrderPage = (props) => {
-    const {totalItems, cartTotal} = useCart();
-    const [radio, setRadio] = useState();
+    const {totalItems, cartTotal, items, emptyCart} = useCart();
+    let [radio, setRadio] = useState('self-delivery');
     const [name, setName] = useState('');
     const [phone, setPhone] = useState('');
     const [email, setEmail] = useState('');
-    const [city, setCity] = useState('');
-    const [commentary, setCommentary] = useState('');
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        const price = cartTotal
-        const order = {name, phone, email, city, commentary, price};
-
-        fetch(process.env.REACT_APP_NKS_API + 'order', {
-            method: 'POST',
-            headers: {
-                // 'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(order)
-        })
-            .then(res => res.json())
-            .then((result) => {
-                    alert(result);
-                },
-                (error) => {
-                    alert('Type Adding Failed!');
-                })
-    }
+    const [city, setCity] = useState(null);
+    const [commentary, setCommentary] = useState(null);
 
 
     const convertRadioValue = (radio) => {
@@ -48,11 +27,37 @@ const OrderPage = (props) => {
         }
     }
 
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        const price = cartTotal
+        radio = convertRadioValue(radio)
+        const order = {name, phone, email, city, commentary, price, radio, items};
+
+        fetch(process.env.REACT_APP_NKS_API + 'order/', {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(order)
+        })
+            .then(res => res.json())
+            .then((result) => {
+                    alert(result);
+                    emptyCart();
+                //    TODO сделать редирект на главную
+                },
+                (error) => {
+                    alert('Заказ не оформлен');
+                })
+    }
+
 
     return (
         <section className="container">
             <div className="padding-y-sm">
                 <form onSubmit={handleSubmit}>
+                    {/*{console.log(items)}*/}
 
                     <div className="product_description padding-bottom-sm">
                         <nav>
@@ -268,7 +273,7 @@ const OrderPage = (props) => {
                                         <div className="col-md-3 m-3">
                                             <ul className="text-left list-unstyled">
                                                 <li><span
-                                                    className="text-muted small-info">Вы выбрали способ доставки::</span>
+                                                    className="text-muted small-info">Вы выбрали способ доставки:</span>
                                                 </li>
                                                 <li><h5>{convertRadioValue(radio)}</h5></li>
                                             </ul>

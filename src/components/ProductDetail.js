@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {useCart} from "react-use-cart";
 import {useParams} from "react-router-dom";
+import {toast} from "react-toastify";
 
 
 const ProductDetail = () => {

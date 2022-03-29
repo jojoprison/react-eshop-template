@@ -9,7 +9,7 @@ export default function ShoppingCart(props) {
 
 
     const params = useParams();
-    const {setItems, items, emptyCart,removeItem, isEmpty, updateItemQuantity,totalItems,
+    const {setItems, items, emptyCart, removeItem, isEmpty, updateItemQuantity,totalItems,
         cartTotal,} = useCart();
     const [product, setProduct] = useState({});
     // const [loading, setLoading] = useState(true);
@@ -119,7 +119,11 @@ export default function ShoppingCart(props) {
 
                                                             <div className="quantity_inner">
                                                                 <button id={'cart_item_quantity_minus_' + cartItem.id}
-                                                                        onClick ={() => updateItemQuantity(cartItem.id, cartItem.quantity-1)}
+                                                                        onClick ={() => {
+                                                                            if (cartItem.quantity > 1) {
+                                                                                updateItemQuantity(cartItem.id, cartItem.quantity-1)
+                                                                            }
+                                                                        }}
                                                                             className="bt_minus">
                                                                     <svg viewBox="0 0 24 24">
                                                                         <line x1="5" y1="12" x2="19" y2="12"></line>

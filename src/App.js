@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from "react";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import Navigation from './components/Nav'
-import {Table} from "./components/Table";
 import Home from "./pages/Home";
 import Header from "./components/Header";
 import {Footer} from "./pages/Footer";
@@ -12,10 +11,9 @@ import './App.css';
 import CatalogueFilters from "./components/products/CatalogueFilters";
 import {ContactUs} from "./components/ContactUs";
 import ShoppingCart from "./components/ShoppingCart";
-import {CartProvider, useCart} from 'react-use-cart';
+import {CartProvider} from 'react-use-cart';
 import OrderPage from "./components/OrderPage";
 import Error404 from "./components/Error404";
-import {Pagination} from "./components/products/Pagination";
 
 function App() {
     const [showButton, setShowButton] = useState(false);
@@ -49,7 +47,7 @@ function App() {
 
                     <Routes>
                         <Route path="/" element={<Home/>} exact/>
-                        <Route path="/table" element={<Pagination/>}/>
+                        <Route path="/table" element={<CatalogueFilters/>}/>
                         <Route path="/error" element={<Error404/>}/>
                         <Route path="/catalog" element={<Catalog/>}/>
                         <Route path="/filters" element={<CatalogueFilters/>}/>
