@@ -829,7 +829,7 @@ a[class*=card]:hover .title {
 .card-product-grid {
   margin-bottom: 20px;
   /* минимальный размер карточки продукта */
-  min-height: 465px;
+  min-height: 480px;
 }
 .card-product-grid .img-wrap {
   border-radius: 0.2rem 0.2rem 0 0;

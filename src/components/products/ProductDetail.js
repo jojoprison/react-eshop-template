@@ -49,7 +49,7 @@ const ProductDetail = () => {
                     <nav>
                         <ul className="breadcrumb">
                             <li className="breadcrumb-item"><a href="/">Главная</a></li>
-                            <li className="breadcrumb-item"><a href="#">Каталог товаров</a></li>
+                            <li className="breadcrumb-item"><a href="/filters">Каталог товаров</a></li>
                             <li className="breadcrumb-item"><a href="#">Столы лабораторные</a></li>
                             <li className="breadcrumb-item active">{product.title}
                             </li>

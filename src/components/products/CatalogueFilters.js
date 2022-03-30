@@ -191,6 +191,7 @@ const CatalogueFilters = React.memo((props) => {
     };
 
     const content = (loading) => {
+        console.log(filterVariants.select)
         if (loading) return null;
 
         return (

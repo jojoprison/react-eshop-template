@@ -36,7 +36,7 @@ const SelectFilter = React.memo((props) => {
     // TODO подумать как тут предотвращать рендеры ВСЕХ затронутых элементов
     // TODO мб через хендлер
     return (
-        <Form.Group as={Col} controlId={product_prop}>
+        <Form.Group className="form-inline" as={Col} controlId={product_prop}>
             <Form.Label>{name}</Form.Label>
             <Form.Control
                 as='select'

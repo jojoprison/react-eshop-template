@@ -209,7 +209,6 @@ ul.breadcrumb li a {
 /* Add a color on mouse-over */
 ul.breadcrumb li a:hover {
     color: #154cd4;
-    text-decoration: underline;
 }
 
 /*orderPage*/
