@@ -56,7 +56,7 @@ export const Footer = () => (
                     <div style={{textAlign: 'left'}} className="col-sm-9 col-md-6 col-lg-6 text-right">
                         <span><a href="mailto:nks.grupp@bk.ru">nks.grupp@bk.ru |</a></span>
                         <span><a href="tel: +7-910-099-04-46"> +7 (910) 099-04-46 </a></span>
-                        <span>| г. Александров, ул. Южный проезд, д.6Б</span>
+                        <span>| Владимирская обл., г. Александров, ул. Южный проезд, д. 6Б</span>
                     </div>
 
                 </div>

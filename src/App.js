@@ -52,8 +52,6 @@ function App() {
                         <Route path="/catalog" element={<Catalog/>}/>
                         <Route path="/filters" element={<CatalogueFilters/>}/>
                         <Route path="/contact" element={<ContactUs/>}/>
-                        {/* TODO добавить юрлу когда вмерджим с веткой карточки продукта */}
-                        {/*<Route path="/product/tmp" element={<ProductTemplate/>}/>*/}
                         <Route path="/basket" element={<ShoppingCart/>}/>
                         <Route path="/product/:id" element={<ProductDetail/>}/>
                         <Route path="/contacts" element={<Contacts/>}/>

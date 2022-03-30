@@ -13,11 +13,15 @@
     position: relative;
     margin-top: 4%;
 }
-.header-text {
+.header-link {
     font-weight: 600;
-    color: #f0f3fb;
-    /*font-size: 16px;*/
+    color: whitesmoke;
+    font-size: 18px;
 }
+.header-link:hover {
+    color: #25509d;
+}
+
 .priceprod{
     font-weight: bold;
     font-size: 24px;
@@ -31,9 +35,14 @@
     font-size:17px;
 }
 
-.map iframe {
-    border-radius: 15px;
-    overflow: hidden;
+.map {
+    border-radius: 20px;
+    /* TODO не работает ( */
+    /*border-style: groove;*/
+    /*border: outset #f33;*/
+    border: 2px solid #25509d;
+
+    overflow: hidden !important;
 }
 
 .empty-page{
@@ -49,30 +58,30 @@
     background-color: #3950c4;
 }
 
-.nks-btn {
+.btn-nks {
     color: #fff;
     background-color: rgba(15, 68, 199, 0.69);
-    border-color: #06132e;
+    /*border-color: #06132e;*/
 }
-.nks-btn:hover {
+.btn-nks:hover {
     color: #fff;
     background-color: #25509d;
     border-color: #154cd4;
 }
-.nks-btn:focus, .nks-btn.focus {
+.btn-nks:focus, .btn-nks.focus {
     box-shadow: 0 0 0 0.2rem rgba(80, 126, 238, 0.5);
 }
-.nks-btn.disabled, .nks-btn:disabled {
+.btn-nks.disabled, .btn-nks:disabled {
     color: #fff;
     background-color: #3167eb;
     border-color: #3167eb;
 }
-.nks-btn:not(:disabled):not(.disabled):active, .nks-btn:not(:disabled):not(.disabled).active, .show > .nks-btn.dropdown-toggle {
+.btn-nks:not(:disabled):not(.disabled):active, .btn-nks:not(:disabled):not(.disabled).active, .show > .btn-nks.dropdown-toggle {
     color: #fff;
     background-color: #154cd4;
     border-color: #1348c9;
 }
-.nks-btn:not(:disabled):not(.disabled):active:focus, .nks-btn:not(:disabled):not(.disabled).active:focus, .show > .nks-btn.dropdown-toggle:focus {
+.btn-nks:not(:disabled):not(.disabled):active:focus, .btn-nks:not(:disabled):not(.disabled).active:focus, .show > .btn-nks.dropdown-toggle:focus {
     box-shadow: 0 0 0 0.2rem rgba(80, 126, 238, 0.5);
 }
 
@@ -96,11 +105,6 @@
     box-shadow: 2px 1px 2px rgba(35, 71, 206, 0.07);
 }
 
-.maps-element {
-    border-radius: 50px !important;
-    overflow: hidden !important;
-}
-
 .bg-pics{
     opacity: 0.25;
 }
@@ -121,12 +125,11 @@
     width: 100%;
 }
 
-.download-info a{
-    color: white;
+.download-link {
+    color: whitesmoke;
     font-size: 20px;
-}
-.download-info a:hover{
-    color: black;
+    /* вырубаем подчеркивание, курсор = палец */
+    pointer-events: none;
 }
 
 .border-img{
@@ -216,8 +219,8 @@ textarea.input-box {
 
 input.input-box:focus,
 textarea.input-box:focus {
-    background-color: rgba(255, 255, 255, 0.2);
-    color: #000000
+    background-color: rgba(255, 255, 255, 0.9);
+    /*color: #000000*/
 }
 
 form .form-control::-webkit-input-placeholder {
@@ -231,11 +234,13 @@ input.btn-purple {
 
 /*Shopping Cart*/
 
+/* TODO не понял зачем это - когда мышку уводим чет происходит */
 .btn.btn-out {
     outline: 1px solid #fff;
     outline-offset: -5px
 }
 
+/* TODO воткнуть на пагинационные кнопки */
 .btn-main {
     border-radius: 2px;
     text-transform: capitalize;
@@ -246,21 +251,18 @@ input.btn-purple {
     width: 100%
 }
 
-.btn-light {
-    color: #ffffff;
-    background-color: #F44336;
+.btn-cart-delete-item {
+    color: #fff;
+    background-color: #ff6a64;
     border-color: #f8f9fa;
-    font-size: 12px
+    /*font-size: 12px;*/
 }
-
-.btn-light:hover {
-    color: #ffffff;
-    background-color: #F44336;
-    border-color: #F44336
+.btn-cart-delete-item:hover {
+    color: #fff;
+    border-color: #ff5245;
 }
-
-.btn-apply {
-    font-size: 11px
+.btn-cart-delete-item:focus, .btn-cart-delete-item.focus {
+    box-shadow: 0 0 0 0.2rem rgba(244, 138, 138, 0.5);
 }
 
 .quantity_inner * {

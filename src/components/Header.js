@@ -25,7 +25,7 @@ const Header = () => {
                                     <input id="search-header" type="text" className="form-control"
                                            placeholder="Поиск..."/>
                                     <div className="input-group-append">
-                                        <button className="btn nks-btn" type="submit">
+                                        <button className="btn btn-nks" type="submit">
                                             <i className="fa fa-search"/>
                                         </button>
                                     </div>
@@ -34,15 +34,15 @@ const Header = () => {
                         </div>
 
                         <div className="col-xl col-lg-1 col-md order-md-1 p-lg-0">
-                            <a className="header-text" href="/contacts">Контакты</a>
+                            <a className="header-link" href="/contacts">Контакты</a>
                         </div>
 
                         <div className="col-xl-2 col-lg-2 col-md order-md-2 align-self-center p-lg-0 mb-md-3">
-                            <div className="widget-header mr-3">
-                                <a href="/basket" className="icon-sm rounded-circle">
+                            <div className="icon-link-badged mr-3">
+                                <a href="/basket" className="icon-md">
                                     <i className="fa fa-shopping-cart"/>
                                 </a>
-                                <span className="badge badge-pill badge-dark notify">{totalItems}</span>
+                                <span className="badge badge-pill badge-light notify">{totalItems}</span>
                             </div>
 
                             {/*<div className="widget-header icontext">*/}

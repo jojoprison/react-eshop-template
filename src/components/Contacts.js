@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Maps} from "../pages/Maps";
+import Maps from "./Maps";
 
 // TODO переписать все компоненты из классов на функции
 export class Contacts extends Component {
@@ -31,7 +31,7 @@ export class Contacts extends Component {
                                     <p className="text-bolder"/>
                                     <div className="flex-column">
                                         <p className="text-muted">Адрес производства:</p>
-                                        <h4>г. Александров, ул. Южный проезд, д.6Б</h4>
+                                        <h4>г. Александров, ул. Южный проезд, д. 6Б</h4>
                                     </div>
                                 </div>
                             </div>
@@ -70,9 +70,14 @@ export class Contacts extends Component {
 
                         <div className="text-right">
                             <Maps/>
-                            <button type="button" className="btn btn-primary-light download-info btn-lg mr-5">
+
+                            <button type="button" className="btn btn-primary-light btn-lg mr-5">
                                 <a href={process.env.PUBLIC_URL + '/assets/docs/card-company.docx'}
-                                   download>Юридическая информация</a>
+                                   download
+                                   className='download-link'
+                                >
+                                    Юридическая информация
+                                </a>
                             </button>
                         </div>
                     </div>
