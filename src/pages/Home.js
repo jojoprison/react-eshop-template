@@ -30,7 +30,7 @@ const Home = (props) => {
 
             {!loading && (
                 <header className="section-heading">
-                    <h3 className="section-title">Новые модели изделий</h3>
+                    <h3 className="section-title">Новые модели товаров</h3>
                     <ProductsDynamic products={newProduct}/>
                 </header>
             )}

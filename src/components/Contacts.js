@@ -46,7 +46,7 @@ export class Contacts extends Component {
                                     <p className="text-bolder"/>
                                     <div className="flex-column">
                                         <p className="text-muted">Номер телефона:</p>
-                                        <h4><a href="tel: +7-910-099-04-46"> +7 (910) 099-04-46 </a></h4>
+                                        <h4><a href="tel: +7-910-099-04-46" className='link-nks'> +7 (910) 099-04-46 </a></h4>
                                     </div>
                                 </div>
                             </div>
@@ -60,7 +60,7 @@ export class Contacts extends Component {
                                     <p className="text-bolder"/>
                                     <div className="flex-column">
                                         <p className="text-muted">По всем вопросам:</p>
-                                        <h4><a href="mailto:nks.grupp@bk.ru"> nks.grupp@bk.ru</a></h4>
+                                        <h4><a href="mailto:nks.grupp@bk.ru" className='link-nks'> nks.grupp@bk.ru</a></h4>
                                     </div>
                                 </div>
                             </div>
@@ -71,7 +71,7 @@ export class Contacts extends Component {
                         <div className="text-right">
                             <Maps/>
 
-                            <button type="button" className="btn btn-primary-light btn-lg mr-5">
+                            <button type="button" className="btn btn-nks btn-lg mr-5">
                                 <a href={process.env.PUBLIC_URL + '/assets/docs/card-company.docx'}
                                    download
                                    className='download-link'

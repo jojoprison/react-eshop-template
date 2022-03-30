@@ -8,7 +8,7 @@ const ProductDetail = () => {
     const params = useParams();
     const [product, setProduct] = useState({});
     const [loading, setLoading] = useState(true);
-
+    const {addItem} = useCart();
 
     useEffect(() => {
         async function fetchInitData() {
@@ -17,15 +17,27 @@ const ProductDetail = () => {
 
             setProduct(dataProduct);
             setLoading(false);
+            // тестил почему не робит, фишинг данные
             // setProduct({title: 'adadad', price: 1, article: 'ada', series: 'adad', })
         }
 
         fetchInitData();
     }, []);
 
-    const {addItem} = useCart();
+    const addProductToCart = () => {
+        toast.info('Товар добавлен в корзину', {
+            position: "top-left",
+            autoClose: 1000,
+            hideProgressBar: true,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: 'colored'
+        });
 
-
+        addItem(product);
+    }
 
     const fillContent = () => {
         console.log('FILL_CONTENT');
@@ -62,7 +74,7 @@ const ProductDetail = () => {
                     </div>
                     <div className="col-md-9">
                         <div className="bottom-wrap d-flex p-0 align-items-baseline">
-                            <div className="col-4 card-text priceprod">{product.price} ₽</div>
+                            <div className="col-4 card-text price-detail">{product.price} ₽</div>
 
                             <div className="col-3 row">
                                 <aside className="col">
@@ -83,7 +95,7 @@ const ProductDetail = () => {
 
                             <div className="row product-bottom col-5">
                                 <button className="btn btn-nks btn-lg margbutton"
-                                        onClick={() => addItem(product)}>
+                                        onClick={addProductToCart}>
                                     Добавить в корзину
                                 </button>
                             </div>
@@ -95,19 +107,20 @@ const ProductDetail = () => {
                     <nav>
                         {/* TODO Tabs */}
                         <div className="nav nav-tabs" id="nav-tab" role="tablist">
+
                             <button className="nav-link col-6 active" id="nav-feature-tab" data-bs-toggle="tab"
                                     data-bs-target="#nav-feature" type="button" role="tab"
                                     aria-controls="nav-feature"
-                                    aria-selected="True">Характеристики
+                                    aria-selected="True">
+                                Характеристики
                             </button>
 
                             <button className="nav-link col-6" id="nav-description-tab" data-bs-toggle="tab"
                                     data-bs-target="#nav-description" type="button" role="tab"
                                     aria-controls="nav-description"
-                                    aria-selected="False">Описание
+                                    aria-selected="False">
+                                Описание
                             </button>
-
-
                         </div>
                     </nav>
 
@@ -162,54 +175,11 @@ const ProductDetail = () => {
 
                         <div className="tab-pane fade p-3" id="nav-description" role="tabpanel"
                              aria-labelledby="nav-description-tab">
+
                             <h2 className="text-left">Описание товара:</h2>
-                            <p className="text-left description-text">{product.description}
-                                <br/><br/><br/><br/>
-                                Для организации комфортного рабочего места
-                                предлагаем надёжный и функциональный стол
-                                серии NL. Пристенный лабораторный стол 600x600x900, NL, LabGrade имеет
-                                сборно-разборный объёмный каркас и столешницу Пластик типа ЛАБ (П). Долговечный
-                                металлический каркас состоит из опорных ног замкнутого типа, соединительной рамы и
-                                панели-стяжки. Пристенный лабораторный стол 600x600x900, NL, LabGrade имеет элементы
-                                каркаса, которые изготавливаются из стальных профильных труб сечением 40х25х1,5мм,
-                                стальных уголков 25х25х3мм и листового металла. В опорных ногах предусмотрена
-                                возможность регулировки стола NL-10-12-0П по высоте для установки его в строго
-                                горизонтальном положении при неровности пола до 30мм.<br/><br/>
 
-                                Стол лабораторный NL-10-12-0П имеет столешницу Пластик типа ЛАБ (П).<br/><br/>
-
-                                Пристенный лабораторный стол 600x600x900, NL, LabGrade укомплектован столешницей,
-                                которая представляет собой влагостойкую ДСП (толщиной 16мм), покрытую
-                                лабораторным пластиком (толщиной 0,8-1,0 мм) с рабочей стороны и компенсирующим
-                                пластиком с обратной стороны. По периметру столешница модели NL-10-12-0П
-                                окантована 2 мм кромкой АБС. Материал обладает высокой стойкостью к воздействию
-                                основных растворителей, кислот и других химреактивов, относительно
-                                негигроскопичен. Цвет пластика - светло-серый.<br/><br/>
-
-                                Смонтированная на металлокаркасе, столешница образует собой рабочую поверхность
-                                выполнения повседневных работ.<br/><br/>
-
-                                Дополнительно стол пристенный лабораторный металлический NL-10-12-0П может
-                                комплектоваться подвесными или подкатными тумбами с ящиками или дверями.<br/>
-                                <br/>
-
-                                Для увеличения срока эксплуатации на металлические части стола наносится защитный
-                                слой из порошковой глянцевой эпоксиполиэфирной композицией (производства фирмы
-                                EUROPOLVERI S.p.a., Испания) стандартного светло-серого цвета (RAL 7035).
-                                После сушки окрашенных деталей в термокамере при температуре 180-200 °C на них
-                                образуется твердое защитное покрытие. Перед покраской все металлические
-                                поверхности обязательно зачищаем и обезжириваем.<br/><br/>
-
-
-                                Мы оснащаем лаборатории различной направленности, в том числе медицинских
-                                учреждений и поставляем только качественную и безопасную мебель. Наша продукция
-                                уже долгие годы используется во многих учебных классах образовательных
-                                учреждений, а также в суровых условиях промышленных предприятий.<br/><br/>
-
-                                Наша мебель поставляется по всей России. Поэтому познакомиться с ней очень просто
-                                и быстро, не покидая ваш регион. Мы сообщим адреса, где можно посмотреть нашу
-                                мебель в работе. Также можно лично оценить качество нашей мебели и используемых
-                                материалов, посетив наш мебельный шоурум.<br/><br/>
+                            <p className="text-left description-text">
+                                {product.description}
                             </p>
                         </div>
                     </div>
@@ -220,20 +190,12 @@ const ProductDetail = () => {
 
 
     return (
-
-
         <section className="padding-y-sm">
             <div className="container">
 
                 {!loading && (
                     fillContent()
                 )}
-
-                {/*{!loading ?*/}
-                {/*    fillContent() : null*/}
-                {/*}*/}
-
-
             </div>
         </section>
     )

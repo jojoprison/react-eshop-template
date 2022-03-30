@@ -1,6 +1,26 @@
+:root {
+/*    violet */
+/*#5d81ff*/
+    /*4e5aa1*/
+/*#3950c4*/
+/*96adfc*/
+/*    5d81ff*/
+
+/*    hard blue */
+    /*06132e*/
+    /*17336c*/
+
+
+    /*gray*/
+    /*#A6B1DB*/
+
+    --toastify-color-info: #1d3e84 !important;
+    /*--toastify-color-warning: #eecf00 !important;*/
+    --toastify-color-success: #3950c4 !important;
+}
+
 .nks-bg-color,
 .section-footer {
-    /*background-color: #A6B1DB;*/
     background-color: #96adfc;
     box-shadow: 4px 5px 4px rgba(133, 156, 237, 0.46);
 }
@@ -15,17 +35,20 @@
 }
 .header-link {
     font-weight: 600;
-    color: whitesmoke;
     font-size: 18px;
 }
-.header-link:hover {
-    color: #25509d;
-}
 
-.priceprod{
+/* product price (by component name) */
+.price-detail{
     font-weight: bold;
     font-size: 24px;
 }
+.price-card {
+    font-weight: 700;
+    color: #17336c;
+    font-size: 18px;
+}
+
 .features-text {
     font-family: "Century Gothic", sans-serif;
     font-size:16px;
@@ -37,11 +60,7 @@
 
 .map {
     border-radius: 20px;
-    /* TODO не работает ( */
-    /*border-style: groove;*/
-    /*border: outset #f33;*/
-    border: 2px solid #25509d;
-
+    border: 2px solid #17336c;
     overflow: hidden !important;
 }
 
@@ -50,7 +69,7 @@
 }
 
 
-/* button */
+ /* TODO удалить или поюзать их цвета */
 .filters-btn{
     background-color: #5d81ff;
 }
@@ -65,21 +84,21 @@
 }
 .btn-nks:hover {
     color: #fff;
-    background-color: #25509d;
-    border-color: #154cd4;
+    background-color: #1d3e84;
+    border-color: #1d3e84;
 }
 .btn-nks:focus, .btn-nks.focus {
     box-shadow: 0 0 0 0.2rem rgba(80, 126, 238, 0.5);
 }
 .btn-nks.disabled, .btn-nks:disabled {
     color: #fff;
-    background-color: #3167eb;
-    border-color: #3167eb;
+    background-color: #3950c4;
+    border-color: #3950c4;
 }
 .btn-nks:not(:disabled):not(.disabled):active, .btn-nks:not(:disabled):not(.disabled).active, .show > .btn-nks.dropdown-toggle {
     color: #fff;
-    background-color: #154cd4;
-    border-color: #1348c9;
+    background-color: #5d81ff;
+    border-color: #5d81ff;
 }
 .btn-nks:not(:disabled):not(.disabled):active:focus, .btn-nks:not(:disabled):not(.disabled).active:focus, .show > .btn-nks.dropdown-toggle:focus {
     box-shadow: 0 0 0 0.2rem rgba(80, 126, 238, 0.5);
@@ -212,19 +231,24 @@ textarea[name="message"] {
 
 input.input-box,
 textarea.input-box {
-    background-color: white;
-    border: #616161;
-    color: #555555;
+    background-color: rgb(219, 223, 228);
+    border: #5C6BC0;
+    color: black;
+}
+
+input.input-box::placeholder,
+textarea.input-box::placeholder {
+
+    color: rgba(0, 0, 0, 0.19);
 }
 
 input.input-box:focus,
 textarea.input-box:focus {
-    background-color: rgba(255, 255, 255, 0.9);
-    /*color: #000000*/
+    color: #000000;
 }
 
 form .form-control::-webkit-input-placeholder {
-    color: #9E9E9E
+    color: #17336c;
 }
 
 input.btn-purple {
@@ -305,16 +329,24 @@ input.btn-purple {
     stroke: #000;
 }
 
+
 /* ordering page*/
 .order-block{
-    height: 370px;
     width: 85%;
-    background-color: rgba(157, 183, 198, 0.1);
+    background-color: rgba(255, 255, 255, 0.9);
     box-shadow: 0px 5px 7px rgba(22, 22, 22, 0.28);
     border-radius: 17px;
-    margin-left: 0px;
     padding-left: 15px;
     padding-top: 5px;
+}
+
+.order-delivery {
+    height: 370px;
+    margin-left: 0px;
+}
+
+.order-person {
+    height: 575px;
 }
 
 .ordering_img{
@@ -323,16 +355,6 @@ input.btn-purple {
     margin-left: 10px;
     box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 1px 1px 3px 1px;
     border-radius: 15px;
-}
-
-.personal-details{
-    height: 575px;
-    width: 85%;
-    background-color: rgba(157, 183, 198, 0.1);
-    box-shadow: 0px 5px 7px rgba(22, 22, 22, 0.28);
-    border-radius: 17px;
-    padding-left: 15px;
-    padding-top: 5px;
 }
 
 #ordered_link{
@@ -354,7 +376,7 @@ input.btn-purple {
     background-color: #96adfc;
     box-shadow: 2px 7px 7px rgba(96, 98, 101, 0.25);
     border-radius: 20px;
-    color: #fff8f8;
+    color: whitesmoke;
     /*border: 1px solid black;*/
 }
 
@@ -394,6 +416,8 @@ input.btn-purple {
 
 .navbar-custom {
     background-color: rgba(15, 68, 199, 0.69);
+    font-weight: 600;
+    /*font-size: 14px;*/
     /*TODO не работает в навбаре */
     /*box-shadow: 3px 2px 2px rgba(210, 214, 254, 0.25);*/
 }
@@ -416,7 +440,7 @@ input.btn-purple {
 .navbar-custom .nav-item.active .nav-link,
 .navbar-custom .nav-item:hover .nav-link {
     /*color: #06132e;*/
-    color: #06132e;
+    color: #17336c;
     /*background-color: #96adfc;*/
 }
 
@@ -427,11 +451,96 @@ input.btn-purple {
     background-color: ghostwhite;
 }
 .navbar-custom .dropdown-item {
-    color: #06132e;
-
+    color: #1d3e84;
 }
 .navbar-custom .dropdown-item:hover,
 .navbar-custom .dropdown-item:focus {
     color: ghostwhite;
     background-color: rgba(15, 68, 199, 0.69);
+}
+
+
+/* links */
+.link-nks {
+    cursor: pointer;
+    color: rgba(15, 68, 199, 0.69);
+}
+.link-nks:hover {
+    color: #1d3e84;
+    text-decoration: none;
+}
+
+.link-nks-light {
+    cursor: pointer;
+    color: whitesmoke;
+}
+.link-nks-light:hover {
+    color: #1d3e84;
+    text-decoration: none;
+}
+
+.product-link {
+    cursor: pointer;
+    color: #17336c !important;
+}
+.product-link:hover {
+    /*96adfc*/
+    /*5C6BC0*/
+    color: #405D9D !important;
+    text-decoration: none;
+}
+
+.banner-link {
+    cursor: pointer;
+    color: white;
+}
+.banner-link:hover {
+    color: #4e5aa1;
+    text-decoration: none;
+}
+
+/* для иконок */
+.btn-link-nks {
+    color: rgba(15, 68, 199, 0.69);
+    font-size: 23px;
+}
+.btn-link-nks:hover {
+    color: #1d3e84;
+}
+
+/* иконка с линкой */
+.icon-link-badged {
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    /* чтоб у бейджика менялся размер шрифта, 75%*/
+    font-size: 20px;
+}
+.icon-link-badged i {
+    color: rgba(15, 68, 199, 0.69);
+}
+.icon-link-badged .notify {
+    position: absolute;
+    right: -15px;
+}
+
+.icon-link-badged:hover i {
+    color: #1d3e84;
+}
+.icon-link-badged:hover .badge {
+    color: black;
+    background-color: slategray;
+}
+
+
+/* text */
+.text-nks {
+    color: #17336c;
+}
+
+.series-link {
+
+}
+.series-link:hover {
+    text-decoration: none;
 }

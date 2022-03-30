@@ -5,6 +5,7 @@ import Selects from "./filters/SelectFilter";
 import ReactPaginate from 'react-paginate';
 import ProductsPaginated from "./ProductsPaginated";
 import PaginatedItems from "./ProductsPaginated";
+import {toast} from "react-toastify";
 
 
 const CatalogueFilters = React.memo((props) => {
@@ -46,7 +47,23 @@ const CatalogueFilters = React.memo((props) => {
 
         fetchInitData();
         console.log(products);
+        showPriceClarification();
     }, []);
+
+    const showPriceClarification = () => {
+        const priceClarification = 'Цены товаров могут отличаться!\n Уточняйте по телефону'
+
+        toast.warn(priceClarification, {
+            position: "top-center",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: 'light'
+        });
+    }
 
     const getProducts = async (filtersQueryParams) => {
         if (!filtersQueryParams) {
@@ -64,7 +81,7 @@ const CatalogueFilters = React.memo((props) => {
             })
     };
 
-    const handleSubmit = (event) => {
+    const handleSubmitFiltered = (event) => {
         // Event: Cancels Event (Stops HTML Default Form Submit)
         event.preventDefault();
         // Event: Prevents Event Bubbling To Parent Elements
@@ -84,6 +101,17 @@ const CatalogueFilters = React.memo((props) => {
         console.log(convertedQueryParams);
 
         getProducts(convertedQueryParams);
+
+        toast.success('Фильтры применены', {
+            position: "top-left",
+            autoClose: 1000,
+            hideProgressBar: true,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: 'light',
+        });
     }
 
     const clearFilters = () => {
@@ -93,7 +121,16 @@ const CatalogueFilters = React.memo((props) => {
         }
 
         reset();
-        // console.log(selectedFiltersValues);
+        toast.success('Фильтры сброшены', {
+            position: "top-left",
+            autoClose: 1000,
+            hideProgressBar: true,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: 'light',
+        });
     }
 
     const runCallback = (cb) => {
@@ -154,64 +191,62 @@ const CatalogueFilters = React.memo((props) => {
     };
 
     const content = (loading) => {
-        if (!loading) {
-            return (
-                <>
-                    <Form onSubmit={handleSubmit}>
+        if (loading) return null;
 
-                        <Row className="mb-3">
-                            <Selects fieldList={filterVariants.select}
-                                // resetValues={resetSelectsKey}
-                                     selectedValues={selectedFiltersValues}
-                                     handlerChangeSelect={handlerCHANGER}
-                            />
-                        </Row>
+        return (
+            <>
+                <Form onSubmit={handleSubmitFiltered}>
 
-                        {/*{!loading ?*/}
-                        {/*    checkboxList() : null*/}
-                        {/*}*/}
+                    <Row className="mb-3">
+                        <Selects fieldList={filterVariants.select}
+                            // resetValues={resetSelectsKey}
+                                 selectedValues={selectedFiltersValues}
+                                 handlerChangeSelect={handlerCHANGER}
+                        />
+                    </Row>
 
-                        <Row>
-                            <Col xs={{offset: 8}}>
-                                <Button type="submit" className='filters-btn'>
-                                    {/*TODO сделать из нее Spinner Buttons bootstrap*/}
-                                    Применить фильтры
-                                </Button>
-                            </Col>
-                            <Col xs={{order: 'last'}}>
-                                <Button variant="primary" className='filters-btn float-right'
-                                        onClick={clearFilters}>
-                                    Сбросить фильтры
-                                </Button>
-                            </Col>
-                        </Row>
+                    {/*{!loading ?*/}
+                    {/*    checkboxList() : null*/}
+                    {/*}*/}
 
-                        {/* TODO хз как юзать */}
-                        <Form.Control.Feedback type="invalid">НЕПРАВ</Form.Control.Feedback>
-                    </Form>
+                    <Row>
+                        <Col xs={{offset: 8}}>
+                            <Button type="submit" className='btn btn-nks'>
+                                {/*TODO сделать из нее Spinner Buttons bootstrap*/}
+                                Применить фильтры
+                            </Button>
+                        </Col>
+                        <Col xs={{order: 'last'}}>
+                            <Button variant="primary" className='btn btn-nks float-right'
+                                    onClick={clearFilters}>
+                                Сбросить фильтры
+                            </Button>
+                        </Col>
+                    </Row>
 
-                    {/* TODO это чтобы блок с продуктами не пропадал, даже если пустой - переделать на норм*/}
-                    <div className="padding-y-sm" style={{minHeight: '900px'}}>
-                        {/*{!loading && (<ProductsDynamic products={products}/>)}*/}
-                        <PaginatedItems products={products} productsPerPage={12}/>
-                    </div>
-                </>
-            );
-        } else {
-            return null;
-        }
+                    {/* TODO хз как юзать */}
+                    <Form.Control.Feedback type="invalid">НЕПРАВ</Form.Control.Feedback>
+                </Form>
+
+                <div className="padding-y-sm" style={{minHeight: '200px'}}>
+                    {/*{!loading && (<ProductsDynamic products={products}/>)}*/}
+                    <PaginatedItems products={products} productsPerPage={12}/>
+                </div>
+            </>
+        );
     }
 
     return (
         <Container>
-            <h3 className="p-4 banner-alert mt-3">
-                В связи с тем, что в стране инфляция, цены изделий могут незначительно отличаться.
-                <br/>
-                Для уточнения звоните по телефону, указанному на странице Контакты.
-            </h3>
+            {/* вместо этого тост */}
+            {/*<h3 className="p-4 banner-alert mt-3">*/}
+            {/*    В связи с тем, что в стране инфляция, цены товаров могут незначительно отличаться.*/}
+            {/*    <br/>*/}
+            {/*    Для уточнения звоните по телефону, указанному на странице Контакты.*/}
+            {/*</h3>*/}
 
             <header className="section-heading">
-                <h3 className="section-title">Изделия</h3>
+                <h3 className="section-title">Каталог</h3>
             </header>
 
             <div className="padding-y-sm" style={{minHeight: '900px'}}>

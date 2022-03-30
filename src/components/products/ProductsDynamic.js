@@ -2,6 +2,7 @@ import {useCart} from "react-use-cart";
 import ProductCard from "./ProductCard";
 import React from "react";
 
+// TODO заменили на пагинационный продукт - удалить
 const ProductsDynamic = React.memo(({products}) => {
     console.log(products);
     // const { items } = useCart();

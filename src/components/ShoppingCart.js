@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {useCart} from "react-use-cart";
+import {toast} from "react-toastify";
 
 
 export default function ShoppingCart(props) {
@@ -8,6 +9,20 @@ export default function ShoppingCart(props) {
     const openOrderingPage = (e) => {
         e.preventDefault();
         window.location.href = "/ordering";
+    }
+
+    const callEmptyCart = () => {
+        emptyCart();
+
+        toast.info('Корзина очищена', {
+            position: "top-left",
+            autoClose: 1000,
+            hideProgressBar: true,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+        });
     }
 
     const runCallback = (cb) => {
@@ -24,26 +39,24 @@ export default function ShoppingCart(props) {
                         </ul>
                     </nav>
                 </div>
-        <h1 className="text-center center-xy">Ваша корзина пуста!</h1>
+
+                <h1 className="text-center center-xy">
+                    Ваша корзина пуста
+                </h1>
             </div>
         </div>
     </div>
+
     function renderCartItems() {
+
         if (items) {
-
-
-            // setLoading(false);
             return(
-
                 <table className="table">
-
                     {
-
                         runCallback(() => {
                             const shopcart = [];
+
                             items.map((cartItem, index) => {
-
-
                                 shopcart.push(
                                     <div key={'cart_item' + index} className="container-fluid">
                                         <div className="row">
@@ -140,7 +153,7 @@ export default function ShoppingCart(props) {
                                                                     onClick={() => removeItem(cartItem.id)}
                                                                     data-abc="true">
                                                                 Удалить
-                                                            </button>
+                                                            </button >
                                                         </td>
                                                     </tr>
 
@@ -184,11 +197,7 @@ export default function ShoppingCart(props) {
                                         </div>
                                     </div>
                                 );
-
-
                             })
-
-                            // console.log(shopcart);
                             return shopcart;
                         })
                     }
@@ -198,7 +207,6 @@ export default function ShoppingCart(props) {
 
         return null;
     }
-
 
     return (
         <div className="padding-y-sm">
@@ -214,7 +222,6 @@ export default function ShoppingCart(props) {
 
                 <div className="row ">
                     <aside className="col-lg-9">
-
 
                         <div className="card">
                             { renderCartItems() }
@@ -247,7 +254,7 @@ export default function ShoppingCart(props) {
                                                 </button>
                                                 {/* TODO btn-outline-warning - мб сделать оранжевую кнопку */}
                                                 <button className="btn btn-outline-gray-light btn-block"
-                                                        onClick={emptyCart}
+                                                        onClick={callEmptyCart}
                                                         type="button">
                                                     Очистить корзину
                                                 </button>

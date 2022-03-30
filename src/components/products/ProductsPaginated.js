@@ -15,9 +15,9 @@ const Products = ({products}) => {
 
     return (
         <Row>
-            {products.map((repository) => (
-                <Col md={3} className='padding-bottom-sm'>
-                    <ProductCard product={repository}/>
+            {products.map((product) => (
+                <Col xxl={3} lg={4} md={6} sm={12} className='padding-bottom-sm'>
+                    <ProductCard product={product}/>
                 </Col>
             ))}
         </Row>

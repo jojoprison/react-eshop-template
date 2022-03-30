@@ -162,7 +162,7 @@ a:hover {
 }
 
 .padding-top {
-  padding-top: 40px;
+  padding-top: 15px;
 }
 
 .padding-bottom {
@@ -439,29 +439,6 @@ p:last-child {
 }
 .navbar-main .nav-link:hover {
   color: #666;
-}
-
-.icon-link-badged {
-  display: inline-block;
-  vertical-align: middle;
-  position: relative;
-  /* чтоб у бейджика менялся размер шрифта, 75%*/
-  font-size: 20px;
-}
-.icon-link-badged i {
-  color: rgba(15, 68, 199, 0.69);
-}
-.icon-link-badged .notify {
-  position: absolute;
-  right: -15px;
-}
-
-.icon-link-badged:hover i {
-  color: #25509d;
-}
-.icon-link-badged:hover .badge {
-  color: black;
-  background-color: slategray;
 }
 
 /* desktop only */
@@ -851,6 +828,7 @@ a[class*=card]:hover .title {
 /* GRID STYLE PRODUCT ITEM */
 .card-product-grid {
   margin-bottom: 20px;
+  /* минимальный размер карточки продукта */
   min-height: 465px;
 }
 .card-product-grid .img-wrap {
@@ -1050,17 +1028,6 @@ a[class*=card]:hover .title {
   border-radius: 3rem;
   color: #fff;
   background-color: #fa3434;
-}
-
-.price {
-  font-weight: 600;
-  color: #212529;
-}
-
-.price-old {
-  color: #969696;
-  margin-left: 3px;
-  font-size: 85%;
 }
 
 .icon-control {
@@ -1403,7 +1370,7 @@ a[class*=card]:hover .title {
 .table-shopping-cart .price-wrap {
   line-height: 1.2;
 }
-.table-shopping-cart .price {
+.table-shopping-cart .price-card {
   font-weight: bold;
   margin-right: 5px;
   display: block;

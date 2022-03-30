@@ -14,11 +14,16 @@ const OrderPage = (props) => {
     const [city, setCity] = useState(undefined);
     const [commentary, setCommentary] = useState(undefined);
 
-    const resetForm = (e) => {
-        e.preventDefault();
+    const resetForm = () => {
+        initData();
+        notifyDataReset();
+    }
+
+    const initData = () => {
         setRadio(deliveryDefault);
         setName('');
         setPhone('');
+        setEmail('');
         setName('');
         setCity('');
         setCommentary('');
@@ -54,16 +59,60 @@ const OrderPage = (props) => {
         })
             .then(res => res.json())
             .then((result) => {
-                    // TODO добавить наш новый алерт
-                    alert(result);
                     emptyCart();
-                    window.location.href = "/";
+                    initData();
+                    notifyOrderSuccess(result);
+
+                    setTimeout(function(){
+                        window.location.href = "/";
+
+                    }, 3500);
                 },
                 (error) => {
-                    alert('Заказ не оформлен');
+                    notifyOrderError();
                 })
     };
 
+    const notifyOrderSuccess = (msg) => {
+        const resMsg = 'Заказ оформлен!\n С вами свяжутся'
+
+        toast.success(resMsg, {
+            position: "top-left",
+            autoClose: 2500,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: 'colored'
+        });
+    }
+
+    const notifyOrderError = () => {
+        toast.error('Ошибка при оформлении заказа', {
+            position: "top-left",
+            autoClose: 1000,
+            hideProgressBar: true,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: 'colored'
+        });
+    }
+
+    const notifyDataReset = () => {
+        toast.info('Данные сброшены', {
+            position: "top-left",
+            autoClose: 1000,
+            hideProgressBar: true,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: 'colored'
+        });
+    }
 
     return (
         <section className="container">
@@ -79,7 +128,8 @@ const OrderPage = (props) => {
                             </ul>
                         </nav>
                     </div>
-                    <div className="order-block row">
+
+                    <div className="order-block order-delivery row">
                         <div className="col-md-12">
                             <aside className="col-md-4 padding-y-sm text-left">
                                 <h5 className="text-gray">Шаг 1</h5>
@@ -195,7 +245,7 @@ const OrderPage = (props) => {
                     </div>
 
                     <div className="padding-top">
-                        <div className="personal-details">
+                        <div className="order-block order-person">
                             <div className="col-md-12">
                                 <aside className="col-md-6 padding-y-sm text-left">
                                     <h5 className="text-gray">Шаг 2</h5>
