@@ -77,7 +77,7 @@ const ProductsPaginated = ({products, productsPerPage}) => {
                     breakLabel="..."
                     breakClassName="page-item"
                     breakLinkClassName="page-link"
-                    containerClassName="pagination"
+                    containerClassName="navigationButtons"
                     activeClassName="active"
                     renderOnZeroPageCount={null}
                 />
@@ -100,8 +100,8 @@ const ProductsPaginated = ({products, productsPerPage}) => {
                     breakLabel="..."
                     breakClassName="page-item"
                     breakLinkClassName="page-link"
-                    containerClassName="pagination"
-                    activeClassName="active"
+                    containerClassName="navigationButtons"
+                    activeClassName="navigationActive"
                     renderOnZeroPageCount={null}
                 />
             </>
