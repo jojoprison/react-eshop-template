@@ -73,7 +73,8 @@ export default function ShoppingCart(props) {
                                                                 <figcaption className="info">
                                                                     <div className="row">
                                                                         <a href={"product/" + cartItem.id}
-                                                                           className="title stretched-link product-link"
+                                                                           className="font-weight-bolder title
+                                                                           stretched-link product-link"
                                                                            data-abc="true">{cartItem.title}</a>
                                                                         <button type="button"
                                                                                 className="btn btn-sm dropdown-toggle
