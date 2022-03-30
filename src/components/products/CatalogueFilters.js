@@ -42,9 +42,9 @@ const CatalogueFilters = React.memo((props) => {
                 .then(() => setLoading(false));
         }
 
+        showPriceClarification();
         fetchInitData();
         console.log(products);
-        showPriceClarification();
     }, []);
 
     const showPriceClarification = () => {
