@@ -1,35 +1,14 @@
-import React, {Component, useEffect, useState} from 'react';
-import {Button,Image, Col, Container, Form, Row} from "react-bootstrap";
+import React, {useEffect, useState} from 'react';
 import {useCart} from "react-use-cart";
-import {useParams} from "react-router-dom";
-import $ from 'jquery';
 
 
 export default function ShoppingCart(props) {
+    const {items, emptyCart, removeItem, isEmpty, updateItemQuantity,totalItems, cartTotal,} = useCart();
 
-
-    const params = useParams();
-    const {setItems, items, emptyCart, removeItem, isEmpty, updateItemQuantity,totalItems,
-        cartTotal,} = useCart();
-    const [product, setProduct] = useState({});
-    // const [loading, setLoading] = useState(true);
-
-    useEffect(() => {
-        async function fetchInitData() {
-            // const resProduct = await fetch(process.env.REACT_APP_NKS_API + `product/${params.id}`);
-            // const dataProduct = await resProduct.json();
-
-            // setProduct(dataProduct);
-            // setLoading(false);
-        }
-
-        fetchInitData();
-    }, []);
-
-
-
-
-
+    const openOrderingPage = (e) => {
+        e.preventDefault();
+        window.location.href = "/ordering";
+    }
 
     const runCallback = (cb) => {
         return cb();
@@ -149,16 +128,19 @@ export default function ShoppingCart(props) {
                                                                 name="item_price">{cartItem.price} ₽</var>
                                                             </div>
                                                         </td>
-                                                        <td className="text-right d-none d-md-block">
-                                                            {/*    <a data-original-title="Save to Wishlist" title="" href=""*/}
+                                                        <td className="text-right">
+                                                            {/* TODO добавить в избранное */}
+                                                            {/*<a data-original-title="Save to Wishlist" title="" href=""*/}
                                                             {/*    className="btn btn-light" data-toggle="tooltip" data-abc="true">*/}
 
 
                                                             {/*    <i className="fa fa-heart"></i>*/}
-                                                            {/*</a> */}
-                                                            <button onClick={() => removeItem(cartItem.id)}
-                                                                className="btn btn-light"
-                                                               data-abc="true"> Удалить</button>
+                                                            {/*</a>*/}
+                                                            <button className="btn btn-cart-delete-item btn-danger btn-block"
+                                                                    onClick={() => removeItem(cartItem.id)}
+                                                                    data-abc="true">
+                                                                Удалить
+                                                            </button>
                                                         </td>
                                                     </tr>
 
@@ -256,16 +238,19 @@ export default function ShoppingCart(props) {
                                                 </dd>
                                             </dl>
                                             <hr/>
+
                                             <div className="row">
-                                                <button type="button" onClick={() => emptyCart()}
-                                                        className="btn btn-block nks-btn">
-                                                    Оформить заказ</button>
-                                                    {/*<button onClick={() => emptyCart()} className="btn btn-out btn-main*/}
-                                                    {/*btn-success">Очистить корзину</button>*/}
-                                                    <button type="button" onClick={() => emptyCart()}
-                                                            className="btn btn-block btn-gray-light">
-                                                        Очистить корзину
-                                                    </button>
+                                                <button className="btn btn-nks btn-block"
+                                                        onClick={openOrderingPage}
+                                                        type="button">
+                                                    Оформить заказ
+                                                </button>
+                                                {/* TODO btn-outline-warning - мб сделать оранжевую кнопку */}
+                                                <button className="btn btn-outline-gray-light btn-block"
+                                                        onClick={emptyCart}
+                                                        type="button">
+                                                    Очистить корзину
+                                                </button>
                                             </div>
                                         </div>
                                     </form>

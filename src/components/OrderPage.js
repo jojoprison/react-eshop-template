@@ -4,34 +4,45 @@ import {toast} from "react-toastify";
 
 
 const OrderPage = (props) => {
+    const deliveryDefault = 'self-delivery';
+
     const {totalItems, cartTotal, items, emptyCart} = useCart();
-    let [radio, setRadio] = useState('self-delivery');
+    const [radio, setRadio] = useState(deliveryDefault);
     const [name, setName] = useState('');
     const [phone, setPhone] = useState('');
     const [email, setEmail] = useState('');
-    const [city, setCity] = useState(null);
-    const [commentary, setCommentary] = useState(null);
+    const [city, setCity] = useState(undefined);
+    const [commentary, setCommentary] = useState(undefined);
 
+    const resetForm = (e) => {
+        e.preventDefault();
+        setRadio(deliveryDefault);
+        setName('');
+        setPhone('');
+        setName('');
+        setCity('');
+        setCommentary('');
+    }
 
     const convertRadioValue = (radio) => {
-        if (radio == 'self-delivery') {
-            return 'Самовывоз'
-        } else if (radio == 'sdc') {
+        if (radio == 'sdc') {
             return '«СДЭК»';
         } else if (radio == 'shipping') {
             return 'Доставка'
         } else if (radio == 'business-lines') {
             return '«Деловые линии»'
         } else {
-            return 'Выберите способ доставки'
+            // TODO уточнить какая доставка по умолчанию
+            return 'Самовывоз'
         }
     }
 
-    const handleSubmit = (e) => {
+    const placeOrder = (e) => {
         e.preventDefault();
+
         const price = cartTotal
-        radio = convertRadioValue(radio)
-        const order = {name, phone, email, city, commentary, price, radio, items};
+        const delivery = convertRadioValue(radio)
+        const order = {name, phone, email, city, commentary, price, delivery, items};
 
         fetch(process.env.REACT_APP_NKS_API + 'order/', {
             method: 'POST',
@@ -43,20 +54,21 @@ const OrderPage = (props) => {
         })
             .then(res => res.json())
             .then((result) => {
+                    // TODO добавить наш новый алерт
                     alert(result);
                     emptyCart();
-                //    TODO сделать редирект на главную
+                    window.location.href = "/";
                 },
                 (error) => {
                     alert('Заказ не оформлен');
                 })
-    }
+    };
 
 
     return (
         <section className="container">
             <div className="padding-y-sm">
-                <form onSubmit={handleSubmit}>
+                <form onSubmit={placeOrder}>
                     {/*{console.log(items)}*/}
 
                     <div className="product_description padding-bottom-sm">
@@ -123,8 +135,8 @@ const OrderPage = (props) => {
                                     <div className="text-wrap">
                                         <a href="#" id="ordered_link">«СДЭК»</a>
                                     </div>
-                                    <span className="text-muted">Рассчитывается после оформления заказа и согласования
-                                        всех нюансов с нашим менеджером</span>
+                                    <span className="text-muted font-weight-bold">Рассчитывается после оформления заказа и согласования
+                                        всех нюансов по телефону</span>
                                 </figcaption>
                             </figure>
                         </div>
@@ -148,10 +160,10 @@ const OrderPage = (props) => {
 
                                 <figcaption className="col-md-6 small-info">
                                     <div className="text-wrap">
-                                        <a href="#" id="ordered_link">Самовывоз</a>
+                                        <a href="#" id="ordered_link">Доставка</a>
                                     </div>
-                                    <span className="text-muted">Рассчитывается после оформления заказа и согласования
-                                        всех нюансов с нашим менеджером</span>
+                                    <span className="text-muted font-weight-bold">Рассчитывается после оформления заказа и согласования
+                                        всех нюансов по телефону</span>
                                 </figcaption>
                             </figure>
                         </div>
@@ -175,8 +187,8 @@ const OrderPage = (props) => {
                                     <div className="text-wrap">
                                         <a href="#" id="ordered_link">«Деловые Линии»</a>
                                     </div>
-                                    <span className="text-muted">Рассчитывается после оформления заказа и согласования
-                                        всех нюансов с нашим менеджером</span>
+                                    <span className="text-muted font-weight-bold">Рассчитывается после оформления заказа и согласования
+                                        всех нюансов по телефону</span>
                                 </figcaption>
                             </figure>
                         </div>
@@ -257,7 +269,7 @@ const OrderPage = (props) => {
                                         <div className="col-md-3 m-3">
                                             <ul className="text-left list-unstyled">
                                                 <li><span
-                                                    className="text-muted small-info">В вашем заказе всего товаров:</span>
+                                                    className="text-muted small-info font-weight-bold">Товаров в заказе:</span>
                                                 </li>
                                                 <li><h5>{totalItems} шт.</h5></li>
                                             </ul>
@@ -265,7 +277,7 @@ const OrderPage = (props) => {
                                         <div className="col-md-2 m-3">
                                             <ul className="text-left list-unstyled">
                                                 <li><span
-                                                    className="text-muted small-info">На общую сумму:</span>
+                                                    className="text-muted small-info font-weight-bold">Сумма заказа:</span>
                                                 </li>
                                                 <li><h5>{cartTotal} ₽</h5></li>
                                             </ul>
@@ -273,19 +285,28 @@ const OrderPage = (props) => {
                                         <div className="col-md-3 m-3">
                                             <ul className="text-left list-unstyled">
                                                 <li><span
-                                                    className="text-muted small-info">Вы выбрали способ доставки:</span>
+                                                    className="text-muted small-info font-weight-bold">Способ доставки</span>
                                                 </li>
                                                 <li><h5>{convertRadioValue(radio)}</h5></li>
                                             </ul>
                                         </div>
                                     </div>
                                 </div>
-                                <div className="col-md-3 text-left">
-                                    <button type="submit" value="Оформить заказ"
-                                            className="btn btn-danger download-info btn-lg">Оформить заказ
-                                    </button>
-                                    {/*<input onSubmit={this.handleSubmit} type="submit" value="Оформить заказ"*/}
-                                    {/*       className="btn btn-danger download-info btn-lg"/>*/}
+
+                                <div className="row btn-group">
+                                    <div className="col-auto">
+                                        <button className="btn btn-nks btn-lg"
+                                                type="submit">
+                                            Оформить заказ
+                                        </button>
+                                    </div>
+                                    <div className="col-auto">
+                                        <button className="btn btn-outline-gray-light btn-lg"
+                                                type="button"
+                                                onClick={resetForm}>
+                                            Сбросить данные
+                                        </button>
+                                    </div>
                                 </div>
                             </footer>
                         </div>
