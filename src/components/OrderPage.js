@@ -157,7 +157,7 @@ const OrderPage = (props) => {
 
                                 <figcaption className="col-md-9">
                                     <div className="text-wrap">
-                                        <a href="#" id="ordered_link">Самовывоз</a>
+                                        <a href="#" className="product-link" id="ordered_link">Самовывоз</a>
                                     </div>
                                     <span
                                         className="text-muted small-info">Владимирская область, город Александров</span>
@@ -183,7 +183,7 @@ const OrderPage = (props) => {
 
                                 <figcaption className="col-md-6 small-info">
                                     <div className="text-wrap">
-                                        <a href="#" id="ordered_link">«СДЭК»</a>
+                                        <a href="#" className="product-link" id="ordered_link">«СДЭК»</a>
                                     </div>
                                     <span className="text-muted font-weight-bold">Рассчитывается после оформления заказа и согласования
                                         всех нюансов по телефону</span>
@@ -210,7 +210,7 @@ const OrderPage = (props) => {
 
                                 <figcaption className="col-md-6 small-info">
                                     <div className="text-wrap">
-                                        <a href="#" id="ordered_link">Доставка</a>
+                                        <a href="#" className="product-link" id="ordered_link">Доставка</a>
                                     </div>
                                     <span className="text-muted font-weight-bold">Рассчитывается после оформления заказа и согласования
                                         всех нюансов по телефону</span>
@@ -235,7 +235,7 @@ const OrderPage = (props) => {
 
                                 <figcaption className="col-md-6 small-info">
                                     <div className="text-wrap">
-                                        <a href="#" id="ordered_link">«Деловые Линии»</a>
+                                        <a href="#" className="product-link" id="ordered_link">«Деловые Линии»</a>
                                     </div>
                                     <span className="text-muted font-weight-bold">Рассчитывается после оформления заказа и согласования
                                         всех нюансов по телефону</span>
@@ -343,7 +343,7 @@ const OrderPage = (props) => {
                                     </div>
                                 </div>
 
-                                <div className="row btn-group">
+                                <div className="float-left row btn-group">
                                     <div className="col-auto">
                                         <button className="btn btn-nks btn-lg"
                                                 type="submit">

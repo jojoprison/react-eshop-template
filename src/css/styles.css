@@ -571,3 +571,17 @@ input.btn-purple {
     background-color: #3950c4;
 }
 
+input[type="radio"] {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid black;
+    border-radius: 50%;
+    background-clip: content-box;
+    padding: 2px;
+}
+
+input[type="radio"]:checked {
+    background-color: #3950c4;
+}
+

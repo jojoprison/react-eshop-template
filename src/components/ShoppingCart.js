@@ -73,8 +73,7 @@ export default function ShoppingCart(props) {
                                                                 <figcaption className="info">
                                                                     <div className="row">
                                                                         <a href={"product/" + cartItem.id}
-                                                                           className="font-weight-bolder title
-                                                                           stretched-link product-link"
+                                                                           className="font-weight-bolder title product-link"
                                                                            data-abc="true">{cartItem.title}</a>
                                                                         <button type="button"
                                                                                 className="btn btn-sm dropdown-toggle
@@ -91,9 +90,8 @@ export default function ShoppingCart(props) {
                                                                             className="card-props card-text">
                                                                                     <span className="font-weight-bold">Артикул:</span>
 
-                                                                            <a href="#"
-                                                                               className="text-muted"><span
-                                                                                className="font-weight-bold ">{cartItem.article}</span></a>
+                                                                            <a href="#" className="product-link"><span
+                                                                                className="font-weight-bold">{cartItem.article}</span></a>
                                                                         </div>
                                                                         <div
                                                                             className="card-props card-text">
