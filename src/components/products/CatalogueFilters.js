@@ -1,10 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {Button, Col, Container, Form, Row} from "react-bootstrap";
-import ProductsDynamic from "./ProductsDynamic";
 import Selects from "./filters/SelectFilter";
-import ReactPaginate from 'react-paginate';
 import ProductsPaginated from "./ProductsPaginated";
-import PaginatedItems from "./ProductsPaginated";
 import {toast} from "react-toastify";
 
 
@@ -231,7 +228,7 @@ const CatalogueFilters = React.memo((props) => {
 
                 <div className="padding-y-sm" style={{minHeight: '200px'}}>
                     {/*{!loading && (<ProductsDynamic products={products}/>)}*/}
-                    <PaginatedItems products={products} productsPerPage={12}/>
+                    <ProductsPaginated products={products} productsPerPage={12}/>
                 </div>
             </>
         );
