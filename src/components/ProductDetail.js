@@ -9,13 +9,15 @@ const ProductDetail = () => {
     const [product, setProduct] = useState({});
     const [loading, setLoading] = useState(true);
 
+
     useEffect(() => {
         async function fetchInitData() {
-            const resProduct = await fetch(process.env.REACT_APP_NKS_API + `product/${params.id}`);
+            const resProduct = await fetch(process.env.REACT_APP_NKS_API + `products/${params.id}`);
             const dataProduct = await resProduct.json();
 
             setProduct(dataProduct);
             setLoading(false);
+            // setProduct({title: 'adadad', price: 1, article: 'ada', series: 'adad', })
         }
 
         fetchInitData();
@@ -80,10 +82,10 @@ const ProductDetail = () => {
                             </div>
 
                             <div className="row product-bottom col-5">
-                                <button onClick={() => addItem(product)}
-                                        type="button" id="addCart" className="btn btn-primary margbutton btn-lg">В корзину
+                                <button className="btn btn-nks btn-lg margbutton"
+                                        onClick={() => addItem(product)}>
+                                    Добавить в корзину
                                 </button>
-                                {/*<button type="button" className="btn btn-primary margbutton btn-lg">Быстрый заказ</button>*/}
                             </div>
                         </div>
                     </div>
@@ -91,6 +93,7 @@ const ProductDetail = () => {
 
                 <div className="container my-5 col-12">
                     <nav>
+                        {/* TODO Tabs */}
                         <div className="nav nav-tabs" id="nav-tab" role="tablist">
                             <button className="nav-link col-6 active" id="nav-feature-tab" data-bs-toggle="tab"
                                     data-bs-target="#nav-feature" type="button" role="tab"
