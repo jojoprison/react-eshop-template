@@ -4,8 +4,8 @@ import ReactPaginate from "react-paginate";
 import {Col, Row} from "react-bootstrap";
 
 
-const Products = ({products}) => {
-    if ((!products) || (products.length === 0)) {
+const Products = ({productsCurrent}) => {
+    if ((!productsCurrent) || (productsCurrent.length === 0)) {
         return (
             <div className="alert alert-warning" role="alert">
                 Нет продуктов по заданным фильтрам
@@ -15,7 +15,7 @@ const Products = ({products}) => {
 
     return (
         <Row>
-            {products.map((product) => (
+            {productsCurrent.map((product) => (
                 <Col xxl={3} lg={4} md={6} sm={12} className='padding-bottom-sm'>
                     <ProductCard product={product}/>
                 </Col>
@@ -25,7 +25,7 @@ const Products = ({products}) => {
 };
 
 
-const ProductsPaginated = ({products, productsPerPage}) => {
+const ProductsPaginated = ({productsAll, productsPerPage}) => {
     // We start with an empty list of items.
     const [currentItems, setCurrentItems] = useState(null);
     const [pageCount, setPageCount] = useState(0);
@@ -38,13 +38,13 @@ const ProductsPaginated = ({products, productsPerPage}) => {
         // Fetch items from another resources.
         const endOffset = itemOffset + productsPerPage;
         console.log(`Loading items from ${itemOffset} to ${endOffset}`);
-        setCurrentItems(products.slice(itemOffset, endOffset));
-        setPageCount(Math.ceil(products.length / productsPerPage));
-    }, [itemOffset, productsPerPage, products]);
+        setCurrentItems(productsAll.slice(itemOffset, endOffset));
+        setPageCount(Math.ceil(productsAll.length / productsPerPage));
+    }, [itemOffset, productsPerPage, productsAll]);
 
     // Invoke when user click to request another page.
     const handlePageClick = (event) => {
-        const newOffset = event.selected * productsPerPage % products.length;
+        const newOffset = event.selected * productsPerPage % productsAll.length;
         console.log(`User requested page number ${event.selected}, which is offset ${newOffset}`);
         setItemOffset(newOffset);
     };
@@ -82,7 +82,7 @@ const ProductsPaginated = ({products, productsPerPage}) => {
                     renderOnZeroPageCount={null}
                 />
 
-                <Products products={currentItems} />
+                <Products productsCurrent={currentItems} />
 
                 <ReactPaginate
                     nextLabel="> Следующая"

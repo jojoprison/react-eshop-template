@@ -228,7 +228,7 @@ const CatalogueFilters = React.memo((props) => {
 
                 <div className="padding-y-sm" style={{minHeight: '200px'}}>
                     {/*{!loading && (<ProductsDynamic products={products}/>)}*/}
-                    <ProductsPaginated products={products} productsPerPage={12}/>
+                    <ProductsPaginated productsAll={products} productsPerPage={12}/>
                 </div>
             </>
         );

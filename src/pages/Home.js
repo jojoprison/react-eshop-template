@@ -8,7 +8,7 @@ const Home = (props) => {
     const [loading, setLoading] = useState(true);
 
     // TODO заливать сюда последние добавленные в базу 8-12 продуктов
-    let newProduct = products.slice(0, 8)
+    let newProducts = products.slice(0, 4);
 
     // втрым аргументом переменную, при изменении которого должна вызываться функция
     // в данном случае вызовем только при первом рендере
@@ -31,7 +31,7 @@ const Home = (props) => {
             {!loading && (
                 <header className="section-heading">
                     <h3 className="section-title">Новые модели товаров</h3>
-                    <ProductsDynamic products={newProduct}/>
+                    <ProductsDynamic products={newProducts}/>
                 </header>
             )}
         </Container>
