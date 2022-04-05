@@ -23,6 +23,7 @@ import OrderPage from "./components/OrderPage";
 import Error404 from "./components/Error404";
 import {ToastContainer, Zoom} from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
+import Tables from "./components/products/typed/Tables";
 
 
 function App() {
@@ -65,6 +66,7 @@ function App() {
                         <Route path="/product/:id" element={<ProductDetail/>}/>
                         <Route path="/contacts" element={<Contacts/>}/>
                         <Route path="/ordering" element={<OrderPage/>}/>
+                        <Route path="/tables/" element={<Tables/>}/>
                     </Routes>
 
 

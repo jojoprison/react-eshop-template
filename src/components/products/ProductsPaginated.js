@@ -25,10 +25,10 @@ const Products = ({productsCurrent}) => {
 };
 
 
-const ProductsPaginated = ({productsAll, productsPerPage}) => {
+const ProductsPaginated = ({productsAll, productsPerPage, pageCount}) => {
     // We start with an empty list of items.
     const [currentItems, setCurrentItems] = useState(null);
-    const [pageCount, setPageCount] = useState(0);
+    // const [pageCount, setPageCount] = useState(0);
     // Here we use item offsets; we could also use page offsets
     // following the API or data you're working with.
     const [itemOffset, setItemOffset] = useState(0);
@@ -39,7 +39,8 @@ const ProductsPaginated = ({productsAll, productsPerPage}) => {
         const endOffset = itemOffset + productsPerPage;
         console.log(`Loading items from ${itemOffset} to ${endOffset}`);
         setCurrentItems(productsAll.slice(itemOffset, endOffset));
-        setPageCount(Math.ceil(productsAll.length / productsPerPage));
+        // setPageCount(Math.ceil(productsAll.length / productsPerPage));
+        // setPageCount(pageCount);
     }, [itemOffset, productsPerPage, productsAll]);
 
     // Invoke when user click to request another page.
