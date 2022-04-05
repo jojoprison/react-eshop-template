@@ -240,7 +240,7 @@ const Tables = React.memo((props) => {
     return (
         <Container>
             <header className="section-heading">
-                <h3 className="section-title">Каталог</h3>
+                <h3 className="section-title">Столы</h3>
             </header>
 
             <div className="padding-y-sm" style={{minHeight: '900px'}}>

@@ -1,20 +1,20 @@
 import React, {useEffect, useState} from 'react';
 import {Button, Col, Container, Form, Row} from "react-bootstrap";
-import Selects from "./filters/SelectFilter";
-import ProductsPaginated from "./ProductsPaginated";
+import Selects from "../filters/SelectFilter";
+import ProductsPaginated from "../ProductsPaginated";
 import {toast} from "react-toastify";
 
 
-const CatalogueFilters = React.memo((props) => {
+const Accessory = React.memo((props) => {
     const [productsData, setProductsData] = useState({});
     const [filterVariants, setFilterVariants] = useState({});
-    // TODO через пропсы засовывать сюда уже selectedFiltersValues когда будем на страницах разных продуктов делать
     const [selectedFiltersValues, setSelectedFiltersValues] = useState({});
     const [loading, setLoading] = useState(true);
 
     // передавать вторым аргументом state, при изменении которого должна вызываться функция чтоб не было лишних
     useEffect(() => {
         async function fetchInitData() {
+            // TODO tables/filtersALl
             await fetch(process.env.REACT_APP_NKS_API + 'products/filtersAll', {
                 method: 'GET',
                 mode: 'cors',
@@ -28,17 +28,17 @@ const CatalogueFilters = React.memo((props) => {
                 .then((filters) => {
                     setFilterVariants(filters);
                 }, (error) => {
-                    console.log('Не удалось получить список фильтров');
+                    console.log('Не удалось получить список фильтров для доп.оснащения');
                 });
 
             // TODO заменить на слэш! /products -> и в остальных местах тоже
-            await fetch(process.env.REACT_APP_NKS_API + 'products', {
+            await fetch(process.env.REACT_APP_NKS_API + 'accessories', {
             })
                 .then(res => res.json())
                 .then((products) => {
                     setProductsData(products);
                 }, (error) => {
-                    console.log('Не удалось получить продукты');
+                    console.log('Не удалось получить доп.оснащения');
                 })
                 .then(() => setLoading(false));
         }
@@ -68,13 +68,13 @@ const CatalogueFilters = React.memo((props) => {
             filtersQueryParams = '';
         }
 
-        await fetch(process.env.REACT_APP_NKS_API + `products?${filtersQueryParams}`)
+        await fetch(process.env.REACT_APP_NKS_API + `accessories?${filtersQueryParams}`)
             .then(res => res.json())
             .then((products) => {
                 setProductsData(products);
                 return products;
             }, (error) => {
-                console.log('Не удалось получить продукты');
+                console.log('Не удалось получить доп.оснащения');
                 return null;
             })
     };
@@ -191,16 +191,7 @@ const CatalogueFilters = React.memo((props) => {
     const content = (loading) => {
         console.log(filterVariants.select)
         console.log(productsData);
-        if (loading) {
-            return (
-                <div className="d-flex justify-content-center">
-                    <div className="spinner-border" role="status">
-                        <span className="sr-only">Loading...</span>
-                    </div>
-                </div>
-            );
-        }
-
+        if (loading) return null;
 
         return (
             <>
@@ -248,66 +239,16 @@ const CatalogueFilters = React.memo((props) => {
 
     return (
         <Container>
-            {/* вместо этого тост */}
-            {/*<h3 className="p-4 banner-alert mt-3">*/}
-            {/*    В связи с тем, что в стране инфляция, цены товаров могут незначительно отличаться.*/}
-            {/*    <br/>*/}
-            {/*    Для уточнения звоните по телефону, указанному на странице Контакты.*/}
-            {/*</h3>*/}
-
             <header className="section-heading">
-                <h3 className="section-title">Каталог</h3>
+                <h3 className="section-title">Дополнительное оснащение</h3>
             </header>
 
             <div className="padding-y-sm" style={{minHeight: '900px'}}>
                 {content(loading)}
             </div>
 
-            {/*<Form onSubmit={handleSubmit}>*/}
-
-            {/*    <Row className="mb-3">*/}
-
-            {/*        {!loading && (*/}
-            {/*            <Selects fieldList={filterVariants.select}*/}
-            {/*                // resetValues={resetSelectsKey}*/}
-            {/*                     selectedValues={selectedFiltersValues}*/}
-            {/*                     handlerChangeSelect={handlerCHANGER}*/}
-            {/*            />*/}
-            {/*        )}*/}
-            {/*    </Row>*/}
-
-            {/*    /!*{!loading ?*!/*/}
-            {/*    /!*    checkboxList() : null*!/*/}
-            {/*    /!*}*!/*/}
-
-            {/*    <Row>*/}
-            {/*        <Col xs={{offset: 8}}>*/}
-            {/*            <Button type="submit" className='filters-btn'>*/}
-            {/*                /!*TODO сделать из нее Spinner Buttons bootstrap*!/*/}
-            {/*                Применить фильтры*/}
-            {/*            </Button>*/}
-            {/*        </Col>*/}
-            {/*        <Col xs={{order: 'last'}}>*/}
-            {/*            <Button variant="primary" className='filters-btn float-right'*/}
-            {/*                    onClick={clearFilters}>*/}
-            {/*                Сбросить фильтры*/}
-            {/*            </Button>*/}
-            {/*        </Col>*/}
-            {/*    </Row>*/}
-
-            {/*    /!* TODO хз как юзать *!/*/}
-            {/*    <Form.Control.Feedback type="invalid">НЕПРАВ</Form.Control.Feedback>*/}
-            {/*</Form>*/}
-
-            {/*/!* TODO это чтобы блок с продуктами не пропадал, даже если пустой - переделать на норм*!/*/}
-            {/*<div className="padding-y-sm" style={{minHeight: '900px'}}>*/}
-            {/*    /!*{!loading && (<ProductsDynamic products={products}/>)}*!/*/}
-            {/*    {!loading && (<PaginatedItems products={products} productsPerPage={12}/>)}*/}
-            {/*</div>*/}
-
         </Container>
     )
 });
 
-
-export default CatalogueFilters;
+export default Accessory;

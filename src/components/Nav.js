@@ -36,22 +36,22 @@ export default function Navigation() {
                             </NavDropdown.Item>
                         </NavDropdown>
                         <Nav.Item>
-                            <Nav.Link href="/filters">Тумбы</Nav.Link>
+                            <Nav.Link href="/drawers">Тумбы</Nav.Link>
                         </Nav.Item>
                         <Nav.Item>
-                            <Nav.Link href="/filters">Стулья/Кресла/Табуреты</Nav.Link>
+                            <Nav.Link href="/chairs">Стулья/Кресла/Табуреты</Nav.Link>
                         </Nav.Item>
                         <Nav.Item>
-                            <Nav.Link href="/filters">Стойки</Nav.Link>
+                            <Nav.Link href="/stands">Стойки</Nav.Link>
                         </Nav.Item>
                         <Nav.Item>
-                            <Nav.Link href="/filters">Стеллажи</Nav.Link>
+                            <Nav.Link href="/racks">Стеллажи</Nav.Link>
                         </Nav.Item>
                         {/*<Nav.Item>*/}
                         {/*    <Nav.Link href="/filters" className="nav-text">Шкафы</Nav.Link>*/}
                         {/*</Nav.Item>*/}
                         <Nav.Item>
-                            <Nav.Link href="/filters">Дополнительное оснащение</Nav.Link>
+                            <Nav.Link href="/accessories">Дополнительное оснащение</Nav.Link>
                         </Nav.Item>
                     </Nav>
                     {/*<Nav>*/}

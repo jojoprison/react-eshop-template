@@ -15,13 +15,13 @@ export const Ad = () => (
                     <nav className="card">
                         {/*<ul className="menu-category text-left">*/}
                         <ul className="menu-category">
-                            <li><a href="/filters" className='link-nks-light'>Столы</a></li>
-                            <li><a href="/filters" className='link-nks-light'>Тумбы</a></li>
-                            <li><a href="/filters" className='link-nks-light'>Стулья, табуреты, кресла</a></li>
-                            <li><a href="/filters" className='link-nks-light'>Стойки</a></li>
-                            <li><a href="/filters" className='link-nks-light'>Стеллажи</a></li>
+                            <li><a href="/tables" className='link-nks-light'>Столы</a></li>
+                            <li><a href="/drawers" className='link-nks-light'>Тумбы</a></li>
+                            <li><a href="/chairs" className='link-nks-light'>Стулья, табуреты, кресла</a></li>
+                            <li><a href="/stands" className='link-nks-light'>Стойки</a></li>
+                            <li><a href="/racks" className='link-nks-light'>Стеллажи</a></li>
                             {/*<li><a href="/filters" className='link-nks'>Шкафы</a></li>*/}
-                            <li><a href="/filters" className='link-nks-light'>Дополнительное оснащение</a></li>
+                            <li><a href="/accessories" className='link-nks-light'>Дополнительное оснащение</a></li>
                         </ul>
                     </nav>
                 </aside>
