@@ -48,7 +48,7 @@ const ProductCard = (props) => {
                         </div>
                         <div className="card-props card-text">
                             <span className="text-muted small">Тип:</span>
-                            <span className="text-muted small">{product.type}</span>
+                            <span className="text-muted small">{product.subtype}</span>
                         </div>
                         <div className="card-props card-text">
                             <span className="text-muted small">Материал исполнения:</span>

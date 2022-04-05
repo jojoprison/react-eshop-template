@@ -191,7 +191,15 @@ const Racks = React.memo((props) => {
     const content = (loading) => {
         console.log(filterVariants.select)
         console.log(productsData);
-        if (loading) return null;
+        if (loading) {
+            return (
+                <div className="d-flex justify-content-center">
+                    <div className="spinner-border" role="status">
+                        <span className="sr-only">Loading...</span>
+                    </div>
+                </div>
+            );
+        }
 
         return (
             <>
@@ -240,6 +248,15 @@ const Racks = React.memo((props) => {
     return (
         <Container>
             <header className="section-heading">
+                <div className="product_description">
+                    <nav>
+                        <ul className="breadcrumb">
+                            <li className="breadcrumb-item"><a href="/">Главная</a></li>
+                            <li className="breadcrumb-item"><a href="/filters">Каталог</a></li>
+                            <li className="breadcrumb-item active">Стеллажи</li>
+                        </ul>
+                    </nav>
+                </div>
                 <h3 className="section-title">Стеллажи</h3>
             </header>
 

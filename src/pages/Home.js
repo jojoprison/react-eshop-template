@@ -27,13 +27,6 @@ const Home = (props) => {
     return (
         <Container>
             <Ad/>
-
-            {!loading && (
-                <header className="section-heading">
-                    <h3 className="section-title">Новые модели товаров</h3>
-                    <ProductsDynamic products={newProducts}/>
-                </header>
-            )}
         </Container>
     )
 };

@@ -146,6 +146,8 @@ const Accessory = React.memo((props) => {
     const checkboxList = () => {
         console.log('CHECK');
 
+
+
         return (
             <Row className="mb-3">
                 {/*const priceFilter = filter.variants.price;*/}
@@ -191,7 +193,15 @@ const Accessory = React.memo((props) => {
     const content = (loading) => {
         console.log(filterVariants.select)
         console.log(productsData);
-        if (loading) return null;
+        if (loading) {
+            return (
+                <div className="d-flex justify-content-center">
+                    <div className="spinner-border" role="status">
+                        <span className="sr-only">Loading...</span>
+                    </div>
+                </div>
+            );
+        }
 
         return (
             <>
@@ -240,7 +250,16 @@ const Accessory = React.memo((props) => {
     return (
         <Container>
             <header className="section-heading">
-                <h3 className="section-title">Дополнительное оснащение</h3>
+                <div className="product_description">
+                    <nav>
+                        <ul className="breadcrumb">
+                            <li className="breadcrumb-item"><a href="/">Главная</a></li>
+                            <li className="breadcrumb-item"><a href="/filters">Каталог</a></li>
+                            <li className="breadcrumb-item active">Дополнительные оснащение</li>
+                        </ul>
+                    </nav>
+                </div>
+                <h3 className="section-title">Дополнительные оснащение</h3>
             </header>
 
             <div className="padding-y-sm" style={{minHeight: '900px'}}>
