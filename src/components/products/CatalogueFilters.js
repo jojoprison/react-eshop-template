@@ -256,6 +256,14 @@ const CatalogueFilters = React.memo((props) => {
             {/*</h3>*/}
 
             <header className="section-heading">
+                <div className="product_description">
+                    <nav>
+                        <ul className="breadcrumb">
+                            <li className="breadcrumb-item"><a href="/">Главная</a></li>
+                            <li className="breadcrumb-item active">Каталог</li>
+                        </ul>
+                    </nav>
+                </div>
                 <h3 className="section-title">Каталог</h3>
             </header>
 

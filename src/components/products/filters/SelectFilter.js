@@ -1,4 +1,4 @@
-import {Col, Form} from "react-bootstrap";
+import {Col, Form, Row} from "react-bootstrap";
 import React from "react";
 
 
@@ -49,9 +49,13 @@ const SelectFilter = React.memo((props) => {
                 </option>
                 {/*TODO и вот тут я в кейс добавил индекс чтоб при ресете менялись значения*/}
                 {values.map((filter, index) =>
-                    <option key={filter + '_' + index + '_' + selectedValue} value={filter}>
-                        {filter}
-                    </option>
+                    <div className="row">
+                        {/*<div className="col-md-3">*/}
+                            <option key={filter + '_' + index + '_' + selectedValue} value={filter}>
+                                {filter}
+                            </option>
+                        {/*</div>*/}
+                    </div>
                 )}
             </Form.Control>
         </Form.Group>

@@ -25,6 +25,7 @@ export default function ShoppingCart(props) {
         });
     }
 
+
     const runCallback = (cb) => {
         return cb();
     }
