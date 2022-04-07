@@ -23,15 +23,15 @@ export default function Navigation() {
                     <Nav className="me-auto">
                         {/*TODO потом получать список из базы и отображать выпадающим подтипы*/}
                         <NavDropdown title="Столы" trigger="hover" id="collasible-nav-dropdown">
-                            <NavDropdown.Item href="tables/">
+                            <NavDropdown.Item href="/tables">
                                 Весовые
                             </NavDropdown.Item>
                             <NavDropdown.Divider/>
-                            <NavDropdown.Item href="/tables/">
+                            <NavDropdown.Item href="/tables">
                                 Столы-мойки
                             </NavDropdown.Item>
                             <NavDropdown.Divider/>
-                            <NavDropdown.Item href="/tables/">
+                            <NavDropdown.Item href="/tables">
                                 Высокие
                             </NavDropdown.Item>
                         </NavDropdown>
