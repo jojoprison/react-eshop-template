@@ -11,11 +11,10 @@ import Navigation from './components/Nav'
 import Home from "./pages/Home";
 import Header from "./components/Header";
 import {Footer} from "./pages/Footer";
-import {Catalog} from "./components/CatalogueFilters";
 import ProductDetail from "./components/products/ProductDetail";
 import {Contacts} from "./components/Contacts";
 import './App.css';
-import CatalogueFilters from "./components/products/CatalogueFilters";
+import Catalog from "./components/products/Catalog";
 import {ContactUs} from "./components/ContactUs";
 import ShoppingCart from "./components/ShoppingCart";
 import {CartProvider} from 'react-use-cart';
@@ -62,21 +61,19 @@ function App() {
 
                     <Routes>
                         <Route path="/" element={<Home/>} exact/>
-                        {/*<Route path="/table" element={<CatalogueFilters/>}/>*/}
                         <Route path="/error" element={<Error404/>}/>
-                        <Route path="/catalog" element={<Catalog/>}/>
-                        <Route path="/filters" element={<CatalogueFilters/>}/>
+                        <Route path="/filters" element={<Catalog itemsType='products'/>}/>
                         <Route path="/contact" element={<ContactUs/>}/>
                         <Route path="/basket" element={<ShoppingCart/>}/>
                         <Route path="/product/:id" element={<ProductDetail/>}/>
                         <Route path="/contacts" element={<Contacts/>}/>
                         <Route path="/ordering" element={<OrderPage/>}/>
-                        <Route path="/tables/" element={<Tables/>}/>
-                        <Route path="/chairs/" element={<Chairs/>}/>
-                        <Route path="/drawers/" element={<Drawers/>}/>
-                        <Route path="/stands/" element={<Stands/>}/>
-                        <Route path="/racks/" element={<Racks/>}/>
-                        <Route path="/accessories/" element={<Accessories/>}/>
+                        <Route path="/tables" element={<Catalog itemsType='tables'/>}/>
+                        <Route path="/chairs" element={<Chairs/>}/>
+                        <Route path="/drawers" element={<Drawers/>}/>
+                        <Route path="/stands" element={<Stands/>}/>
+                        <Route path="/racks" element={<Racks/>}/>
+                        <Route path="/accessories" element={<Accessories/>}/>
                     </Routes>
 
 

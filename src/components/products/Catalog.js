@@ -5,17 +5,24 @@ import ProductsPaginated from "./ProductsPaginated";
 import {toast} from "react-toastify";
 
 
-const CatalogueFilters = React.memo((props) => {
+const Catalog = React.memo(({itemsType}) => {
+    // в пропсы передаем тип товаров и его потом в ссылки толкаем - чтоб код по сто раз не писать
+    const itemsReqUrlDefault = process.env.REACT_APP_NKS_API + itemsType + '/';
+
     const [productsData, setProductsData] = useState({});
     const [filterVariants, setFilterVariants] = useState({});
     // TODO через пропсы засовывать сюда уже selectedFiltersValues когда будем на страницах разных продуктов делать
     const [selectedFiltersValues, setSelectedFiltersValues] = useState({});
     const [loading, setLoading] = useState(true);
+    const [filtersError, setFiltersError] = useState(null);
+    const [productsError, setProductsError] = useState(null);
+    const [itemsReqUrl, setItemsReqUrl] = useState(itemsReqUrlDefault);
 
     // передавать вторым аргументом state, при изменении которого должна вызываться функция чтоб не было лишних
     useEffect(() => {
         async function fetchInitData() {
-            await fetch(process.env.REACT_APP_NKS_API + 'products/filtersAll', {
+            // TODO сделать на беке получение фильтров для каждого из типов продуктов
+            await fetch(process.env.REACT_APP_NKS_API + `products/filtersAll`, {
                 method: 'GET',
                 mode: 'cors',
                 headers: {
@@ -27,25 +34,28 @@ const CatalogueFilters = React.memo((props) => {
                 .then(res => res.json())
                 .then((filters) => {
                     setFilterVariants(filters);
+                    setFiltersError(null);
                 }, (error) => {
                     console.log('Не удалось получить список фильтров');
+                    setFiltersError(error);
                 });
 
             // TODO заменить на слэш! /products -> и в остальных местах тоже
-            await fetch(process.env.REACT_APP_NKS_API + 'products', {
+            await fetch(process.env.REACT_APP_NKS_API + itemsType, {
             })
                 .then(res => res.json())
                 .then((products) => {
+                    setProductsError(null);
                     setProductsData(products);
                 }, (error) => {
                     console.log('Не удалось получить продукты');
+                    setProductsError(error);
                 })
                 .then(() => setLoading(false));
         }
 
         showPriceClarification();
         fetchInitData();
-        console.log(productsData);
     }, []);
 
     const showPriceClarification = () => {
@@ -68,15 +78,26 @@ const CatalogueFilters = React.memo((props) => {
             filtersQueryParams = '';
         }
 
-        await fetch(process.env.REACT_APP_NKS_API + `products?${filtersQueryParams}`)
+        await fetch(process.env.REACT_APP_NKS_API + `${itemsType}/?${filtersQueryParams}`)
             .then(res => res.json())
             .then((products) => {
                 setProductsData(products);
+                setProductsError(null);
                 return products;
             }, (error) => {
                 console.log('Не удалось получить продукты');
+                setProductsError(error);
                 return null;
             })
+    };
+
+    const generateItemsReqUrl = (filtersQueryParams) => {
+        if (!filtersQueryParams) {
+            filtersQueryParams = '';
+        }
+
+        const reqUrl = process.env.REACT_APP_NKS_API + `${itemsType}/?${filtersQueryParams}`;
+        setItemsReqUrl(reqUrl);
     };
 
     const handleSubmitFiltered = (event) => {
@@ -98,7 +119,8 @@ const CatalogueFilters = React.memo((props) => {
         convertedQueryParams = convertedQueryParams.substring(0, convertedQueryParams.length - 1);
         console.log(convertedQueryParams);
 
-        getProducts(convertedQueryParams);
+        // все отображение продуктов в компоненте-ребенке пагинационном - там все запросы к АПИ
+        generateItemsReqUrl(convertedQueryParams);
 
         toast.success('Фильтры применены', {
             position: "top-left",
@@ -115,7 +137,7 @@ const CatalogueFilters = React.memo((props) => {
     const clearFilters = () => {
         async function reset() {
             await setSelectedFiltersValues({});
-            getProducts();
+            await setItemsReqUrl(itemsReqUrlDefault);
         }
 
         reset();
@@ -132,19 +154,19 @@ const CatalogueFilters = React.memo((props) => {
     }
 
     const runCallback = (cb) => {
-        console.log('DODOD');
+        console.log('RUN_CALLBACK');
         return cb();
     }
 
     const handlerCHANGER = (event) => {
         setSelectedFiltersValues({...selectedFiltersValues, [event.target.id]: event.target.value});
 
-        console.log(selectedFiltersValues);
+        // console.log(selectedFiltersValues);
     }
 
     // TODO переделать по аналогии с селектами, сделать компоненты
     const checkboxList = () => {
-        console.log('CHECK');
+        console.log('CHECKBOXES');
 
         return (
             <Row className="mb-3">
@@ -189,18 +211,18 @@ const CatalogueFilters = React.memo((props) => {
     };
 
     const content = (loading) => {
-        console.log(filterVariants.select)
-        console.log(productsData);
+        // console.log(filterVariants.select)
+        // console.log(productsData);
         if (loading) {
-            return (
-                <div className="d-flex justify-content-center">
-                    <div className="spinner-border" role="status">
-                        <span className="sr-only">Loading...</span>
-                    </div>
-                </div>
-            );
+            return null;
         }
 
+        if (filtersError) {
+            return (
+                <div className="alert alert-danger" role="alert">
+                    {filtersError}
+                </div>);
+        }
 
         return (
             <>
@@ -239,8 +261,12 @@ const CatalogueFilters = React.memo((props) => {
 
                 <div className="padding-y-sm" style={{minHeight: '200px'}}>
                     {/*{!loading && (<ProductsDynamic products={products}/>)}*/}
-                    <ProductsPaginated productsAll={productsData.results}
-                                       productsPerPage={productsData.per_page}/>
+                    {productsError ?
+                        <div className="alert alert-danger" role="alert">
+                            {productsError}
+                        </div>
+                        : <ProductsPaginated itemsReqUrl={itemsReqUrl}/>
+                    }
                 </div>
             </>
         );
@@ -256,14 +282,6 @@ const CatalogueFilters = React.memo((props) => {
             {/*</h3>*/}
 
             <header className="section-heading">
-                <div className="product_description">
-                    <nav>
-                        <ul className="breadcrumb">
-                            <li className="breadcrumb-item"><a href="/">Главная</a></li>
-                            <li className="breadcrumb-item active">Каталог</li>
-                        </ul>
-                    </nav>
-                </div>
                 <h3 className="section-title">Каталог</h3>
             </header>
 
@@ -318,4 +336,4 @@ const CatalogueFilters = React.memo((props) => {
 });
 
 
-export default CatalogueFilters;
+export default Catalog;
