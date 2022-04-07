@@ -22,7 +22,7 @@ const CatalogTemplate = React.memo(({itemsType}) => {
     useEffect(() => {
         async function fetchInitData() {
             // TODO сделать на беке получение фильтров для каждого из типов продуктов
-            await fetch(process.env.REACT_APP_NKS_API + `products/filtersAll`, {
+            await fetch(process.env.REACT_APP_NKS_API + `${itemsType}/filtersAll`, {
                 method: 'GET',
                 mode: 'cors',
                 headers: {
