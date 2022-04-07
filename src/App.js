@@ -11,7 +11,7 @@ import Navigation from './components/Nav'
 import Home from "./pages/Home";
 import Header from "./components/Header";
 import {Footer} from "./pages/Footer";
-import {Catalog} from "./components/Catalog";
+import {Catalog} from "./components/CatalogueFilters";
 import ProductDetail from "./components/products/ProductDetail";
 import {Contacts} from "./components/Contacts";
 import './App.css';
