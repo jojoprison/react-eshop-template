@@ -5,7 +5,7 @@ import ProductsPaginated from "./ProductsPaginated";
 import {toast} from "react-toastify";
 
 
-const Catalog = React.memo(({itemsType}) => {
+const CatalogTemplate = React.memo(({itemsType}) => {
     // в пропсы передаем тип товаров и его потом в ссылки толкаем - чтоб код по сто раз не писать
     const itemsReqUrlDefault = process.env.REACT_APP_NKS_API + itemsType + '/';
 
@@ -211,10 +211,14 @@ const Catalog = React.memo(({itemsType}) => {
     };
 
     const content = (loading) => {
-        // console.log(filterVariants.select)
-        // console.log(productsData);
         if (loading) {
-            return null;
+            return (
+                <div className="d-flex justify-content-center">
+                    <div className="spinner-border" role="status">
+                        <span className="sr-only">Loading...</span>
+                    </div>
+                </div>
+            );
         }
 
         if (filtersError) {
@@ -273,17 +277,13 @@ const Catalog = React.memo(({itemsType}) => {
     }
 
     return (
-        <Container>
+        <>
             {/* вместо этого тост */}
             {/*<h3 className="p-4 banner-alert mt-3">*/}
             {/*    В связи с тем, что в стране инфляция, цены товаров могут незначительно отличаться.*/}
             {/*    <br/>*/}
             {/*    Для уточнения звоните по телефону, указанному на странице Контакты.*/}
             {/*</h3>*/}
-
-            <header className="section-heading">
-                <h3 className="section-title">Каталог</h3>
-            </header>
 
             <div className="padding-y-sm" style={{minHeight: '900px'}}>
                 {content(loading)}
@@ -330,10 +330,8 @@ const Catalog = React.memo(({itemsType}) => {
             {/*    /!*{!loading && (<ProductsDynamic products={products}/>)}*!/*/}
             {/*    {!loading && (<PaginatedItems products={products} productsPerPage={12}/>)}*/}
             {/*</div>*/}
-
-        </Container>
+        </>
     )
 });
 
-
-export default Catalog;
+export default CatalogTemplate;

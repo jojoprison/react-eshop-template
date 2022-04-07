@@ -3,7 +3,7 @@ import {Container} from "react-bootstrap";
 import CatalogTemplate from "../CatalogTemplate";
 
 
-const Tables = React.memo(() => {
+const AllProducts = React.memo(() => {
     return (
         <Container>
             <header className="section-heading">
@@ -11,18 +11,17 @@ const Tables = React.memo(() => {
                     <nav>
                         <ul className="breadcrumb">
                             <li className="breadcrumb-item"><a href="/">Главная</a></li>
-                            <li className="breadcrumb-item"><a href="/catalog">Каталог</a></li>
-                            <li className="breadcrumb-item active">Столы</li>
+                            <li className="breadcrumb-item active">Каталог</li>
                         </ul>
                     </nav>
                 </div>
-                <h3 className="section-title">Столы</h3>
+                <h3 className="section-title">Все продукты</h3>
             </header>
 
-            <CatalogTemplate itemsType='tables'/>
+            <CatalogTemplate itemsType='products'/>
 
         </Container>
     )
 });
 
-export default Tables;
+export default AllProducts;

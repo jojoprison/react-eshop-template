@@ -14,7 +14,7 @@ import {Footer} from "./pages/Footer";
 import ProductDetail from "./components/products/ProductDetail";
 import {Contacts} from "./components/Contacts";
 import './App.css';
-import Catalog from "./components/products/Catalog";
+import CatalogTemplate from "./components/products/CatalogTemplate";
 import {ContactUs} from "./components/ContactUs";
 import ShoppingCart from "./components/ShoppingCart";
 import {CartProvider} from 'react-use-cart';
@@ -28,6 +28,7 @@ import Drawers from "./components/products/typed/Drawers";
 import Stands from "./components/products/typed/Stands";
 import Racks from "./components/products/typed/Racks";
 import Accessories from "./components/products/typed/Accessories";
+import AllProducts from "./components/products/typed/AllProducts";
 
 
 function App() {
@@ -62,13 +63,13 @@ function App() {
                     <Routes>
                         <Route path="/" element={<Home/>} exact/>
                         <Route path="/error" element={<Error404/>}/>
-                        <Route path="/filters" element={<Catalog itemsType='products'/>}/>
                         <Route path="/contact" element={<ContactUs/>}/>
                         <Route path="/basket" element={<ShoppingCart/>}/>
                         <Route path="/product/:id" element={<ProductDetail/>}/>
                         <Route path="/contacts" element={<Contacts/>}/>
                         <Route path="/ordering" element={<OrderPage/>}/>
-                        <Route path="/tables" element={<Catalog itemsType='tables'/>}/>
+                        <Route path="/catalog" element={<AllProducts/>}/>
+                        <Route path="/tables" element={<Tables/>}/>
                         <Route path="/chairs" element={<Chairs/>}/>
                         <Route path="/drawers" element={<Drawers/>}/>
                         <Route path="/stands" element={<Stands/>}/>
