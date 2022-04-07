@@ -1,4 +1,4 @@
-import {Col, Form, Row} from "react-bootstrap";
+import {Col, Form} from "react-bootstrap";
 import React from "react";
 
 
@@ -17,14 +17,18 @@ const Selects = React.memo(({fieldList, selectedValues, handlerChangeSelect}) =>
     // }, [selectedFiltersValues]);
 
     return fieldList.map((filterSelect, index) =>
-        <SelectFilter
-            key={filterSelect + '_' + index}
-            handler={handlerChangeSelect}
-            product_prop={filterSelect.product_prop}
-            name={filterSelect.name}
-            values={filterSelect.values}
-            selectedValue={selectedValues ? selectedValues[filterSelect.product_prop] : ''}
-        />);
+        // TODO как то привести к нормальному виду их
+        // <div className="col-md-3">
+            <SelectFilter
+                key={filterSelect + '_' + index}
+                handler={handlerChangeSelect}
+                product_prop={filterSelect.product_prop}
+                name={filterSelect.name}
+                values={filterSelect.values}
+                selectedValue={selectedValues ? selectedValues[filterSelect.product_prop] : ''}
+            />
+        // </div>
+    );
 });
 
 
@@ -49,13 +53,9 @@ const SelectFilter = React.memo((props) => {
                 </option>
                 {/*TODO и вот тут я в кейс добавил индекс чтоб при ресете менялись значения*/}
                 {values.map((filter, index) =>
-                    <div className="row">
-                        {/*<div className="col-md-3">*/}
-                            <option key={filter + '_' + index + '_' + selectedValue} value={filter}>
-                                {filter}
-                            </option>
-                        {/*</div>*/}
-                    </div>
+                    <option key={filter + '_' + index + '_' + selectedValue} value={filter}>
+                        {filter}
+                    </option>
                 )}
             </Form.Control>
         </Form.Group>
