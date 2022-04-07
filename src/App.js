@@ -23,6 +23,11 @@ import Error404 from "./components/Error404";
 import {ToastContainer, Zoom} from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import Tables from "./components/products/typed/Tables";
+import Chairs from "./components/products/typed/Chairs";
+import Drawers from "./components/products/typed/Drawers";
+import Stands from "./components/products/typed/Stands";
+import Racks from "./components/products/typed/Racks";
+import Accessories from "./components/products/typed/Accessories";
 
 
 function App() {
@@ -64,7 +69,12 @@ function App() {
                         <Route path="/product/:id" element={<ProductDetail/>}/>
                         <Route path="/contacts" element={<Contacts/>}/>
                         <Route path="/ordering" element={<OrderPage/>}/>
-                        <Route path="/tables" element={<Catalog itemsType='tables'/>}/>
+                        <Route path="/tables/" element={<Catalog itemsType='tables'/>}/>
+                        <Route path="/chairs/" element={<Chairs/>}/>
+                        <Route path="/drawers/" element={<Drawers/>}/>
+                        <Route path="/stands/" element={<Stands/>}/>
+                        <Route path="/racks/" element={<Racks/>}/>
+                        <Route path="/accessories/" element={<Accessories/>}/>
                     </Routes>
 
 
