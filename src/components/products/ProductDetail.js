@@ -17,7 +17,7 @@ const ProductDetail = () => {
 
             setProduct(dataProduct);
             setLoading(false);
-            // тестил почему не робит, фишинг данные
+            // TODO тестил почему не робит, фишинг данные
             // setProduct({title: 'adadad', price: 1, article: 'ada', series: 'adad', })
         }
 

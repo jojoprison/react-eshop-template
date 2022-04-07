@@ -5,14 +5,6 @@ import {Col, Row} from "react-bootstrap";
 
 
 const Products = ({productsCurrent}) => {
-    if ((!productsCurrent) || (productsCurrent.length === 0)) {
-        return (
-            <div className="alert alert-warning" role="alert">
-                Нет продуктов по заданным фильтрам
-            </div>
-        );
-    }
-
     return (
         <Row>
             {productsCurrent.map((product) => (
@@ -25,89 +17,105 @@ const Products = ({productsCurrent}) => {
 };
 
 
-const ProductsPaginated = ({productsAll, productsPerPage, pageCount}) => {
-    // We start with an empty list of items.
-    const [currentItems, setCurrentItems] = useState(null);
-    // const [pageCount, setPageCount] = useState(0);
-    // Here we use item offsets; we could also use page offsets
-    // following the API or data you're working with.
-    const [itemOffset, setItemOffset] = useState(0);
-    // const [pageOffset, setPageOffset] = useState(0);
+const ProductsPaginated = ({itemsReqUrl}) => {
+    const [currentProducts, setCurrentProducts] = useState(null);
+    const [pageOffset, setPageOffset] = useState(0);
+    const [productsPerPage, setProductsPerPage] = useState(0);
+    const [pageCount, setPageCount] = useState(0);
 
-    useEffect(() => {
-        // Fetch items from another resources.
-        const endOffset = itemOffset + productsPerPage;
-        console.log(`Loading items from ${itemOffset} to ${endOffset}`);
-        setCurrentItems(productsAll.slice(itemOffset, endOffset));
-        // setPageCount(Math.ceil(productsAll.length / productsPerPage));
-        // setPageCount(pageCount);
-    }, [itemOffset, productsPerPage, productsAll]);
+    useEffect(async () => {
+        console.log(itemsReqUrl);
+        await getItems(itemsReqUrl);
+        setPageOffset(0);
+    }, [itemsReqUrl]);
 
-    // Invoke when user click to request another page.
-    const handlePageClick = (event) => {
-        const newOffset = event.selected * productsPerPage % productsAll.length;
-        console.log(`User requested page number ${event.selected}, which is offset ${newOffset}`);
-        setItemOffset(newOffset);
+    useEffect(async () => {
+        let pageParamSeparator = '';
+        console.log(itemsReqUrl);
+        if (itemsReqUrl.charAt(itemsReqUrl.length - 1) === '/') {
+            pageParamSeparator = '?';
+        } else {
+            pageParamSeparator = '&';
+        }
+        const paginatedUrl = itemsReqUrl + pageParamSeparator + `page=${pageOffset + 1}`
+
+        await getItems(paginatedUrl);
+    }, [pageOffset]);
+
+    const getItems = async (itemsReqUrl) => {
+        await fetch(itemsReqUrl)
+            .then(res => res.json())
+            .then((itemsData) => {
+                setCurrentProducts(itemsData.results);
+                setProductsPerPage(itemsData.per_page);
+                setPageCount(itemsData.page_count);
+            }, (error) => {
+                setCurrentProducts(null);
+                console.log('Не удалось получить товары');
+            })
     };
 
     const handlePageChange = (event) => {
-        console.log(event);
-        // TODO Only change displayed selected page
-        // when its content is loaded in useEffect.
-        // setPageOffset(event.selected);
+        setPageOffset(event.selected);
     };
 
-    if (!currentItems) {
-        return null;
-    } else {
+    // заглушка когда нет товаров
+    if ((!currentProducts) || (currentProducts.length === 0)) {
         return (
-            <>
-                <ReactPaginate
-                    nextLabel="> Следующая"
-                    onPageChange={handlePageClick}
-                    pageRangeDisplayed={3}
-                    marginPagesDisplayed={2}
-                    pageCount={pageCount}
-                    previousLabel="Предыдущая <"
-                    pageClassName="page-item"
-                    pageLinkClassName="page-link"
-                    previousClassName="page-item"
-                    previousLinkClassName="page-link"
-                    nextClassName="page-item"
-                    nextLinkClassName="page-link"
-                    breakLabel="..."
-                    breakClassName="page-item"
-                    breakLinkClassName="page-link"
-                    containerClassName="navigationButtons"
-                    activeClassName="active"
-                    renderOnZeroPageCount={null}
-                />
-
-                <Products productsCurrent={currentItems} />
-
-                <ReactPaginate
-                    nextLabel="> Следующая"
-                    onPageChange={handlePageClick}
-                    pageRangeDisplayed={3}
-                    marginPagesDisplayed={2}
-                    pageCount={pageCount}
-                    previousLabel="Предыдущая <"
-                    pageClassName="page-item"
-                    pageLinkClassName="page-link"
-                    previousClassName="page-item"
-                    previousLinkClassName="page-link"
-                    nextClassName="page-item"
-                    nextLinkClassName="page-link"
-                    breakLabel="..."
-                    breakClassName="page-item"
-                    breakLinkClassName="page-link"
-                    containerClassName="navigationButtons"
-                    activeClassName="navigationActive"
-                    renderOnZeroPageCount={null}
-                />
-            </>
+            <div className="alert alert-warning" role="alert">
+                Нет товаров по заданным фильтрам
+            </div>
         );
     }
+
+    return (
+        <>
+            <ReactPaginate
+                nextLabel="> Следующая"
+                onPageChange={handlePageChange}
+                pageRangeDisplayed={5}
+                marginPagesDisplayed={2}
+                pageCount={pageCount}
+                previousLabel="Предыдущая <"
+                pageClassName="page-item"
+                pageLinkClassName="page-link"
+                previousClassName="page-item"
+                previousLinkClassName="page-link"
+                nextClassName="page-item"
+                nextLinkClassName="page-link"
+                breakLabel="..."
+                breakClassName="page-item"
+                breakLinkClassName="page-link"
+                containerClassName="navigationButtons"
+                activeClassName="active"
+                renderOnZeroPageCount={null}
+                forcePage={pageOffset}
+            />
+            <Products productsCurrent={currentProducts} />
+
+            <ReactPaginate
+                nextLabel="> Следующая"
+                onPageChange={handlePageChange}
+                pageRangeDisplayed={5}
+                marginPagesDisplayed={2}
+                pageCount={pageCount}
+                previousLabel="Предыдущая <"
+                pageClassName="page-item"
+                pageLinkClassName="page-link"
+                previousClassName="page-item"
+                previousLinkClassName="page-link"
+                nextClassName="page-item"
+                nextLinkClassName="page-link"
+                breakLabel="..."
+                breakClassName="page-item"
+                breakLinkClassName="page-link"
+                containerClassName="navigationButtons"
+                activeClassName="navigationActive"
+                renderOnZeroPageCount={null}
+                forcePage={pageOffset}
+            />
+        </>
+    );
 };
 
 export default ProductsPaginated;
