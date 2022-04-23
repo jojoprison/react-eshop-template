@@ -28,7 +28,7 @@ const CatalogTemplate = React.memo(({itemsType}) => {
                 headers: {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json',
-                    'Origin': ''
+                    'Origin': 'http://nksgroup33.ru:8000'
                 }
             })
                 .then(res => res.json())
