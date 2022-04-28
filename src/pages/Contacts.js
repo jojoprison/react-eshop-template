@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import Maps from "./Maps";
+import Maps from "../components/Maps";
 
 // TODO переписать все компоненты из классов на функции
 export class Contacts extends Component {

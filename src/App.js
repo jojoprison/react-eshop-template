@@ -12,14 +12,14 @@ import Home from "./pages/Home";
 import Header from "./components/Header";
 import {Footer} from "./pages/Footer";
 import ProductDetail from "./components/products/ProductDetail";
-import {Contacts} from "./components/Contacts";
+import {Contacts} from "./pages/Contacts";
 import './App.css';
 import CatalogTemplate from "./components/products/CatalogTemplate";
 import {ContactUs} from "./components/ContactUs";
-import ShoppingCart from "./components/ShoppingCart";
+import ShoppingCart from "./pages/ShoppingCart";
 import {CartProvider} from 'react-use-cart';
-import OrderPage from "./components/OrderPage";
-import Error404 from "./components/Error404";
+import OrderPage from "./pages/OrderPage";
+import Error404 from "./pages/Error404";
 import {ToastContainer, Zoom} from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import Tables from "./components/products/typed/Tables";
@@ -29,7 +29,7 @@ import Stands from "./components/products/typed/Stands";
 import Racks from "./components/products/typed/Racks";
 import Accessories from "./components/products/typed/Accessories";
 import AllProducts from "./components/products/typed/AllProducts";
-
+import Authorization from "./components/Authorization";
 
 function App() {
     const [showButton, setShowButton] = useState(false);
@@ -63,6 +63,7 @@ function App() {
                     <Routes>
                         <Route path="/" element={<Home/>} exact/>
                         <Route path="/error" element={<Error404/>}/>
+                        <Route path="/authorization" element={<Authorization/>}/>
                         <Route path="/contact" element={<ContactUs/>}/>
                         <Route path="/basket" element={<ShoppingCart/>}/>
                         <Route path="/product/:id" element={<ProductDetail/>}/>
