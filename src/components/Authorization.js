@@ -17,7 +17,7 @@ const Authorization = () => {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             },
-
+            // body:
         })
             .then(res => res.json())
             .then((result) => {
