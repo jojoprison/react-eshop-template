@@ -32,6 +32,7 @@ import AllProducts from "./components/products/typed/AllProducts";
 import Authorization from "./components/Authorization";
 
 function App() {
+    const [isLoggedIn, setIsLoggedIn] = useState(false)
     const [showButton, setShowButton] = useState(false);
 
     useEffect(() => {
