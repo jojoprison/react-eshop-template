@@ -1,9 +1,9 @@
 import { useState } from "react";
 import API from "../../api/API";
 // TODO доделать стили модальки!!
-// import css from "./modalAuth.module.css";
+import css from "./modalAuth.module.css";
 import { useHistory, useNavigate } from "react-router-dom";
-// import closeImg from "../../../assets/closeBlackImg.png"
+import closeImg from "../../images/closeBlackImg.png"
 
 export const ModalAuth = (props) => {
   const [error, setError] = useState("");
