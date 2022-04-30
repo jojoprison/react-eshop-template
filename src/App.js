@@ -30,10 +30,22 @@ import Racks from "./components/products/typed/Racks";
 import Accessories from "./components/products/typed/Accessories";
 import AllProducts from "./components/products/typed/AllProducts";
 import Authorization from "./components/Authorization";
+import {AuthChecker} from "./components/auth/AuthChecker";
 
 function App() {
-    const [isLoggedIn, setIsLoggedIn] = useState(false)
     const [showButton, setShowButton] = useState(false);
+
+    const [modal, setModal] = useState(false);
+
+    const [authToken, setAuthToken] = useState(() =>
+        JSON.parse(localStorage.getItem("authToken"))
+    );
+
+    const authUser = (tokenJWT) => {
+        // TODO запихиваем в локальное хранилище, корзина работает так же (можно в сессию/куки)
+        localStorage.setItem("authToken", JSON.stringify(tokenJWT));
+        setAuthToken(tokenJWT)
+    }
 
     useEffect(() => {
         window.addEventListener('scroll', () => {
@@ -58,14 +70,17 @@ function App() {
         <CartProvider>
             <BrowserRouter>
                 <div className="App">
-                    <Header/>
+                    {/*<Header/>*/}
+                    <Header setModal={setModal} modal={modal} authToken={authToken} setAuthToken={setAuthToken}
+                            authUser={authUser}/>
+
                     <Navigation/>
 
                     <Routes>
-                        <Route path="/" element={<Home/>} exact/>
-                        <Route path="/error" element={<Error404/>}/>
-                        <Route path="/authorization" element={<Authorization/>}/>
-                        <Route path="/contact" element={<ContactUs/>}/>
+                        <Route path="/login" element={<Authorization/>}/>
+                        <AuthChecker path="/" authToken={authToken} Component={Home}/>
+                        {/* TODO не юзаем этот компонент, мб избавиться */}
+                        {/*<Route path="/contact" element={<ContactUs/>}/>*/}
                         <Route path="/basket" element={<ShoppingCart/>}/>
                         <Route path="/product/:id" element={<ProductDetail/>}/>
                         <Route path="/contacts" element={<Contacts/>}/>
@@ -77,6 +92,10 @@ function App() {
                         <Route path="/stands" element={<Stands/>}/>
                         <Route path="/racks" element={<Racks/>}/>
                         <Route path="/accessories" element={<Accessories/>}/>
+                        {/*<Route path="/error" element={<Error404/>}/>*/}
+
+                        <Route exact path="/" element={<Home/>} />
+                        <Route path="*" element={<Error404/>}/>
                     </Routes>
 
 
@@ -86,7 +105,7 @@ function App() {
                         </button>
                     )}
 
-                    <Footer/>
+                    <Footer authToken={authToken} />
 
                     <ToastContainer
                         position="top-left"

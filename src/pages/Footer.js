@@ -1,7 +1,7 @@
 import React from "react";
 import {Link} from "react-router-dom";
 
-export const Footer = () => (
+export const Footer = ({authToken}) => (
     <footer className="section-footer border-top footer-fixed-bottom">
         <section className="padding-y">
 
@@ -22,7 +22,7 @@ export const Footer = () => (
                             <h6 className="title">Компания</h6>
                             <ul className="list-unstyled col-12">
                                 <li>
-                                    <a href='/filters'>Каталог</a>
+                                    <a href='/catalog'>Каталог</a>
                                 </li>
                                 <li><a href="/contacts">Контакты</a></li>
                                 {/*<li><a href="#"> <u>Доставка</u> </a></li>*/}
@@ -32,7 +32,10 @@ export const Footer = () => (
                         <aside className="col">
                             <h6 className="title">Профиль</h6>
                             <ul className="list-unstyled col-12">
-                                {/*<li><a href="#"> <u>Личный кабинет</u> </a></li>*/}
+
+                                {/* TODO обработать чтоб перебрасывало на главную в случае успеха */}
+                                { authToken ? null : <li><a href="/login"> <u>Вход</u> </a></li> }
+
                                 <li><a href="/basket">Корзина</a></li>
                                 {/*<li><a href="#"> <u>Избранное</u> </a></li>*/}
                             </ul>
@@ -55,7 +58,8 @@ export const Footer = () => (
 
                     <div style={{textAlign: 'left'}} className="col-sm-9 col-md-6 col-lg-8 text-left">
                         <span><a href="mailto:nks.grupp@bk.ru">nks.grupp@bk.ru |</a></span>
-                        <span><a href="tel: +7-910-099-04-46"> +7 (910) 099-04-46 </a></span>
+                        {/*TODO скрываем телефон во избежании лишнего*/}
+                        {/*<span><a href="tel: +7-910-185-65-91"> +7 (910) 185-65-91 </a></span>*/}
                         <span>| Владимирская обл., г. Александров, ул. Южный проезд, д. 6Б</span>
                     </div>
 

@@ -1,13 +1,24 @@
 import React from "react";
 import {useCart} from "react-use-cart";
-import {Button} from "react-bootstrap";
+import { ModalAuth } from "./auth/ModalAuth";
 
-const Header = () => {
-    const {totalItems, emptyCart} = useCart();
+const Header = (props) => {
+    const {totalItems} = useCart();
 
+    // TODO отработать все пропсы
     return (
         <header className="nks-bg-color">
             <section className="header-main header-height border-bottom">
+
+                {props.modal ?
+                    <ModalAuth
+                        authUser={props.authUser}
+                        authToken={props.authToken}
+                        setAuthToken={props.setAuthToken}
+                        setModal={props.setModal}
+                        modal={props.modal}
+                /> : <></>}
+
                 <div className="container">
                     <div className="row align-items-baseline">
 
@@ -45,10 +56,10 @@ const Header = () => {
                                 <span className="badge badge-pill badge-light notify">{totalItems}</span>
                             </div>
 
-                            {/*<div className="widget-header icontext">*/}
-                            {/*    <a href="#" className="icon icon-sm rounded-circle">*/}
-                            {/*        <i className="fa fa-user"/></a>*/}
-                            {/*</div>*/}
+                            <div className="widget-header icontext">
+                                <a href="#" className="icon icon-sm rounded-circle">
+                                    <i className="fa fa-user"/></a>
+                            </div>
 
                         </div>
 

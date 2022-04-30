@@ -46,7 +46,7 @@ export class Contacts extends Component {
                                     <p className="text-bolder"/>
                                     <div className="flex-column">
                                         <p className="text-muted">Номер телефона:</p>
-                                        <h4><a href="tel: +7-910-099-04-46" className='link-nks'> +7 (910) 099-04-46 </a></h4>
+                                        <h4><a href="tel: +7-910-185-65-91" className='link-nks'> +7 (910) 185-65-91 </a></h4>
                                     </div>
                                 </div>
                             </div>
