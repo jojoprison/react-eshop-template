@@ -1,17 +1,22 @@
 import { useState } from "react";
+import React from "react";
 import API from "../../api/API";
+import {Modal, Button, Row, Col, Form, Image} from 'react-bootstrap';
 // TODO доделать стили модальки!!
 import css from "./modalAuth.module.css";
-import { useHistory, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import closeImg from "../../images/closeBlackImg.png"
+import {Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, TextField} from "@mui/material";
 
 export const ModalAuth = (props) => {
   const [error, setError] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
+  const[open, setOpen] = React.useState(false)
 
-  const submit = (e) => {
+
+    const submit = (e) => {
     e.preventDefault();
     const user = {
       username,
@@ -36,46 +41,54 @@ export const ModalAuth = (props) => {
         }
       });
   };
-  return (
-    <div className="modal active">
-      <div className={css.content} onClick={(e) => e.stopPropagation()}>
-        <h1 className={css.contentH1}>Вход</h1>
-          {props.authToken ?
-              <p></p> : <p className={css.modalTextAuth}>Войдите в аккаунт</p>}
-        <div className={css.line}></div>
-        <form onSubmit={submit} className={css.form}>
-          <input
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-            className={css.input}
-            placeholder="Логин"
-            type="text"
-            style={{
-              boxShadow: `0 1px 10px 0 ${error ? "red" : "white"}`,
-              border: `1px solid ${error ? "red" : "black"}`,
-              transition: "all 0.3s ease",
-            }}
-          />
-          <input
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            className={css.input}
-            placeholder="Пароль"
-            type="password"
-            style={{
-              boxShadow: `0 1px 10px 0 ${error ? "red" : "white"}`,
-              border: `1px solid ${error ? "red" : "black"}`,
-              transition: "all 0.3s ease",
-            }}
-          />
-          <p style={{ transition: "all 0.3s ease" }} className={css.errorText}>
-            {error}
-          </p>
-          <p className={css.forgotLink}>Забыли пароль?</p>
-          <button>ВОЙТИ</button>
-        </form>
-          <div onClick={() => props.setModal(!props.modal)} className={css.modalFalse}><img src={closeImg}/></div>
-      </div>
-    </div>
+  const handleClickOpen = () => {
+      setOpen(true)
+  }
+    const handleClickClose = () => {
+        setOpen(false)
+    }
+
+
+    return (
+      // <Modal.Dialog>
+      //     <Modal.Header closeButton>
+      //         <Modal.Title>Modal title</Modal.Title>
+      //     </Modal.Header>
+      //
+      //     <Modal.Body>
+      //         <p>Modal body text goes here.</p>
+      //     </Modal.Body>
+      //
+      //     <Modal.Footer>
+      //         <Button variant="secondary">Close</Button>
+      //         <Button variant="primary">Save changes</Button>
+      //     </Modal.Footer>
+      // </Modal.Dialog>
+      <Dialog open={open} onClose={handleClickOpen} aria-labelledby="form-dialog-title">
+          <DialogTitle id="form-dialog-title">Log In</DialogTitle>
+          <DialogContent>
+              <DialogContentText>Log in to see videos </DialogContentText>
+              <TextField
+                  autoFocus
+                  margin="dense"
+                  id="name"
+                  label="Login"
+                  type="login"
+                  fullWidth
+              />
+              <TextField
+                  autoFocus
+                  margin="dense"
+                  id="pass"
+                  label="Password"
+                  type="password"
+                  fullWidth
+              />
+          </DialogContent>
+          <DialogActions>
+              <Button onClick={handleClickOpen} color="primary"> Cancel </Button>
+              <Button onClick={handleClickOpen} color="primary"> Login </Button>
+          </DialogActions>
+      </Dialog>
   );
 };

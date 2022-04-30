@@ -6,7 +6,7 @@ import './css/styles.css';
 // import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css';
 import React, {useEffect, useState} from "react";
-import {BrowserRouter, Route, Routes} from "react-router-dom";
+import {BrowserRouter, Route,  Routes} from "react-router-dom";
 import Navigation from './components/Nav'
 import Home from "./pages/Home";
 import Header from "./components/Header";
@@ -31,6 +31,8 @@ import Accessories from "./components/products/typed/Accessories";
 import AllProducts from "./components/products/typed/AllProducts";
 import Authorization from "./components/Authorization";
 import {AuthChecker} from "./components/auth/AuthChecker";
+import { ModalAuth } from "./components/auth/ModalAuth";
+
 
 function App() {
     const [showButton, setShowButton] = useState(false);
@@ -78,9 +80,10 @@ function App() {
 
                     <Routes>
                         <Route path="/login" element={<Authorization/>}/>
-                        <AuthChecker path="/" authToken={authToken} Component={Home}/>
+                        {/*<Route path="/login" element={<ModalAuth/>}/>*/}
+                        {/*<AuthChecker path="/" authToken={authToken} Component={Home}/>*/}
                         {/* TODO не юзаем этот компонент, мб избавиться */}
-                        {/*<Route path="/contact" element={<ContactUs/>}/>*/}
+                        <Route path="/contact" element={<ModalAuth/>}/>
                         <Route path="/basket" element={<ShoppingCart/>}/>
                         <Route path="/product/:id" element={<ProductDetail/>}/>
                         <Route path="/contacts" element={<Contacts/>}/>
@@ -93,7 +96,6 @@ function App() {
                         <Route path="/racks" element={<Racks/>}/>
                         <Route path="/accessories" element={<Accessories/>}/>
                         {/*<Route path="/error" element={<Error404/>}/>*/}
-
                         <Route exact path="/" element={<Home/>} />
                         <Route path="*" element={<Error404/>}/>
                     </Routes>
