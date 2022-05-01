@@ -13,6 +13,7 @@ export const ModalAuth = (props) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
+  // const history = useHistory();
   const[open, setOpen] = React.useState(false)
 
 
@@ -50,45 +51,41 @@ export const ModalAuth = (props) => {
 
 
     return (
-      // <Modal.Dialog>
-      //     <Modal.Header closeButton>
-      //         <Modal.Title>Modal title</Modal.Title>
-      //     </Modal.Header>
-      //
-      //     <Modal.Body>
-      //         <p>Modal body text goes here.</p>
-      //     </Modal.Body>
-      //
-      //     <Modal.Footer>
-      //         <Button variant="secondary">Close</Button>
-      //         <Button variant="primary">Save changes</Button>
-      //     </Modal.Footer>
-      // </Modal.Dialog>
-      <Dialog open={open} onClose={handleClickOpen} aria-labelledby="form-dialog-title">
-          <DialogTitle id="form-dialog-title">Log In</DialogTitle>
-          <DialogContent>
-              <DialogContentText>Log in to see videos </DialogContentText>
-              <TextField
-                  autoFocus
-                  margin="dense"
-                  id="name"
-                  label="Login"
-                  type="login"
-                  fullWidth
-              />
-              <TextField
-                  autoFocus
-                  margin="dense"
-                  id="pass"
-                  label="Password"
-                  type="password"
-                  fullWidth
-              />
-          </DialogContent>
-          <DialogActions>
-              <Button onClick={handleClickOpen} color="primary"> Cancel </Button>
-              <Button onClick={handleClickOpen} color="primary"> Login </Button>
-          </DialogActions>
-      </Dialog>
+      <Modal.Dialog>
+          <div className="padding-y container col-md-10">
+              <Modal.Header>
+                  <div className="container mb-3">
+                      <Modal.Title><h2>Авторизация</h2></Modal.Title>
+                  </div>
+              </Modal.Header>
+
+              <form onSubmit={submit}>
+                  <Modal.Body>
+                          <input id="name" type="text"
+                                 onChange={(e) => setUsername(e.target.value)}
+                                 placeholder="Ваш логин"
+                                 name="login"
+                                 value={username}
+                                 className="form-control mb-4 input-box"/>
+
+                          <input id="name" type="password"
+                                 onChange={(e) => setPassword(e.target.value)}
+                                 placeholder="Ваш пароль"
+                                 value={password}
+                                 name="password"
+                                 className="form-control input-box"/>
+                      {/*<p>Modal body text goes here.</p>*/}
+                  </Modal.Body>
+                  <Modal.Footer>
+                      {/*<Button variant="secondary">Close</Button>*/}
+                      {/*<Button variant="primary">Войти</Button>*/}
+                      <div className="container mt-4">
+                        <button type="button" className="btn btn-lg btn-primary btn-block">
+                            <p className="font-weight-bold">Авторизироваться</p></button>
+                      </div>
+                  </Modal.Footer>
+              </form>
+          </div>
+      </Modal.Dialog>
   );
 };
