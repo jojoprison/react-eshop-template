@@ -77,27 +77,54 @@ function App() {
                     <Navigation/>
 
                     <Routes>
-                        <Route path="/login" element={<Authorization/>}/>
-                        <AuthChecker path="/" authToken={authToken} Component={Home}/>
-                        {/* TODO не юзаем этот компонент, мб избавиться */}
-                        {/*<Route path="/contact" element={<ContactUs/>}/>*/}
-                        <Route path="/basket" element={<ShoppingCart/>}/>
-                        <Route path="/product/:id" element={<ProductDetail/>}/>
-                        <Route path="/contacts" element={<Contacts/>}/>
-                        <Route path="/ordering" element={<OrderPage/>}/>
-                        <Route path="/catalog" element={<AllProducts/>}/>
-                        <Route path="/tables" element={<Tables/>}/>
-                        <Route path="/chairs" element={<Chairs/>}/>
-                        <Route path="/drawers" element={<Drawers/>}/>
-                        <Route path="/stands" element={<Stands/>}/>
-                        <Route path="/racks" element={<Racks/>}/>
-                        <Route path="/accessories" element={<Accessories/>}/>
+                        {/*<Route exact path="/" element={<AuthChecker/>}>*/}
+                        {/*    <Route exact path='/' element={<Home/>}/>*/}
+                        {/*</Route>*/}
+                        <Route exact path="/"
+                               element={<AuthChecker Component={Home} authToken={authToken} />}
+                        />
                         {/*<Route path="/error" element={<Error404/>}/>*/}
-
-                        <Route exact path="/" element={<Home/>} />
                         <Route path="*" element={<Error404/>}/>
+                        <Route path="/login" element={<Authorization/>}/>
+                        {/* TODO не юзаем этот компонент, мб избавиться */}
+                        <Route path="/contact" element={<ContactUs/>}/>
+                        <Route exact path="/"
+                               element={<AuthChecker Component={Home} authToken={authToken} />}
+                        />
+                        <Route path="/basket"
+                               element={<AuthChecker Component={ShoppingCart} authToken={authToken} />}
+                        />
+                        <Route exact path="/product/:id"
+                               element={<AuthChecker Component={ProductDetail} authToken={authToken} />}
+                        />
+                        <Route path="/contacts"
+                               element={<AuthChecker Component={Contacts} authToken={authToken} />}
+                        />
+                        <Route path="/ordering"
+                               element={<AuthChecker Component={OrderPage} authToken={authToken} />}
+                        />
+                        <Route path="/catalog"
+                               element={<AuthChecker Component={AllProducts} authToken={authToken} />}
+                        />
+                        <Route path="/tables"
+                               element={<AuthChecker Component={Tables} authToken={authToken} />}
+                        />
+                        <Route path="/chairs"
+                               element={<AuthChecker Component={Chairs} authToken={authToken} />}
+                        />
+                        <Route path="/drawers"
+                               element={<AuthChecker Component={Drawers} authToken={authToken} />}
+                        />
+                        <Route path="/stands"
+                               element={<AuthChecker Component={Stands} authToken={authToken} />}
+                        />
+                        <Route path="/racks"
+                               element={<AuthChecker Component={Racks} authToken={authToken} />}
+                        />
+                        <Route path="/accessories"
+                               element={<AuthChecker Component={Accessories} authToken={authToken} />}
+                        />
                     </Routes>
-
 
                     {showButton && (
                         <button onClick={scrollToTop} className='back-to-top'>
