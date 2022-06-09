@@ -42,7 +42,7 @@ export const Ad = () => (
                                     <div className="img-wrap">
                                         <img src={process.env.PUBLIC_URL + 'assets/images/items/nl_photo1.jpg'}
                                              className="bg-pics img-responsive"/>
-                                        <a href="/filters" className='series-link'>NL</a>
+                                        <a href="/catalog" className='series-link'>NL</a>
                                     </div>
                                 </div>
                             </div>
@@ -55,7 +55,7 @@ export const Ad = () => (
 
                                         <img src={process.env.PUBLIC_URL + 'assets/images/items/mml_photo.jpg'}
                                              className="bg-pics img-responsive"/>
-                                        <a href="/filters" className='series-link'>MML</a>
+                                        <a href="/catalog" className='series-link'>MML</a>
                                     </div>
                                 </div>
                             </div>
