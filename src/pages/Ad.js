@@ -37,8 +37,9 @@ export const Ad = () => (
                             <div id="linked_to_card_click" style={{transform: "rotate(0)"}}>
                                 <div className="row">
                                     <div className="img-wrap">
-                                        <img src="assets/images/items/nl_photo1.jpg" className="bg-pics img-responsive"/>
-                                            <a href="#">NL</a>
+                                        <img src={process.env.PUBLIC_URL + 'assets/images/items/nl_photo1.jpg'}
+                                             className="bg-pics img-responsive"/>
+                                        <a href="/catalog" className='series-link'>NL</a>
                                     </div>
                                 </div>
                             </div>
@@ -48,9 +49,9 @@ export const Ad = () => (
                             <div id="linked_to_card_click" style={{transform: "rotate(0)"}}>
                                 <div className="row">
                                     <div className="img-wrap">
-
-                                        <img src="assets/images/items/mml_photo.jpg" className="bg-pics img-responsive"/>
-                                        <a href="#">MML</a>
+                                        <img src={process.env.PUBLIC_URL + 'assets/images/items/mml_photo.jpg'}
+                                             className="bg-pics img-responsive"/>
+                                        <a href="/catalog" className='series-link'>MML</a>
                                     </div>
                                 </div>
                             </div>

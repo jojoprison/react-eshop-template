@@ -1,5 +1,6 @@
 import {Col, Form} from "react-bootstrap";
 import React from "react";
+import {TableContainer, TablePagination, TableRow} from "@mui/material";
 
 
 export default function SelectFilter(props) {
@@ -11,9 +12,8 @@ export default function SelectFilter(props) {
     // const { items } = useCart();
 
     return (
-        <Form.Group as={Col} controlId="formGrid">
-            <Form.Label>Тип</Form.Label>
-            {/*TODO добавить самое верхнее дефолтное значение, которое пустое по факту "Все"*/}
+        <Form.Group className="col-2" as={TableContainer} controlId={product_prop}>
+            <Form.Label>{name}</Form.Label>
             <Form.Control
                 as='select'
                 name={name}
