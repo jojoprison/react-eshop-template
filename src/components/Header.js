@@ -1,20 +1,32 @@
 import React from "react";
 import {useCart} from "react-use-cart";
-import {Button} from "react-bootstrap";
+import { ModalAuth } from "./auth/ModalAuth";
 
-export default function Header(props) {
-    const {totalItems, emptyCart} = useCart();
+const Header = (props) => {
+    const {totalItems} = useCart();
 
+    // TODO отработать все пропсы
     return (
-        <header className="section-header nks-bg-color">
-            <section className="header-main border-bottom">
+        <header className="nks-bg-color">
+            <section className="header-main header-height border-bottom">
+
+                {props.modal ?
+                    <ModalAuth
+                        authUser={props.authUser}
+                        authToken={props.authToken}
+                        setAuthToken={props.setAuthToken}
+                        setModal={props.setModal}
+                        modal={props.modal}
+                /> : <></>}
+
                 <div className="container">
                     <div className="row align-items-baseline">
 
                         <div className="col-lg-3 col-md-6 p-lg-0 pt-md-2">
                             <a href="/">
-                                <img src='assets/images/logos/logo-new-2.png' width="250px"
-                                     className="" alt="logo"/>
+                                {/* TODO BUG картинка подгружается после рендера всего остального в хедере */}
+                                <img src={process.env.PUBLIC_URL + '/assets/images/logos/logo-new-2.png'}
+                                     width="180px" className="" alt="logo" />
                             </a>
                         </div>
 
@@ -24,7 +36,7 @@ export default function Header(props) {
                                     <input id="search-header" type="text" className="form-control"
                                            placeholder="Поиск..."/>
                                     <div className="input-group-append">
-                                        <button className="btn nks-btn" type="submit">
+                                        <button className="btn btn-nks" type="submit">
                                             <i className="fa fa-search"/>
                                         </button>
                                     </div>
@@ -33,14 +45,15 @@ export default function Header(props) {
                         </div>
 
                         <div className="col-xl col-lg-1 col-md order-md-1 p-lg-0">
-                            <a className="header-text" href="/contacts">Контакты</a>
+                            <a className="link-nks-light header-link" href="/contacts">Контакты</a>
                         </div>
 
                         <div className="col-xl-2 col-lg-2 col-md order-md-2 align-self-center p-lg-0 mb-md-3">
-                            <div className="widget-header mr-3">
-                                <a href="/basket" className="icon icon-sm rounded-circle">
-                                    <i className="fa fa-shopping-cart"/></a>
-                                <span className="badge badge-pill badge-danger notify">{totalItems}</span>
+                            <div className="icon-link-badged mr-3">
+                                <a href="/basket" className="icon-md">
+                                    <i className="fa fa-shopping-cart"/>
+                                </a>
+                                <span className="badge badge-pill badge-light notify">{totalItems}</span>
                             </div>
 
                             <div className="widget-header icontext">
@@ -48,10 +61,6 @@ export default function Header(props) {
                                     <i className="fa fa-user"/></a>
                             </div>
 
-                            <Button variant='link' size='lg' title='Очистить'
-                                    onClick={() => emptyCart()}>
-                                <i className="fa fa-shopping-cart"/>
-                            </Button>
                         </div>
 
                     </div>
@@ -59,4 +68,6 @@ export default function Header(props) {
             </section>
         </header>
     );
-}
+};
+
+export default React.memo(Header);

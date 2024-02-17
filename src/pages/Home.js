@@ -1,11 +1,13 @@
 import React from 'react';
 import {Ad} from "./Ad";
-import {Products} from "./Products";
-import {Maps} from "./Maps";
+import {Container} from "react-bootstrap";
 
-export const Home = () => (
-    <div>
-        <Ad/>
-        <Products/>
-    </div>
-);
+const Home = ({modal, setModal, authToken}) => {
+    return (
+        <Container>
+            <Ad/>
+        </Container>
+    )
+};
+
+export default Home;

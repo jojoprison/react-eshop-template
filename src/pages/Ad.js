@@ -2,32 +2,35 @@ import React from 'react';
 
 export const Ad = () => (
     <section className="">
-        <div className="container ">
+        <div className="container p-3">
+            <h3 className="p-4 banner-alert">
+                В связи с тем, что в стране инфляция, цены товаров могут незначительно отличаться.
+                <br/>
+                Для уточнения звоните по телефону, указанному на
+                странице <a className="banner-link" href="/contacts">Контакты</a>.
+            </h3>
             <div className="row">
                 <aside className="col-md-3 padding-y">
 
                     <nav className="card">
+                        {/*<ul className="menu-category text-left">*/}
                         <ul className="menu-category">
-                            <li><a href="#">Столы лабораторные</a></li>
-                            <li><a href="#">Тумбы для столов лабораторных</a></li>
-                            {/*<li><a href="#">Столы-мойки лабораторные</a></li>*/}
-                            <li><a href="#">Шкафы лабораторные</a></li>
-                            <li><a href="#">Стеллажи</a></li>
-                            <li><a href="#">Стулья, табуреты, кресла</a></li>
-                            {/*<li><a href="#">Весовые столы</a></li>*/}
-                            <li><a href="#">Стеллажи для выращивания растений</a></li>
-                            <li><a href="#">Дополнительное оснащение</a></li>
-
-                            {/* TODO узнать у Эльвиры, нужно ли делать вот эту хню тут или просто в фильтрах отображать*/}
-
+                            <li><a href="/tables" className='link-nks-light'>Столы</a></li>
+                            <li><a href="/drawers" className='link-nks-light'>Тумбы</a></li>
+                            <li><a href="/chairs" className='link-nks-light'>Стулья, табуреты, кресла</a></li>
+                            <li><a href="/stands" className='link-nks-light'>Стойки</a></li>
+                            <li><a href="/racks" className='link-nks-light'>Стеллажи</a></li>
+                            {/*<li><a href="/filters" className='link-nks'>Шкафы</a></li>*/}
+                            <li><a href="/accessories" className='link-nks-light'>Дополнительное оснащение</a></li>
                         </ul>
                     </nav>
                 </aside>
-                <div className="col-md-9 jtpad">
+                <div className="col-md-9 ">
+                    <div className="row">
                         <div className="center-x col-md-12">
-
-                            <h2>Серии</h2>
+                            <h1>Серии</h1>
                         </div>
+                    </div>
 
                     <div className="row">
 
@@ -56,8 +59,6 @@ export const Ad = () => (
                                 </div>
                             </div>
                         </div>
-
-
                     </div>
                 </div>
             </div>
